@@ -58,14 +58,16 @@ rustdocs() {
 
 # Setup folders
 OUTPUT_DIR="rustdocs"
+DOCS_DIR="doc"
 WARN_DIR="warnings"
 ERROR_DIR="errors"
 JSONL_DIR="jsonl"
-rm -rf $OUTPUT_DIR/doc/*
+rm -rf $OUTPUT_DIR/$DOCS_DIR/*
 rm -rf $OUTPUT_DIR/$WARN_DIR/*
 rm -rf $OUTPUT_DIR/$ERROR_DIR/*
 rm -rf $JSONL_DIR/*
 mkdir -p $OUTPUT_DIR
+mkdir -p $OUTPUT_DIR/$DOCS_DIR
 mkdir -p $OUTPUT_DIR/$WARN_DIR
 mkdir -p $OUTPUT_DIR/$ERROR_DIR
 mkdir -p $JSONL_DIR

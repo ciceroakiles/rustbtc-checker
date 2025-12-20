@@ -1,14 +1,16 @@
 import pandas as pd
+from tabulate import tabulate
 
 # Display all lines
-#pd.set_option('display.max_rows', None)
+pd.set_option('display.max_rows', None)
 
 
 def main():
     # Build dataframe
     filepath = "jsonl/rust-bitcoin-addresses-src-lib.rs.jsonl"
     df = pd.read_json(filepath, lines=True)
-    df = df.sort_values(by='crate_id', ascending=True)
+    df = df.rename(columns={'crate_id': 'c_id'})
+    df = df.sort_values(by='c_id', ascending=True)
 
     # Show dataframe
     print("Dataframe for:", filepath[6:], "\n", df)
