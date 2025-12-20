@@ -1,0 +1,3 @@
+# .gitignore for rust-bitcoin repository workspace.
+
+rust-bitcoin/*.*

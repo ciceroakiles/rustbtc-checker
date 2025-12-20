@@ -1,0 +1,25 @@
+error[E0432]: unresolved import `bitcoin_hashes`
+ --> ../rust-bitcoin/benches/hashes/sha512.rs:5:5
+  |
+5 | use bitcoin_hashes::{sha512, HashEngine};
+  |     ^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `bitcoin_hashes`
+  |
+help: you might be missing a crate named `bitcoin_hashes`, add it to your project and import it in your code
+  |
+3 + extern crate bitcoin_hashes;
+  |
+
+error[E0432]: unresolved import `criterion`
+ --> ../rust-bitcoin/benches/hashes/sha512.rs:6:5
+  |
+6 | use criterion::{criterion_group, criterion_main, BenchmarkId, Criterion, ...
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `criterion`
+  |
+help: you might be missing a crate named `criterion`, add it to your project and import it in your code
+  |
+3 + extern crate criterion;
+  |
+
+error: aborting due to 2 previous errors
+
+For more information about this error, try `rustc --explain E0432`.

@@ -1,0 +1,20 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+ --> ../rust-bitcoin/hashes/src/sha512/crypto.rs:3:5
+  |
+3 | use internals::slice::SliceExt;
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  |
+3 + extern crate internals;
+  |
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+ --> ../rust-bitcoin/hashes/src/sha512/crypto.rs:5:5
+  |
+5 | use super::{HashEngine, BLOCK_SIZE};
+  |     ^^^^^ there are too many leading `super` keywords
+
+error: aborting due to 2 previous errors
+
+For more information about this error, try `rustc --explain E0433`.

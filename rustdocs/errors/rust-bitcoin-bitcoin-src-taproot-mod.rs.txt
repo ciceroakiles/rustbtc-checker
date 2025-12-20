@@ -1,0 +1,785 @@
+error[E0433]: failed to resolve: you might be missing crate `core`
+ --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/borrowed.rs:1:5
+  |
+1 | use core::borrow::{Borrow, BorrowMut};
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+ --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/borrowed.rs:4:5
+  |
+4 | use internals::slice::SliceExt;
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:7:1
+  |
+7 + extern crate internals;
+  |
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/borrowed.rs:2:5
+  |
+2 | use core::slice;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `privacy_boundary`
+ --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/borrowed.rs:5:9
+  |
+5 | pub use privacy_boundary::TaprootMerkleBranch;
+  |         ^^^^^^^^^^^^^^^^ help: a similar path exists: `self::privacy_boundary`
+
+error[E0432]: unresolved import `super::TapNodeHash`
+ --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/borrowed.rs:8:77
+  |
+8 | ...epthError, TapNodeHash,
+  |               ^^^^^^^^^^^ no `TapNodeHash` in `merkle_branch`
+
+error[E0432]: unresolved import `hashes`
+ --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:5:5
+  |
+5 | use hashes::Hash;
+  |     ^^^^^^ use of unresolved module or unlinked crate `hashes`
+  |
+help: you might be missing a crate named `hashes`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:7:1
+  |
+7 + extern crate hashes;
+  |
+
+error[E0432]: unresolved import `super::TapNodeHash`
+ --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:8:34
+  |
+8 | ...epthError, TapNodeHash, TaprootError, TaprootMerkleBranch,
+  |               ^^^^^^^^^^^ no `TapNodeHash` in `merkle_branch`
+  |
+  = note: unresolved item `merkle_branch::borrowed::privacy_boundary::TapNodeHash` exists but is inaccessible
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:11:12
+   |
+11 | use crate::prelude::{Borrow, BorrowMut, Box, Vec};
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/mod.rs:6:5
+  |
+6 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `borrowed`
+ --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/mod.rs:8:9
+  |
+8 | pub use borrowed::TaprootMerkleBranch;
+  |         ^^^^^^^^ help: a similar path exists: `self::borrowed`
+
+error[E0432]: unresolved import `buf`
+ --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/mod.rs:9:9
+  |
+9 | pub use buf::TaprootMerkleBranchBuf;
+  |         ^^^ help: a similar path exists: `self::buf`
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+ --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:9:5
+  |
+9 | use core::cmp::{Ordering, Reverse};
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:10:5
+   |
+10 | use core::convert::Infallible;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `super::TapNodeHash`
+  --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/mod.rs:12:64
+   |
+12 | ...eeDepthError, TapNodeHash, TaprootError,
+   |                  ^^^^^^^^^^^ no `TapNodeHash` in the root
+   |
+   = note: unresolved item `merkle_branch::borrowed::privacy_boundary::TapNodeHash` exists but is inaccessible
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:12:5
+   |
+12 | use core::iter::FusedIterator;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:11:5
+   |
+11 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `hashes`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:14:5
+   |
+14 | use hashes::{hash_newtype, sha256t, sha256t_tag, HashEngine};
+   |     ^^^^^^ use of unresolved module or unlinked crate `hashes`
+   |
+help: you might be missing a crate named `hashes`, add it to your project and import it in your code
+   |
+ 7 + extern crate hashes;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:16:5
+   |
+16 | use internals::array::ArrayExt;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+   |
+ 7 + extern crate internals;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:18:5
+   |
+18 | use internals::slice::SliceExt;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+   |
+ 7 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `hex`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:15:5
+   |
+15 | use hex::{FromHex, HexToBytesError};
+   |     ^^^ use of unresolved module or unlinked crate `hex`
+   |
+help: you might be missing a crate named `hex`, add it to your project and import it in your code
+   |
+ 7 + extern crate hex;
+   |
+
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:19:5
+   |
+19 | use internals::{impl_to_hex_from_lower_hex, write_err};
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+   |
+ 7 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `io`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:20:5
+   |
+20 | use io::Write;
+   |     ^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::io`
+
+error[E0432]: unresolved import `secp256k1`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:21:5
+   |
+21 | use secp256k1::Scalar;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+   |
+help: you might be missing a crate named `secp256k1`, add it to your project and import it in your code
+   |
+ 7 + extern crate secp256k1;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `crypto`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:24:12
+   |
+24 | use crate::crypto::key::{
+   |            ^^^^^^ use of unresolved module or unlinked crate `crypto`
+   |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+   |
+ 7 + extern crate crypto;
+   |
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:23:12
+   |
+23 | use crate::consensus::Encodable;
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+ 7 + extern crate consensus;
+   |
+
+error[E0432]: unresolved import `crate::key`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:27:12
+   |
+27 | use crate::key::ParseXOnlyPublicKeyError;
+   |            ^^^ use of unresolved module or unlinked crate `key`
+   |
+help: you might be missing a crate named `key`, add it to your project and import it in your code
+   |
+ 7 + extern crate key;
+   |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:28:12
+   |
+28 | use crate::prelude::{BTreeMap, BTreeSet, BinaryHeap, Vec};
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved imports `crate::TapScript`, `crate::TapScriptBuf`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:29:13
+   |
+29 | use crate::{TapScript, TapScriptBuf};
+   |             ^^^^^^^^^  ^^^^^^^^^^^^ no `TapScriptBuf` in the root
+   |             |
+   |             no `TapScript` in the root
+   |             help: a similar name exists in the module: `LeafScript`
+   |
+   = help: consider importing this variant instead:
+           LeafVersion::TapScript
+
+error[E0433]: failed to resolve: unresolved import
+    --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:1175:13
+     |
+1175 |         use alloc::borrow::ToOwned;
+     |             ^^^^^
+     |             |
+     |             unresolved import
+     |             help: a similar path exists: `std::alloc`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `crypto`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:34:16
+   |
+34 | ...ate::crypto::taproot::{SerializedSignature, SigFromSliceError, Signat...
+   |         ^^^^^^ use of unresolved module or unlinked crate `crypto`
+   |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+   |
+ 7 + extern crate crypto;
+   |
+
+error[E0432]: unresolved import `crate::XOnlyPublicKey`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:41:9
+   |
+41 | pub use crate::XOnlyPublicKey;
+   |         ^^^^^^^^^^^^^^^^^^^^^ no `XOnlyPublicKey` in the root
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+  --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/borrowed.rs:16:5
+   |
+16 |     internals::transparent_newtype! {
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hashes`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:57:1
+   |
+57 | hashes::impl_hex_for_newtype!(TapLeafHash);
+   | ^^^^^^ use of unresolved module or unlinked crate `hashes`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hashes`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:73:1
+   |
+73 | hashes::impl_hex_for_newtype!(TapNodeHash);
+   | ^^^^^^ use of unresolved module or unlinked crate `hashes`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hashes`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:88:1
+   |
+88 | hashes::impl_hex_for_newtype!(TapTweakHash);
+   | ^^^^^^ use of unresolved module or unlinked crate `hashes`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:43:29
+   |
+43 | ...ControlBlockArrayVec = internals::array_vec::ArrayVec<u8, TAPROOT_CON...
+   |                           ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+   = help: you might be missing a crate named `internals`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/borrowed.rs:74:26
+   |
+74 | ...e<Write: io::Write + ?Sized>(&self, writer: &mut Write) -> io::Result...
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+74 -     pub fn encode<Write: io::Write + ?Sized>(&self, writer: &mut Write) -> io::Result<usize> {
+74 +     pub fn encode<Write: i8::Write + ?Sized>(&self, writer: &mut Write) -> io::Result<usize> {
+   |
+help: consider importing this module
+   |
+ 1 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/borrowed.rs:74:76
+   |
+74 | ...rite) -> io::Result<usize> {
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+74 -     pub fn encode<Write: io::Write + ?Sized>(&self, writer: &mut Write) -> io::Result<usize> {
+74 +     pub fn encode<Write: io::Write + ?Sized>(&self, writer: &mut Write) -> i8::Result<usize> {
+   |
+help: consider importing this module
+   |
+ 1 + use std::io;
+   |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/borrowed.rs:151:10
+    |
+151 | impl<'a> TryFrom<&'a [TapNodeHash]> for &'a TaprootMerkleBranch {
+    |          ^^^^^^^ not found in this scope
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+help: consider importing this trait
+    |
+  1 + use std::convert::TryFrom;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `alloc`
+   --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/borrowed.rs:242:6
+    |
+242 | impl alloc::borrow::ToOwned for TaprootMerkleBranch {
+    |      ^^^^^ use of unresolved module or unlinked crate `alloc`
+    |
+    = help: add `extern crate alloc` to use the `alloc` crate
+help: consider importing this module
+    |
+  1 + use std::borrow;
+    |
+help: if you import `borrow`, refer to it directly
+    |
+242 - impl alloc::borrow::ToOwned for TaprootMerkleBranch {
+242 + impl borrow::ToOwned for TaprootMerkleBranch {
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:76:26
+   |
+76 | ...e<Write: io::Write + ?Sized>(&self, writer: &mut Write) -> io::Result...
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+76 -     pub fn encode<Write: io::Write + ?Sized>(&self, writer: &mut Write) -> io::Result<usize> {
+76 +     pub fn encode<Write: i8::Write + ?Sized>(&self, writer: &mut Write) -> io::Result<usize> {
+   |
+help: consider importing this module
+   |
+ 5 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:76:76
+   |
+76 | ...rite) -> io::Result<usize> {
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+76 -     pub fn encode<Write: io::Write + ?Sized>(&self, writer: &mut Write) -> io::Result<usize> {
+76 +     pub fn encode<Write: io::Write + ?Sized>(&self, writer: &mut Write) -> i8::Result<usize> {
+   |
+help: consider importing this module
+   |
+ 5 + use std::io;
+   |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:113:14
+    |
+113 |         impl TryFrom<$from> for TaprootMerkleBranchBuf {
+    |              ^^^^^^^ not found in this scope
+...
+128 | impl_try_from!(&[TapNodeHash]);
+    | ------------------------------ in this macro invocation
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+    = note: this error originates in the macro `impl_try_from` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this trait
+    |
+  5 + use std::convert::TryFrom;
+    |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:113:14
+    |
+113 |         impl TryFrom<$from> for TaprootMerkleBranchBuf {
+    |              ^^^^^^^ not found in this scope
+...
+129 | impl_try_from!(Vec<TapNodeHash>);
+    | -------------------------------- in this macro invocation
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+    = note: this error originates in the macro `impl_try_from` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this trait
+    |
+  5 + use std::convert::TryFrom;
+    |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:113:14
+    |
+113 |         impl TryFrom<$from> for TaprootMerkleBranchBuf {
+    |              ^^^^^^^ not found in this scope
+...
+130 | impl_try_from!(Box<[TapNodeHash]>);
+    | ---------------------------------- in this macro invocation
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+    = note: this error originates in the macro `impl_try_from` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this trait
+    |
+  5 + use std::convert::TryFrom;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `alloc`
+   --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:226:21
+    |
+226 | pub struct IntoIter(alloc::vec::IntoIter<TapNodeHash>);
+    |                     ^^^^^ use of unresolved module or unlinked crate `alloc`
+    |
+    = help: add `extern crate alloc` to use the `alloc` crate
+help: consider importing this module
+    |
+  5 + use std::vec;
+    |
+help: if you import `vec`, refer to it directly
+    |
+226 - pub struct IntoIter(alloc::vec::IntoIter<TapNodeHash>);
+226 + pub struct IntoIter(vec::IntoIter<TapNodeHash>);
+    |
+
+error[E0425]: cannot find type `TapLeafHash` in this scope
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:92:11
+   |
+92 | impl From<TapLeafHash> for TapNodeHash {
+   |           ^^^^^^^^^^^ not found in this scope
+   |
+help: you might be missing a type parameter
+   |
+92 | impl<TapLeafHash> From<TapLeafHash> for TapNodeHash {
+   |     +++++++++++++
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:92:28
+   |
+92 | impl From<TapLeafHash> for TapNodeHash {
+   |                            ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapLeafHash` in this scope
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:93:19
+   |
+93 |     fn from(leaf: TapLeafHash) -> Self { Self::from_byte_array(leaf.to_b...
+   |                   ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapTweakHash` in this scope
+  --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:96:6
+   |
+96 | impl TapTweakHash {
+   |      ^^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:101:29
+    |
+101 |         merkle_root: Option<TapNodeHash>,
+    |                             ^^^^^^^^^^^ not found in this scope
+    |
+help: you might be missing a type parameter
+    |
+ 96 | impl<TapNodeHash> TapTweakHash {
+    |     +++++++++++++
+
+error[E0425]: cannot find type `TapLeafHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:123:6
+    |
+123 | impl TapLeafHash {
+    |      ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:134:25
+    |
+134 | impl From<LeafNode> for TapNodeHash {
+    |                         ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:138:26
+    |
+138 | impl From<&LeafNode> for TapNodeHash {
+    |                          ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:142:6
+    |
+142 | impl TapNodeHash {
+    |      ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:161:27
+    |
+161 | fn combine_node_hashes(a: TapNodeHash, b: TapNodeHash) -> (TapNodeHash,...
+    |                           ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:161:43
+    |
+161 | ...TapNodeHash, b: TapNodeHash) -> (TapNodeHash, bool) {
+    |                    ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:161:60
+    |
+161 | ...apNodeHash) -> (TapNodeHash, bool) {
+    |                    ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:233:25
+    |
+233 |     merkle_root: Option<TapNodeHash>,
+    |                         ^^^^^^^^^^^ not found in this scope
+    |
+help: you might be missing a type parameter
+    |
+229 | pub struct TaprootSpendInfo<TapNodeHash> {
+    |                            +++++++++++++
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:275:29
+    |
+275 |         merkle_root: Option<TapNodeHash>,
+    |                             ^^^^^^^^^^^ not found in this scope
+    |
+help: you might be missing a type parameter
+    |
+245 | impl<TapNodeHash> TaprootSpendInfo {
+    |     +++++++++++++
+
+error[E0425]: cannot find type `TapTweakHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:290:32
+    |
+290 |     pub fn tap_tweak(&self) -> TapTweakHash {
+    |                                ^^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:298:41
+    |
+298 |     pub fn merkle_root(&self) -> Option<TapNodeHash> { self.merkle_root }
+    |                                         ^^^^^^^^^^^ not found in this scope
+    |
+help: you might be missing a type parameter
+    |
+245 | impl<TapNodeHash> TaprootSpendInfo {
+    |     +++++++++++++
+
+error[E0425]: cannot find type `TapTweakHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:364:33
+    |
+364 | impl From<TaprootSpendInfo> for TapTweakHash {
+    |                                 ^^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapTweakHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:368:34
+    |
+368 | impl From<&TaprootSpendInfo> for TapTweakHash {
+    |                                  ^^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:514:15
+    |
+514 |         hash: TapNodeHash,
+    |               ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:761:32
+    |
+761 |     pub fn root_hash(&self) -> TapNodeHash { self.0.hash }
+    |                                ^^^^^^^^^^^ not found in this scope
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:764:6
+    |
+764 | impl TryFrom<TaprootBuilder> for TapTree {
+    |      ^^^^^^^ not found in this scope
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+help: consider importing this trait
+    |
+  9 + use std::convert::TryFrom;
+    |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:778:6
+    |
+778 | impl TryFrom<NodeInfo> for TapTree {
+    |      ^^^^^^^ not found in this scope
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+help: consider importing this trait
+    |
+  9 + use std::convert::TryFrom;
+    |
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:859:22
+    |
+859 |     pub(crate) hash: TapNodeHash,
+    |                      ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:896:34
+    |
+896 |     pub fn new_hidden_node(hash: TapNodeHash) -> Self {
+    |                                  ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:933:32
+    |
+933 |     pub fn node_hash(&self) -> TapNodeHash { self.hash }
+    |                                ^^^^^^^^^^^ not found in this scope
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:936:6
+    |
+936 | impl TryFrom<TaprootBuilder> for NodeInfo {
+    |      ^^^^^^^ not found in this scope
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+help: consider importing this trait
+    |
+  9 + use std::convert::TryFrom;
+    |
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+    --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:1023:12
+     |
+1023 |     Hidden(TapNodeHash),
+     |            ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+    --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:1028:40
+     |
+1028 |     pub fn as_hidden(&self) -> Option<&TapNodeHash> {
+     |                                        ^^^^^^^^^^^ not found in this scope
+     |
+help: you might be missing a type parameter
+     |
+1026 | impl<TapNodeHash> TapLeaf {
+     |     +++++++++++++
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+    --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:1062:29
+     |
+1062 |     pub fn new_hidden(hash: TapNodeHash) -> Self {
+     |                             ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `TapLeafHash` in this scope
+    --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:1080:39
+     |
+1080 |     pub fn leaf_hash(&self) -> Option<TapLeafHash> {
+     |                                       ^^^^^^^^^^^ not found in this scope
+     |
+help: you might be missing a type parameter
+     |
+1055 | impl<TapLeafHash> LeafNode {
+     |     +++++++++++++
+
+error[E0425]: cannot find type `TapNodeHash` in this scope
+    --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:1090:32
+     |
+1090 |     pub fn node_hash(&self) -> TapNodeHash {
+     |                                ^^^^^^^^^^^ not found in this scope
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+    --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:1229:64
+     |
+1229 | ...t W) -> io::Result<usize> {
+     |            ^^ use of unresolved module or unlinked crate `io`
+     |
+     = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+     |
+1229 -     pub fn encode<W: Write + ?Sized>(&self, writer: &mut W) -> io::Result<usize> {
+1229 +     pub fn encode<W: Write + ?Sized>(&self, writer: &mut W) -> i8::Result<usize> {
+     |
+help: consider importing this module
+     |
+   9 + use std::io;
+     |
+
+error[E0223]: ambiguous associated type
+   --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:122:51
+    |
+122 |             fn try_from(v: $from) -> Result<Self, Self::Error> {
+    |                                                   ^^^^^^^^^^^
+...
+128 | impl_try_from!(&[TapNodeHash]);
+    | ------------------------------ in this macro invocation
+    |
+    = note: this error originates in the macro `impl_try_from` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: if there were a trait named `Example` with associated type `Error` implemented for `merkle_branch::buf::TaprootMerkleBranchBuf`, you could use the fully-qualified path
+    |
+122 -             fn try_from(v: $from) -> Result<Self, Self::Error> {
+122 +             fn try_from(v: $from) -> Result<Self, <merkle_branch::buf::TaprootMerkleBranchBuf as Example>::Error> {
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:235:24
+    |
+235 |     output_key_parity: secp256k1::Parity,
+    |                        ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:304:40
+    |
+304 | ...t_key_parity(&self) -> secp256k1::Parity { self.output_key_parity }
+    |                           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+    --> ../rust-bitcoin/bitcoin/src/taproot/mod.rs:1154:28
+     |
+1154 |     pub output_key_parity: secp256k1::Parity,
+     |                            ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+     |
+     = help: you might be missing a crate named `secp256k1`
+
+error: aborting due to 82 previous errors
+
+Some errors have detailed explanations: E0223, E0405, E0425, E0432, E0433.
+For more information about an error, try `rustc --explain E0223`.

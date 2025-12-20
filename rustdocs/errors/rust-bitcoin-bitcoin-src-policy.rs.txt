@@ -1,0 +1,19 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/bitcoin/src/policy.rs:16:5
+   |
+16 | use super::constants::{MAX_BLOCK_SIGOPS_COST, WITNESS_SCALE_FACTOR};
+   |     ^^^^^ there are too many leading `super` keywords
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/policy.rs:14:5
+   |
+14 | use core::cmp;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error: aborting due to 2 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

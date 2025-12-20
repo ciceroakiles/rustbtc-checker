@@ -1,0 +1,37 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/bitcoin/examples/sighash.rs:1:5
+  |
+1 | use bitcoin::ext::*;
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+1 + extern crate bitcoin;
+  |
+
+error[E0432]: unresolved import `bitcoin`
+ --> ../rust-bitcoin/bitcoin/examples/sighash.rs:2:5
+  |
+2 | use bitcoin::{
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+1 + extern crate bitcoin;
+  |
+
+error[E0432]: unresolved import `hex_lit`
+ --> ../rust-bitcoin/bitcoin/examples/sighash.rs:6:5
+  |
+6 | use hex_lit::hex;
+  |     ^^^^^^^ use of unresolved module or unlinked crate `hex_lit`
+  |
+help: you might be missing a crate named `hex_lit`, add it to your project and import it in your code
+  |
+1 + extern crate hex_lit;
+  |
+
+error: aborting due to 3 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

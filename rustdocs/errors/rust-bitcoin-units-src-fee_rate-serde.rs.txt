@@ -1,0 +1,173 @@
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/units/src/fee_rate/serde.rs:26:5
+   |
+26 | use core::convert::Infallible;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/units/src/fee_rate/serde.rs:27:5
+   |
+27 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `serde`
+  --> ../rust-bitcoin/units/src/fee_rate/serde.rs:34:9
+   |
+34 |     use serde::{Deserialize, Deserializer, Serialize, Serializer};
+   |         ^^^^^ use of unresolved module or unlinked crate `serde`
+   |
+help: you might be missing a crate named `serde`, add it to your project and import it in your code
+   |
+26 + extern crate serde;
+   |
+
+error[E0432]: unresolved imports `crate::Amount`, `crate::FeeRate`
+  --> ../rust-bitcoin/units/src/fee_rate/serde.rs:36:17
+   |
+36 |     use crate::{Amount, FeeRate};
+   |                 ^^^^^^  ^^^^^^^ no `FeeRate` in the root
+   |                 |
+   |                 no `Amount` in the root
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/units/src/fee_rate/serde.rs:56:13
+   |
+56 |         use core::fmt;
+   |             ^^^^
+   |             |
+   |             you might be missing crate `core`
+   |             help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `serde`
+  --> ../rust-bitcoin/units/src/fee_rate/serde.rs:58:13
+   |
+58 |         use serde::{de, Deserializer, Serializer};
+   |             ^^^^^ use of unresolved module or unlinked crate `serde`
+   |
+help: you might be missing a crate named `serde`, add it to your project and import it in your code
+   |
+26 + extern crate serde;
+   |
+
+error[E0432]: unresolved import `crate::FeeRate`
+  --> ../rust-bitcoin/units/src/fee_rate/serde.rs:60:13
+   |
+60 |         use crate::FeeRate;
+   |             ^^^^^^^^^^^^^^ no `FeeRate` in the root
+   |
+help: consider importing this unresolved item through its public re-export instead
+   |
+60 -         use crate::FeeRate;
+60 +         use as_sat_per_kwu_floor::FeeRate;
+   |
+
+error[E0432]: unresolved import `serde`
+   --> ../rust-bitcoin/units/src/fee_rate/serde.rs:105:9
+    |
+105 |     use serde::{Deserialize, Deserializer, Serialize, Serializer};
+    |         ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: you might be missing a crate named `serde`, add it to your project and import it in your code
+    |
+ 26 + extern crate serde;
+    |
+
+error[E0432]: unresolved imports `crate::Amount`, `crate::FeeRate`
+   --> ../rust-bitcoin/units/src/fee_rate/serde.rs:107:17
+    |
+107 |     use crate::{Amount, FeeRate};
+    |                 ^^^^^^  ^^^^^^^ no `FeeRate` in the root
+    |                 |
+    |                 no `Amount` in the root
+
+error[E0432]: unresolved import `core`
+   --> ../rust-bitcoin/units/src/fee_rate/serde.rs:129:13
+    |
+129 |         use core::fmt;
+    |             ^^^^
+    |             |
+    |             you might be missing crate `core`
+    |             help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `serde`
+   --> ../rust-bitcoin/units/src/fee_rate/serde.rs:131:13
+    |
+131 |         use serde::{de, Deserializer, Serializer};
+    |             ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: you might be missing a crate named `serde`, add it to your project and import it in your code
+    |
+ 26 + extern crate serde;
+    |
+
+error[E0432]: unresolved import `crate::fee_rate`
+   --> ../rust-bitcoin/units/src/fee_rate/serde.rs:133:20
+    |
+133 |         use crate::fee_rate::FeeRate;
+    |                    ^^^^^^^^ use of unresolved module or unlinked crate `fee_rate`
+    |
+help: you might be missing a crate named `fee_rate`, add it to your project and import it in your code
+    |
+ 26 + extern crate fee_rate;
+    |
+
+error[E0432]: unresolved import `serde`
+   --> ../rust-bitcoin/units/src/fee_rate/serde.rs:178:9
+    |
+178 |     use serde::{Deserialize, Deserializer, Serialize, Serializer};
+    |         ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: you might be missing a crate named `serde`, add it to your project and import it in your code
+    |
+ 26 + extern crate serde;
+    |
+
+error[E0432]: unresolved imports `crate::Amount`, `crate::FeeRate`
+   --> ../rust-bitcoin/units/src/fee_rate/serde.rs:180:17
+    |
+180 |     use crate::{Amount, FeeRate};
+    |                 ^^^^^^  ^^^^^^^ no `FeeRate` in the root
+    |                 |
+    |                 no `Amount` in the root
+
+error[E0432]: unresolved import `core`
+   --> ../rust-bitcoin/units/src/fee_rate/serde.rs:202:13
+    |
+202 |         use core::fmt;
+    |             ^^^^
+    |             |
+    |             you might be missing crate `core`
+    |             help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `serde`
+   --> ../rust-bitcoin/units/src/fee_rate/serde.rs:204:13
+    |
+204 |         use serde::{de, Deserializer, Serializer};
+    |             ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: you might be missing a crate named `serde`, add it to your project and import it in your code
+    |
+ 26 + extern crate serde;
+    |
+
+error[E0432]: unresolved import `crate::fee_rate`
+   --> ../rust-bitcoin/units/src/fee_rate/serde.rs:206:20
+    |
+206 |         use crate::fee_rate::FeeRate;
+    |                    ^^^^^^^^ use of unresolved module or unlinked crate `fee_rate`
+    |
+help: you might be missing a crate named `fee_rate`, add it to your project and import it in your code
+    |
+ 26 + extern crate fee_rate;
+    |
+
+error: aborting due to 17 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

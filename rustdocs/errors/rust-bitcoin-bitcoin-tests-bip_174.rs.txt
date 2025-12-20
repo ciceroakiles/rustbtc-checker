@@ -1,0 +1,124 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/bitcoin/tests/bip_174.rs:6:5
+  |
+6 | use bitcoin::amount::{Amount, Denomination};
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+4 + extern crate bitcoin;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/bitcoin/tests/bip_174.rs:7:5
+  |
+7 | use bitcoin::bip32::{Fingerprint, IntoDerivationPath, KeySource, Xpriv, X...
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+4 + extern crate bitcoin;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/bitcoin/tests/bip_174.rs:8:5
+  |
+8 | use bitcoin::consensus::encode::{deserialize, serialize_hex};
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+4 + extern crate bitcoin;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/bitcoin/tests/bip_174.rs:9:5
+  |
+9 | use bitcoin::hex::FromHex;
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+4 + extern crate bitcoin;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/tests/bip_174.rs:10:5
+   |
+10 | use bitcoin::opcodes::all::OP_0;
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+ 4 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/tests/bip_174.rs:11:5
+   |
+11 | use bitcoin::psbt::{Psbt, PsbtSighashType};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+ 4 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/tests/bip_174.rs:12:5
+   |
+12 | use bitcoin::script::{PushBytes, ScriptBuf, ScriptBufExt as _};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+ 4 + extern crate bitcoin;
+   |
+
+error[E0432]: unresolved import `bitcoin`
+  --> ../rust-bitcoin/bitcoin/tests/bip_174.rs:13:5
+   |
+13 | use bitcoin::{
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+ 4 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/tests/bip_174.rs:272:15
+    |
+272 | ) -> BTreeMap<secp256k1::PublicKey, KeySource> {
+    |               ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+   --> ../rust-bitcoin/bitcoin/tests/bip_174.rs:327:50
+    |
+327 | ...Map<bitcoin::PublicKey, PrivateKey>) -> Psbt {
+    |        ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+    |
+    = help: you might be missing a crate named `bitcoin`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+   --> ../rust-bitcoin/bitcoin/tests/bip_174.rs:339:50
+    |
+339 | ...Map<bitcoin::PublicKey, PrivateKey>) -> Psbt {
+    |        ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+    |
+    = help: you might be missing a crate named `bitcoin`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+   --> ../rust-bitcoin/bitcoin/tests/bip_174.rs:408:40
+    |
+408 | ...Map<bitcoin::PublicKey, PrivateKey>) -> Psbt {
+    |        ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+    |
+    = help: you might be missing a crate named `bitcoin`
+
+error: aborting due to 12 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

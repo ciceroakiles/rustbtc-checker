@@ -1,0 +1,24 @@
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/internals/src/serde.rs:55:17
+   |
+55 |             use core::num::IntErrorKind::Empty;
+   |                 ^^^^
+   |                 |
+   |                 you might be missing crate `core`
+   |                 help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `serde`
+ --> ../rust-bitcoin/internals/src/serde.rs:4:9
+  |
+4 | pub use serde::{de, ser, Deserialize, Deserializer, Serialize, Serializer};
+  |         ^^^^^ use of unresolved module or unlinked crate `serde`
+  |
+help: you might be missing a crate named `serde`, add it to your project and import it in your code
+  |
+3 + extern crate serde;
+  |
+
+error: aborting due to 2 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

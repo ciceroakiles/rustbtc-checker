@@ -1,0 +1,99 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/base58/src/error.rs:162:9
+    |
+162 |     pub(super) fn new(invalid: u8) -> Self { Self(InvalidCharacterError...
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/base58/src/error.rs:12:22
+   |
+12 | pub struct Error(pub(super) ErrorInner);
+   |                      ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/base58/src/error.rs:15:5
+   |
+15 | pub(super) enum ErrorInner {
+   |     ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/base58/src/error.rs:97:5
+   |
+97 | pub(super) struct IncorrectChecksumError {
+   |     ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/base58/src/error.rs:99:9
+   |
+99 |     pub(super) incorrect: u32,
+   |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/base58/src/error.rs:101:9
+    |
+101 |     pub(super) expected: u32,
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/base58/src/error.rs:123:5
+    |
+123 | pub(super) struct TooShortError {
+    |     ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/base58/src/error.rs:125:9
+    |
+125 |     pub(super) length: usize,
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/base58/src/error.rs:146:38
+    |
+146 | pub struct InvalidCharacterError(pub(super) InvalidCharacterErrorInner);
+    |                                      ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/base58/src/error.rs:149:5
+    |
+149 | pub(super) struct InvalidCharacterErrorInner {
+    |     ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/base58/src/error.rs:150:9
+    |
+150 |     pub(super) invalid: u8,
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+ --> ../rust-bitcoin/base58/src/error.rs:5:5
+  |
+5 | use core::convert::Infallible;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/base58/src/error.rs:6:5
+  |
+6 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `internals`
+ --> ../rust-bitcoin/base58/src/error.rs:8:5
+  |
+8 | use internals::write_err;
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  |
+5 + extern crate internals;
+  |
+
+error: aborting due to 14 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

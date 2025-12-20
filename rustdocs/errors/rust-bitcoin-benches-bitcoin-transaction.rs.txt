@@ -1,0 +1,65 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/benches/bitcoin/transaction.rs:5:5
+  |
+5 | use bitcoin::blockdata::transaction::Transaction;
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+3 + extern crate bitcoin;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/benches/bitcoin/transaction.rs:6:5
+  |
+6 | use bitcoin::blockdata::transaction::TransactionExt as _; // for total_si...
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+3 + extern crate bitcoin;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/benches/bitcoin/transaction.rs:7:5
+  |
+7 | use bitcoin::consensus::{encode, Encodable};
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+3 + extern crate bitcoin;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/benches/bitcoin/transaction.rs:8:5
+  |
+8 | use bitcoin::io::sink;
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+3 + extern crate bitcoin;
+  |
+
+error[E0432]: unresolved import `criterion`
+ --> ../rust-bitcoin/benches/bitcoin/transaction.rs:9:5
+  |
+9 | use criterion::{criterion_group, criterion_main, BenchmarkId, Criterion};
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `criterion`
+  |
+help: you might be missing a crate named `criterion`, add it to your project and import it in your code
+  |
+3 + extern crate criterion;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex_lit`
+  --> ../rust-bitcoin/benches/bitcoin/transaction.rs:42:22
+   |
+42 |         let raw_tx = hex_lit::hex!(SOME_TX);
+   |                      ^^^^^^^ use of unresolved module or unlinked crate `hex_lit`
+
+error: aborting due to 6 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

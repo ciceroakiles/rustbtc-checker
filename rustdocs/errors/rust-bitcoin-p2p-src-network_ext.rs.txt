@@ -1,0 +1,20 @@
+error[E0432]: unresolved import `bitcoin`
+ --> ../rust-bitcoin/p2p/src/network_ext.rs:7:5
+  |
+7 | use bitcoin::{Network, TestnetVersion};
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+7 + extern crate bitcoin;
+  |
+
+error[E0432]: unresolved import `crate::Magic`
+ --> ../rust-bitcoin/p2p/src/network_ext.rs:9:5
+  |
+9 | use crate::Magic;
+  |     ^^^^^^^^^^^^ no `Magic` in the root
+
+error: aborting due to 2 previous errors
+
+For more information about this error, try `rustc --explain E0432`.

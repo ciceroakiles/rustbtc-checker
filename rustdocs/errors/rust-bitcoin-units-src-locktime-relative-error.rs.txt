@@ -1,0 +1,60 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/units/src/locktime/relative/error.rs:14:38
+   |
+14 | pub struct DisabledLockTimeError(pub(super) u32);
+   |                                      ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+ --> ../rust-bitcoin/units/src/locktime/relative/error.rs:9:5
+  |
+9 | use super::{NumberOf512Seconds, NumberOfBlocks};
+  |     ^^^^^ there are too many leading `super` keywords
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/units/src/locktime/relative/error.rs:5:5
+  |
+5 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `internals`
+ --> ../rust-bitcoin/units/src/locktime/relative/error.rs:7:5
+  |
+7 | use internals::write_err;
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  |
+5 + extern crate internals;
+  |
+
+error[E0425]: cannot find type `BlockHeight` in the crate root
+   --> ../rust-bitcoin/units/src/locktime/relative/error.rs:149:34
+    |
+149 |     pub(crate) chain_tip: crate::BlockHeight,
+    |                                  ^^^^^^^^^^^ not found in the crate root
+
+error[E0425]: cannot find type `BlockHeight` in the crate root
+   --> ../rust-bitcoin/units/src/locktime/relative/error.rs:151:38
+    |
+151 |     pub(crate) utxo_mined_at: crate::BlockHeight,
+    |                                      ^^^^^^^^^^^ not found in the crate root
+
+error[E0425]: cannot find type `BlockMtp` in the crate root
+   --> ../rust-bitcoin/units/src/locktime/relative/error.rs:168:34
+    |
+168 |     pub(crate) chain_tip: crate::BlockMtp,
+    |                                  ^^^^^^^^ not found in the crate root
+
+error[E0425]: cannot find type `BlockMtp` in the crate root
+   --> ../rust-bitcoin/units/src/locktime/relative/error.rs:170:38
+    |
+170 |     pub(crate) utxo_mined_at: crate::BlockMtp,
+    |                                      ^^^^^^^^ not found in the crate root
+
+error: aborting due to 8 previous errors
+
+Some errors have detailed explanations: E0425, E0432, E0433.
+For more information about an error, try `rustc --explain E0425`.

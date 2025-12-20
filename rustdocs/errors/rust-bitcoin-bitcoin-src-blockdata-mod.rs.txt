@@ -1,0 +1,1330 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `blockdata`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:76:19
+   |
+76 |     pub(in crate::blockdata) fn push_int_non_minimal(mut self, data: i64...
+   |                   ^^^^^^^^^ use of unresolved module or unlinked crate `blockdata`
+   |
+help: you might be missing a crate named `blockdata`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate blockdata;
+   |
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:10:5
+   |
+10 | use core::convert::Infallible;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:11:5
+   |
+11 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:13:5
+   |
+13 | use internals::{compact_size, ToU64};
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `io`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:14:5
+   |
+14 | use io::{BufRead, Write};
+   |     ^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::io`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `consensus`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:16:12
+   |
+16 | use crate::consensus::encode::{self, Decodable, Encodable, WriteExt as _};
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:16:12
+   |
+16 | use crate::consensus::encode::{self, Decodable, Encodable, WriteExt as _};
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0432]: unresolved import `crate::merkle_tree`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:17:12
+   |
+17 | use crate::merkle_tree::{TxMerkleNode, WitnessMerkleNode};
+   |            ^^^^^^^^^^^ use of unresolved module or unlinked crate `merkle_tree`
+   |
+help: you might be missing a crate named `merkle_tree`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate merkle_tree;
+   |
+
+error[E0432]: unresolved import `crate::network`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:18:12
+   |
+18 | use crate::network::Params;
+   |            ^^^^^^^ use of unresolved module or unlinked crate `network`
+   |
+help: you might be missing a crate named `network`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate network;
+   |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:19:12
+   |
+19 | use crate::prelude::Vec;
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `units`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:31:9
+   |
+31 | pub use units::block::TooBigForRelativeHeightError;
+   |         ^^^^^ use of unresolved module or unlinked crate `units`
+   |
+help: you might be missing a crate named `units`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate units;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `units`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:33:9
+   |
+33 | pub use units::block::{BlockHeight, BlockHeightInterval, BlockMtp, Block...
+   |         ^^^^^ use of unresolved module or unlinked crate `units`
+   |
+help: you might be missing a crate named `units`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate units;
+   |
+
+error[E0432]: unresolved imports `crate::internal_macros`, `crate::BlockTime`, `crate::Target`, `crate::Work`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:22:13
+   |
+22 | use crate::{internal_macros, BlockTime, Target, Weight, Work};
+   |             ^^^^^^^^^^^^^^^  ^^^^^^^^^  ^^^^^^          ^^^^ no `Work` in the root
+   |             |                |          |
+   |             |                |          no `Target` in the root
+   |             |                no `BlockTime` in the root
+   |             |                help: a similar name exists in the module: `locktime`
+   |             no `internal_macros` in the root
+
+error[E0432]: unresolved import `crate::internal_macros`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:10:12
+   |
+10 | use crate::internal_macros::impl_array_newtype_stringify;
+   |            ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `internal_macros`
+   |
+help: you might be missing a crate named `internal_macros`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate internal_macros;
+   |
+
+error[E0432]: unresolved import `crate::network`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:12:12
+   |
+12 | use crate::network::{Network, Params};
+   |            ^^^^^^^ use of unresolved module or unlinked crate `network`
+   |
+help: you might be missing a crate named `network`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate network;
+   |
+
+error[E0432]: unresolved import `crate::pow`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:14:12
+   |
+14 | use crate::pow::CompactTarget;
+   |            ^^^ use of unresolved module or unlinked crate `pow`
+   |
+help: you might be missing a crate named `pow`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate pow;
+   |
+
+error[E0432]: unresolved imports `crate::Amount`, `crate::BlockHash`, `crate::BlockTime`, `crate::Sequence`, `crate::TestnetVersion`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:17:21
+   |
+17 | ...ipt, Amount, BlockHash, BlockTime, Sequence, TestnetVersion};
+   |         ^^^^^^  ^^^^^^^^^  ^^^^^^^^^  ^^^^^^^^  ^^^^^^^^^^^^^^ no `TestnetVersion` in the root
+   |         |       |          |          |
+   |         |       |          |          no `Sequence` in the root
+   |         |       |          no `BlockTime` in the root
+   |         |       |          help: a similar name exists in the module: `locktime`
+   |         |       no `BlockHash` in the root
+   |         no `Amount` in the root
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/opcodes.rs:10:5
+   |
+10 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:3:5
+  |
+3 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:6:5
+  |
+6 | use internals::array::ArrayExt; // For `split_first`.
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+  |
+8 + extern crate internals;
+  |
+
+error[E0432]: unresolved import `hex`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:5:5
+  |
+5 | use hex::DisplayHex as _;
+  |     ^^^ use of unresolved module or unlinked crate `hex`
+  |
+help: you might be missing a crate named `hex`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+  |
+8 + extern crate hex;
+  |
+
+error[E0432]: unresolved import `internals`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:7:5
+  |
+7 | use internals::ToU64 as _;
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+  |
+8 + extern crate internals;
+  |
+
+error[E0432]: unresolved imports `crate::consensus`, `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:15:12
+   |
+15 | use crate::consensus::{self, Encodable};
+   |            ^^^^^^^^^   ^^^^ no `consensus` in the root
+   |            |
+   |            use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0432]: unresolved import `crate::key`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:16:12
+   |
+16 | use crate::key::{PublicKey, UntweakedPublicKey, WPubkeyHash};
+   |            ^^^ use of unresolved module or unlinked crate `key`
+   |
+help: you might be missing a crate named `key`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate key;
+   |
+
+error[E0432]: unresolved import `crate::policy`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:19:12
+   |
+19 | use crate::policy::{DUST_RELAY_TX_FEE, MAX_OP_RETURN_RELAY};
+   |            ^^^^^^ use of unresolved module or unlinked crate `policy`
+   |
+help: you might be missing a crate named `policy`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate policy;
+   |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:20:12
+   |
+20 | use crate::prelude::{sink, String, ToString};
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `crate::taproot`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:22:12
+   |
+22 | use crate::taproot::{LeafVersion, TapLeafHash, TapNodeHash};
+   |            ^^^^^^^ use of unresolved module or unlinked crate `taproot`
+   |
+help: you might be missing a crate named `taproot`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate taproot;
+   |
+
+error[E0432]: unresolved import `crate::witness_program`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:23:12
+   |
+23 | use crate::witness_program::P2A_PROGRAM;
+   |            ^^^^^^^^^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `script::witness_program`
+
+error[E0432]: unresolved imports `crate::internal_macros`, `crate::Amount`, `crate::ScriptPubKeyBuf`, `crate::WitnessScriptBuf`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:24:13
+   |
+24 | ...::{internal_macros, Amount, FeeRate, ScriptPubKeyBuf, WitnessScriptBuf};
+   |       ^^^^^^^^^^^^^^^  ^^^^^^           ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^ no `WitnessScriptBuf` in the root
+   |       |                |                |
+   |       |                |                no `ScriptPubKeyBuf` in the root
+   |       |                no `Amount` in the root
+   |       no `internal_macros` in the root
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:3:5
+  |
+3 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `crate::key`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:6:12
+  |
+6 | use crate::key::{PublicKey, XOnlyPublicKey};
+  |            ^^^ use of unresolved module or unlinked crate `key`
+  |
+help: you might be missing a crate named `key`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+  |
+8 + extern crate key;
+  |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:10:12
+   |
+10 | use crate::prelude::Vec;
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved imports `crate::relative`, `crate::Sequence`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:12:13
+   |
+12 | use crate::{relative, Sequence};
+   |             ^^^^^^^^  ^^^^^^^^ no `Sequence` in the root
+   |             |
+   |             no `relative` in the root
+   |
+   = help: consider importing this module instead:
+           locktime::relative
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/instruction.rs:3:5
+  |
+3 | use internals::script::{self, PushDataLenLen};
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+  |
+8 + extern crate internals;
+  |
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/owned.rs:4:5
+  |
+4 | use core::ops::Deref;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `internals`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/instruction.rs:3:5
+  |
+3 | use internals::script::{self, PushDataLenLen};
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+  |
+8 + extern crate internals;
+  |
+
+error[E0432]: unresolved import `hex`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/owned.rs:6:5
+  |
+6 | use hex::FromHex as _;
+  |     ^^^ use of unresolved module or unlinked crate `hex`
+  |
+help: you might be missing a crate named `hex`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+  |
+8 + extern crate hex;
+  |
+
+error[E0432]: unresolved import `internals`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/owned.rs:7:5
+  |
+7 | use internals::ToU64 as _;
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+  |
+8 + extern crate internals;
+  |
+
+error[E0432]: unresolved import `crate::key`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/owned.rs:13:12
+   |
+13 | use crate::key::{
+   |            ^^^ use of unresolved module or unlinked crate `key`
+   |
+help: you might be missing a crate named `key`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate key;
+   |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/owned.rs:18:12
+   |
+18 | use crate::prelude::Vec;
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `crate::taproot`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/owned.rs:22:12
+   |
+22 | use crate::taproot::TapNodeHash;
+   |            ^^^^^^^ use of unresolved module or unlinked crate `taproot`
+   |
+help: you might be missing a crate named `taproot`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate taproot;
+   |
+
+error[E0432]: unresolved imports `crate::consensus`, `crate::internal_macros`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/owned.rs:23:13
+   |
+23 | use crate::{consensus, internal_macros};
+   |             ^^^^^^^^^  ^^^^^^^^^^^^^^^ no `internal_macros` in the root
+   |             |
+   |             no `consensus` in the root
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/push_bytes.rs:6:5
+  |
+6 | use core::ops::{Deref, DerefMut};
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/push_bytes.rs:5:5
+  |
+5 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `crate::crypto`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/push_bytes.rs:8:12
+  |
+8 | use crate::crypto::{ecdsa, taproot};
+  |            ^^^^^^ use of unresolved module or unlinked crate `crypto`
+  |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+  |
+8 + extern crate crypto;
+  |
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/push_bytes.rs:20:9
+   |
+20 |     use core::ops::{
+   |         ^^^^
+   |         |
+   |         you might be missing crate `core`
+   |         help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `crate::prelude`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/push_bytes.rs:9:12
+  |
+9 | use crate::prelude::{Borrow, BorrowMut};
+  |            ^^^^^^^
+  |            |
+  |            unresolved import
+  |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/push_bytes.rs:26:16
+   |
+26 |     use crate::prelude::{ToOwned, Vec};
+   |                ^^^^^^^
+   |                |
+   |                unresolved import
+   |                help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `error`
+   --> ../rust-bitcoin/bitcoin/src/blockdata/script/push_bytes.rs:475:9
+    |
+475 | pub use error::PushBytesError;
+    |         ^^^^^ help: a similar path exists: `self::error`
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:10:5
+   |
+10 | use core::convert::Infallible;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+   --> ../rust-bitcoin/bitcoin/src/blockdata/script/push_bytes.rs:502:9
+    |
+502 |     use core::fmt;
+    |         ^^^^
+    |         |
+    |         you might be missing crate `core`
+    |         help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:13:5
+   |
+13 | use internals::array_vec::ArrayVec;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate internals;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `crypto`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:17:12
+   |
+17 | use crate::crypto::key::{CompressedPublicKey, TapTweak, TweakedPublicKey...
+   |            ^^^^^^ use of unresolved module or unlinked crate `crypto`
+   |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate crypto;
+   |
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:11:5
+   |
+11 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_version.rs:10:5
+   |
+10 | use core::convert::Infallible;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `crate::taproot`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:19:12
+   |
+19 | use crate::taproot::TapNodeHash;
+   |            ^^^^^^^ use of unresolved module or unlinked crate `taproot`
+   |
+help: you might be missing a crate named `taproot`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate taproot;
+   |
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_version.rs:12:5
+   |
+12 | use core::str::FromStr;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_version.rs:11:5
+   |
+11 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_version.rs:14:5
+   |
+14 | use internals::write_err;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate internals;
+   |
+
+error[E0432]: unresolved imports `crate::parse_int`, `crate::parse_int`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_version.rs:18:12
+   |
+18 | use crate::parse_int::{self, ParseIntError};
+   |            ^^^^^^^^^   ^^^^ no `parse_int` in the root
+   |            |
+   |            use of unresolved module or unlinked crate `parse_int`
+   |
+help: you might be missing a crate named `parse_int`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate parse_int;
+   |
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/mod.rs:58:5
+   |
+58 | use core::convert::Infallible;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `WitnessVersion`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_version.rs:94:13
+   |
+94 |         use WitnessVersion::*;
+   |             ^^^^^^^^^^^^^^ help: a similar path exists: `self::WitnessVersion`
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/mod.rs:59:5
+   |
+59 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `io`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/mod.rs:61:5
+   |
+61 | use io::{BufRead, Write};
+   |     ^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::io`
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/mod.rs:64:12
+   |
+64 | use crate::consensus::{encode, Decodable, Encodable};
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0432]: unresolved import `crate::internal_macros`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/mod.rs:65:12
+   |
+65 | use crate::internal_macros::impl_asref_push_bytes;
+   |            ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `internal_macros`
+   |
+help: you might be missing a crate named `internal_macros`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate internal_macros;
+   |
+
+error[E0432]: unresolved import `crate::key`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/mod.rs:66:12
+   |
+66 | use crate::key::WPubkeyHash;
+   |            ^^^ use of unresolved module or unlinked crate `key`
+   |
+help: you might be missing a crate named `key`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate key;
+   |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/mod.rs:69:12
+   |
+69 | use crate::prelude::Vec;
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `primitives`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/mod.rs:82:9
+   |
+82 | pub use primitives::script::{
+   |         ^^^^^^^^^^ use of unresolved module or unlinked crate `primitives`
+   |
+help: you might be missing a crate named `primitives`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate primitives;
+   |
+
+error[E0432]: unresolved import `crate::OutPoint`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/mod.rs:70:5
+   |
+70 | use crate::OutPoint;
+   |     ^^^^^^^^^^^^^^^ no `OutPoint` in the root
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/transaction.rs:13:5
+   |
+13 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/transaction.rs:17:5
+   |
+17 | use internals::{compact_size, const_casts, write_err, ToU64};
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `io`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/transaction.rs:18:5
+   |
+18 | use io::{BufRead, Write};
+   |     ^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::io`
+
+error[E0432]: unresolved imports `crate::consensus`, `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/transaction.rs:21:12
+   |
+21 | use crate::consensus::{self, encode, Decodable, Encodable};
+   |            ^^^^^^^^^   ^^^^ no `consensus` in the root
+   |            |
+   |            use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/transaction.rs:23:12
+   |
+23 | use crate::prelude::{Borrow, Vec};
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `crate::sighash`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/transaction.rs:29:12
+   |
+29 | use crate::sighash::{EcdsaSighashType, TapSighashType};
+   |            ^^^^^^^ use of unresolved module or unlinked crate `sighash`
+   |
+help: you might be missing a crate named `sighash`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate sighash;
+   |
+
+error[E0432]: unresolved imports `crate::internal_macros`, `crate::Amount`, `crate::Sequence`, `crate::SignedAmount`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/transaction.rs:31:13
+   |
+31 | use crate::{internal_macros, Amount, FeeRate, Sequence, SignedAmount};
+   |             ^^^^^^^^^^^^^^^  ^^^^^^           ^^^^^^^^  ^^^^^^^^^^^^ no `SignedAmount` in the root
+   |             |                |                |
+   |             |                |                no `Sequence` in the root
+   |             |                no `Amount` in the root
+   |             no `internal_macros` in the root
+
+error[E0432]: unresolved import `io`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:7:5
+  |
+7 | use io::{BufRead, Write};
+  |     ^^
+  |     |
+  |     unresolved import
+  |     help: a similar path exists: `std::io`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `consensus`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:9:12
+  |
+9 | use crate::consensus::encode::{self, Error, ParseError, WriteExt};
+  |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+  |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+  |
+8 + extern crate consensus;
+  |
+
+error[E0432]: unresolved import `crate::consensus`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:9:12
+  |
+9 | use crate::consensus::encode::{self, Error, ParseError, WriteExt};
+  |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+  |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+ --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+  |
+8 + extern crate consensus;
+  |
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:10:12
+   |
+10 | use crate::consensus::{Decodable, Encodable};
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `crypto`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:12:12
+   |
+12 | use crate::crypto::key::SerializedXOnlyPublicKey;
+   |            ^^^^^^ use of unresolved module or unlinked crate `crypto`
+   |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate crypto;
+   |
+
+error[E0432]: unresolved import `crate::crypto`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:11:12
+   |
+11 | use crate::crypto::ecdsa;
+   |            ^^^^^^ use of unresolved module or unlinked crate `crypto`
+   |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate crypto;
+   |
+
+error[E0432]: unresolved imports `crate::taproot`, `crate::taproot`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:13:12
+   |
+13 | ...te::taproot::{self, ControlBlock, LeafScript, TaprootMerkleBranch, TA...
+   |        ^^^^^^^   ^^^^ no `taproot` in the root
+   |        |
+   |        use of unresolved module or unlinked crate `taproot`
+   |
+help: you might be missing a crate named `taproot`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate taproot;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `primitives`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:22:9
+   |
+22 | pub use primitives::witness::UnexpectedEofError;
+   |         ^^^^^^^^^^ use of unresolved module or unlinked crate `primitives`
+   |
+help: you might be missing a crate named `primitives`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate primitives;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `units`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:27:13
+   |
+27 |     pub use units::fee_rate::FeeRate;
+   |             ^^^^^ use of unresolved module or unlinked crate `units`
+   |
+help: you might be missing a crate named `units`, add it to your project and import it in your code
+   |
+ 8 + extern crate units;
+   |
+
+error[E0432]: unresolved imports `crate::internal_macros`, `crate::TapScript`, `crate::WitnessScript`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:14:13
+   |
+14 | use crate::{internal_macros, TapScript, WitnessScript};
+   |             ^^^^^^^^^^^^^^^  ^^^^^^^^^  ^^^^^^^^^^^^^ no `WitnessScript` in the root
+   |             |                |
+   |             |                no `TapScript` in the root
+   |             no `internal_macros` in the root
+   |
+   = help: consider importing one of these items instead:
+           opcodes::ClassifyContext::TapScript
+           script::TapScript
+   = help: consider importing this unresolved item through its public re-export instead:
+           script::WitnessScript
+
+error[E0432]: unresolved import `io`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:38:13
+   |
+38 |         use io::{BufRead, Write};
+   |             ^^
+   |             |
+   |             unresolved import
+   |             help: a similar path exists: `std::io`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `consensus`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:40:24
+   |
+40 |         pub use crate::consensus::encode::{self, Decodable, Encodable};
+   |                        ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `units`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:47:17
+   |
+47 |         pub use units::locktime::absolute::{
+   |                 ^^^^^ use of unresolved module or unlinked crate `units`
+   |
+help: you might be missing a crate named `units`, add it to your project and import it in your code
+   |
+ 8 + extern crate units;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `units`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:80:17
+   |
+80 | ...b use units::locktime::relative::{error, LockTime, NumberOf512Seconds...
+   |          ^^^^^ use of unresolved module or unlinked crate `units`
+   |
+help: you might be missing a crate named `units`, add it to your project and import it in your code
+   |
+ 8 + extern crate units;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `units`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:82:17
+   |
+82 |         pub use units::locktime::relative::{
+   |                 ^^^^^ use of unresolved module or unlinked crate `units`
+   |
+help: you might be missing a crate named `units`, add it to your project and import it in your code
+   |
+ 8 + extern crate units;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `units`
+   --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:100:13
+    |
+100 |     pub use units::weight::Weight;
+    |             ^^^^^ use of unresolved module or unlinked crate `units`
+    |
+help: you might be missing a crate named `units`, add it to your project and import it in your code
+    |
+  8 + extern crate units;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `primitives`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:26:9
+   |
+26 | pub use primitives::block::{
+   |         ^^^^^^^^^^ use of unresolved module or unlinked crate `primitives`
+   |
+help: you might be missing a crate named `primitives`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate primitives;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `primitives`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/transaction.rs:35:9
+   |
+35 | pub use primitives::transaction::{OutPoint, ParseOutPointError, Transact...
+   |         ^^^^^^^^^^ use of unresolved module or unlinked crate `primitives`
+   |
+help: you might be missing a crate named `primitives`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate primitives;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `primitives`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:20:9
+   |
+20 | pub use primitives::witness::{Iter, Witness};
+   |         ^^^^^^^^^^ use of unresolved module or unlinked crate `primitives`
+   |
+help: you might be missing a crate named `primitives`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:8:1
+   |
+ 8 + extern crate primitives;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `units`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:45:17
+   |
+45 | ...b use units::locktime::absolute::{error, Height, LockTime, MedianTime...
+   |          ^^^^^ use of unresolved module or unlinked crate `units`
+   |
+help: you might be missing a crate named `units`, add it to your project and import it in your code
+   |
+ 8 + extern crate units;
+   |
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/mod.rs:40:24
+   |
+40 |         pub use crate::consensus::encode::{self, Decodable, Encodable};
+   |                        ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0432]: unresolved import `crate::script::ScriptExt`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:20:27
+   |
+20 | use crate::script::{self, ScriptExt as _, ScriptIntError};
+   |                           ^^^^^^^^^^^^^^ no `ScriptExt` in `script`
+
+error[E0432]: unresolved import `crate::transaction::Coinbase`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:21:26
+   |
+21 | use crate::transaction::{Coinbase, Transaction, TransactionExt as _};
+   |                          ^^^^^^^^ no `Coinbase` in `transaction`
+
+error[E0432]: unresolved import `super::PushBytes`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:11:61
+   |
+11 | ...Indices, Instructions, PushBytes, RedeemScript,
+   |                           ^^^^^^^^^
+   |                           |
+   |                           no `PushBytes` in `script`
+   |                           help: a similar name exists in the module: `push_bytes`
+   |
+   = help: consider importing one of these variants instead:
+           opcodes::Class::PushBytes
+           script::Instruction::PushBytes
+
+error[E0432]: unresolved import `crate::script::ScriptPubKeyBufExt`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:21:27
+   |
+21 | use crate::script::{self, ScriptPubKeyBufExt as _};
+   |                           ^^^^^^^^^^^^^^^^^^^^^^^ no `ScriptPubKeyBufExt` in `script`
+
+error[E0432]: unresolved import `super::PushBytes`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:5:38
+  |
+5 | use super::{opcode_to_verify, Error, PushBytes, Script, ScriptBuf};
+  |                                      ^^^^^^^^^
+  |                                      |
+  |                                      no `PushBytes` in `script`
+  |                                      help: a similar name exists in the module: `push_bytes`
+  |
+  = help: consider importing one of these variants instead:
+          opcodes::Class::PushBytes
+          script::Instruction::PushBytes
+
+error[E0432]: unresolved imports `crate::script::ScriptBufExt`, `crate::script::ScriptBufExtPriv`, `crate::script::ScriptExtPriv`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:11:21
+   |
+11 | ...::{ScriptBufExt as _, ScriptBufExtPriv as _, ScriptExtPriv as _};
+   |       ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^ no `ScriptExtPriv` in `script`
+   |       |                  |
+   |       |                  no `ScriptBufExtPriv` in `script`
+   |       no `ScriptBufExt` in `script`
+
+error[E0432]: unresolved imports `super::PushBytes`, `super::ScriptBufExtPriv`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/instruction.rs:5:20
+  |
+5 | use super::{Error, PushBytes, Script, ScriptBufExtPriv as _};
+  |                    ^^^^^^^^^          ^^^^^^^^^^^^^^^^^^^^^ no `ScriptBufExtPriv` in `script`
+  |                    |
+  |                    no `PushBytes` in `script`
+  |                    help: a similar name exists in the module: `push_bytes`
+  |
+  = help: consider importing one of these variants instead:
+          opcodes::Class::PushBytes
+          script::Instruction::PushBytes
+
+error[E0432]: unresolved imports `super::PushBytes`, `super::ScriptExtPriv`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/owned.rs:10:69
+   |
+10 |     opcode_to_verify, write_scriptint, Builder, Error, Instruction, PushBytes, S...
+   |                                                                     ^^^^^^^^^
+   |                                                                     |
+   |                                                                     no `PushBytes` in `script`
+   |                                                                     help: a similar name exists in the module: `push_bytes`
+11 |     ScriptExtPriv as _, ScriptPubKeyBuf,
+   |     ^^^^^^^^^^^^^^^^^^ no `ScriptExtPriv` in `script`
+   |
+   = help: consider importing one of these variants instead:
+           opcodes::Class::PushBytes
+           script::Instruction::PushBytes
+
+error[E0432]: unresolved import `super::PushBytes`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:16:13
+   |
+16 | use super::{PushBytes, WScriptHash, WitnessScript, WitnessScriptSizeError};
+   |             ^^^^^^^^^
+   |             |
+   |             no `PushBytes` in `script`
+   |             help: a similar name exists in the module: `push_bytes`
+   |
+   = help: consider importing one of these variants instead:
+           opcodes::Class::PushBytes
+           script::Instruction::PushBytes
+
+error[E0432]: unresolved import `crate::script::WitnessScriptExt`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:18:5
+   |
+18 | use crate::script::WitnessScriptExt as _;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `WitnessScriptExt` in `script`
+
+error[E0432]: unresolved import `self::borrowed::ScriptExtPriv`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/mod.rs:89:16
+   |
+89 | pub(crate) use self::borrowed::ScriptExtPriv;
+   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `ScriptExtPriv` in `script::borrowed`
+
+error[E0432]: unresolved import `self::owned::ScriptBufExtPriv`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/mod.rs:90:16
+   |
+90 | pub(crate) use self::owned::ScriptBufExtPriv;
+   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `ScriptBufExtPriv` in `script::owned`
+
+error[E0432]: unresolved imports `crate::script::ScriptExt`, `crate::script::ScriptPubKeyExt`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/transaction.rs:25:19
+   |
+25 |     RedeemScript, ScriptExt as _, ScriptExtPriv as _, ScriptPubKey, Scri...
+   |                   ^^^^^^^^^^^^^^ no `ScriptExt` in `script`
+26 |     ScriptPubKeyExt as _, WitnessScript,
+   |     ^^^^^^^^^^^^^^^^^^^^ no `ScriptPubKeyExt` in `script`
+
+error[E0432]: unresolved import `self::primitive::PushBytes`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/push_bytes.rs:15:27
+   |
+15 | pub use self::primitive::{PushBytes, PushBytesBuf};
+   |                           ^^^^^^^^^
+   |                           |
+   |                           no `PushBytes` in `script::push_bytes::primitive`
+   |                           help: a similar name exists in the module: `PushBytesBuf`
+   |
+   = help: consider importing one of these variants instead:
+           opcodes::Class::PushBytes
+           script::Instruction::PushBytes
+
+error[E0432]: unresolved imports `self::borrowed::ScriptExt`, `self::borrowed::TapScriptExt`, `self::borrowed::ScriptPubKeyExt`, `self::borrowed::WitnessScriptExt`, `self::borrowed::ScriptSigExt`, `self::owned::ScriptBufExt`, `self::owned::ScriptPubKeyBufExt`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/mod.rs:75:16
+   |
+75 | ...wed::{ScriptExt, TapScriptExt, ScriptPubKeyExt, WitnessScriptExt, ScriptSigExt},
+   |          ^^^^^^^^^  ^^^^^^^^^^^^  ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^ no `ScriptSigExt` in `script::borrowed`
+   |          |          |             |                |
+   |          |          |             |                no `WitnessScriptExt` in `script::borrowed`
+   |          |          |             no `ScriptPubKeyExt` in `script::borrowed`
+   |          |          no `TapScriptExt` in `script::borrowed`
+   |          no `ScriptExt` in `script::borrowed`
+...
+78 | ...::{ScriptBufExt, ScriptPubKeyBufExt},
+   |       ^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^ no `ScriptPubKeyBufExt` in `script::owned`
+   |       |
+   |       no `ScriptBufExt` in `script::owned`
+   |
+help: a similar name exists in the module
+   |
+75 -     borrowed::{ScriptExt, TapScriptExt, ScriptPubKeyExt, WitnessScriptExt, ScriptSigExt},
+75 +     borrowed::{Script, TapScriptExt, ScriptPubKeyExt, WitnessScriptExt, ScriptSigExt},
+   |
+help: a similar name exists in the module
+   |
+75 -     borrowed::{ScriptExt, TapScriptExt, ScriptPubKeyExt, WitnessScriptExt, ScriptSigExt},
+75 +     borrowed::{ScriptExt, TapScript, ScriptPubKeyExt, WitnessScriptExt, ScriptSigExt},
+   |
+help: a similar name exists in the module
+   |
+75 -     borrowed::{ScriptExt, TapScriptExt, ScriptPubKeyExt, WitnessScriptExt, ScriptSigExt},
+75 +     borrowed::{ScriptExt, TapScriptExt, ScriptPubKey, WitnessScriptExt, ScriptSigExt},
+   |
+help: a similar name exists in the module
+   |
+75 -     borrowed::{ScriptExt, TapScriptExt, ScriptPubKeyExt, WitnessScriptExt, ScriptSigExt},
+75 +     borrowed::{ScriptExt, TapScriptExt, ScriptPubKeyExt, WitnessScript, ScriptSigExt},
+   |
+help: a similar name exists in the module
+   |
+75 -     borrowed::{ScriptExt, TapScriptExt, ScriptPubKeyExt, WitnessScriptExt, ScriptSigExt},
+75 +     borrowed::{ScriptExt, TapScriptExt, ScriptPubKeyExt, WitnessScriptExt, ScriptSig},
+   |
+help: a similar name exists in the module
+   |
+78 -     owned::{ScriptBufExt, ScriptPubKeyBufExt},
+78 +     owned::{ScriptBuf, ScriptPubKeyBufExt},
+   |
+help: a similar name exists in the module
+   |
+78 -     owned::{ScriptBufExt, ScriptPubKeyBufExt},
+78 +     owned::{ScriptBufExt, ScriptPubKeyBuf},
+   |
+
+error[E0432]: unresolved import `crate::Weight`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/block.rs:22:49
+   |
+22 | use crate::{internal_macros, BlockTime, Target, Weight, Work};
+   |                                                 ^^^^^^
+   |                                                 |
+   |                                                 no `Weight` in the root
+   |                                                 help: a similar name exists in the module (notice the capitalization): `weight`
+   |
+   = help: consider importing this unresolved item through its public re-export instead:
+           weight::Weight
+
+error[E0432]: unresolved import `crate::FeeRate`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:24:38
+   |
+24 | use crate::{internal_macros, Amount, FeeRate, ScriptPubKeyBuf, WitnessSc...
+   |                                      ^^^^^^^ no `FeeRate` in the root
+   |
+   = help: consider importing this unresolved item through its public re-export instead:
+           fee_rate::FeeRate
+
+error[E0432]: unresolved import `super::Weight`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/transaction.rs:20:5
+   |
+20 | use super::Weight;
+   |     ^^^^^^^^^^^^^ no `Weight` in the root
+   |
+help: a similar name exists in the module (notice the capitalization)
+   |
+20 - use super::Weight;
+20 + use super::weight;
+   |
+help: consider importing this unresolved item through its public re-export instead
+   |
+20 - use super::Weight;
+20 + use weight::Weight;
+   |
+
+error[E0432]: unresolved import `crate::FeeRate`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/transaction.rs:31:38
+   |
+31 | use crate::{internal_macros, Amount, FeeRate, Sequence, SignedAmount};
+   |                                      ^^^^^^^ no `FeeRate` in the root
+   |
+   = help: consider importing this unresolved item through its public re-export instead:
+           fee_rate::FeeRate
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internal_macros`
+   --> ../rust-bitcoin/bitcoin/src/blockdata/script/owned.rs:186:8
+    |
+186 | crate::internal_macros::define_extension_trait! {
+    |        ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `internal_macros`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internal_macros`
+   --> ../rust-bitcoin/bitcoin/src/blockdata/script/borrowed.rs:271:8
+    |
+271 | crate::internal_macros::define_extension_trait! {
+    |        ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `internal_macros`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+    --> ../rust-bitcoin/bitcoin/src/blockdata/transaction.rs:1190:1
+     |
+1190 | internals::transparent_newtype! {
+     | ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/push_bytes.rs:40:5
+   |
+40 |     internals::transparent_newtype! {
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+   --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:195:1
+    |
+195 | internals::impl_array_newtype!(ChainHash, u8, 32);
+    | ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+
+error[E0599]: no variant named `Error` found for enum `script::witness_version::WitnessVersion`
+   --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_version.rs:135:65
+    |
+ 30 | pub enum WitnessVersion {
+    | ----------------------- variant `Error` not found here
+...
+135 |     fn try_from(instruction: Instruction) -> Result<Self, Self::Error> {
+    |                                                                 ^^^^^ variant not found in `script::witness_version::WitnessVersion`
+
+error: aborting due to 123 previous errors
+
+Some errors have detailed explanations: E0432, E0433, E0599.
+For more information about an error, try `rustc --explain E0432`.

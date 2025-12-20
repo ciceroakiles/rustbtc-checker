@@ -1,0 +1,20 @@
+error[E0432]: unresolved import `crate::bip152`
+ --> ../rust-bitcoin/p2p/src/message_compact_blocks.rs:9:5
+  |
+9 | use crate::bip152;
+  |     ^^^^^^^^^^^^^ no `bip152` in the root
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/p2p/src/message_compact_blocks.rs:10:12
+   |
+10 | use crate::consensus::impl_consensus_encoding;
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+ 6 + extern crate consensus;
+   |
+
+error: aborting due to 2 previous errors
+
+For more information about this error, try `rustc --explain E0432`.

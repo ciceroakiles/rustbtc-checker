@@ -1,0 +1,146 @@
+error[E0433]: failed to resolve: you might be missing crate `core`
+ --> ../rust-bitcoin/bitcoin/src/psbt/error.rs:3:5
+  |
+3 | use core::convert::Infallible;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/bitcoin/src/psbt/error.rs:4:5
+  |
+4 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `internals`
+ --> ../rust-bitcoin/bitcoin/src/psbt/error.rs:6:5
+  |
+6 | use internals::write_err;
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  |
+3 + extern crate internals;
+  |
+
+error[E0432]: unresolved import `crate::bip32`
+ --> ../rust-bitcoin/bitcoin/src/psbt/error.rs:8:12
+  |
+8 | use crate::bip32::Xpub;
+  |            ^^^^^ use of unresolved module or unlinked crate `bip32`
+  |
+help: you might be missing a crate named `bip32`, add it to your project and import it in your code
+  |
+3 + extern crate bip32;
+  |
+
+error[E0432]: unresolved import `crate::consensus`
+ --> ../rust-bitcoin/bitcoin/src/psbt/error.rs:9:12
+  |
+9 | use crate::consensus::encode;
+  |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+  |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+  |
+3 + extern crate consensus;
+  |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/psbt/error.rs:10:12
+   |
+10 | use crate::prelude::Box;
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `crate::psbt`
+  --> ../rust-bitcoin/bitcoin/src/psbt/error.rs:11:12
+   |
+11 | use crate::psbt::raw;
+   |            ^^^^ use of unresolved module or unlinked crate `psbt`
+   |
+help: you might be missing a crate named `psbt`, add it to your project and import it in your code
+   |
+ 3 + extern crate psbt;
+   |
+
+error[E0432]: unresolved imports `crate::ecdsa`, `crate::key`, `crate::taproot`, `crate::OutPoint`, `crate::Transaction`, `crate::Txid`
+  --> ../rust-bitcoin/bitcoin/src/psbt/error.rs:12:13
+   |
+12 | use crate::{ecdsa, key, taproot, OutPoint, Transaction, Txid};
+   |             ^^^^^  ^^^  ^^^^^^^  ^^^^^^^^  ^^^^^^^^^^^  ^^^^ no `Txid` in the root
+   |             |      |    |        |         |
+   |             |      |    |        |         no `Transaction` in the root
+   |             |      |    |        no `OutPoint` in the root
+   |             |      |    no `taproot` in the root
+   |             |      no `key` in the root
+   |             no `ecdsa` in the root
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/psbt/error.rs:118:8
+    |
+118 |     Io(io::Error),
+    |        ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+118 -     Io(io::Error),
+118 +     Io(i8::Error),
+    |
+help: consider importing this module
+    |
+  3 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/psbt/error.rs:252:11
+    |
+252 | impl From<io::Error> for Error {
+    |           ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+252 - impl From<io::Error> for Error {
+252 + impl From<i8::Error> for Error {
+    |
+help: consider importing this module
+    |
+  3 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/psbt/error.rs:253:16
+    |
+253 |     fn from(e: io::Error) -> Self { Self::Io(e) }
+    |                ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+253 -     fn from(e: io::Error) -> Self { Self::Io(e) }
+253 +     fn from(e: i8::Error) -> Self { Self::Io(e) }
+    |
+help: consider importing this module
+    |
+  3 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+  --> ../rust-bitcoin/bitcoin/src/psbt/error.rs:96:31
+   |
+96 |     InvalidSecp256k1PublicKey(secp256k1::Error),
+   |                               ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+   |
+   = help: you might be missing a crate named `secp256k1`
+
+error: aborting due to 12 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

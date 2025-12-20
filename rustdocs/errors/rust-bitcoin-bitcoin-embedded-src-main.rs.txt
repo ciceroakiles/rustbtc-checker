@@ -1,0 +1,43 @@
+error[E0463]: can't find crate for `bitcoin`
+ --> ../rust-bitcoin/bitcoin/embedded/src/main.rs:7:1
+  |
+7 | extern crate bitcoin;
+  | ^^^^^^^^^^^^^^^^^^^^^ can't find crate
+
+error[E0432]: unresolved import `alloc_cortex_m`
+  --> ../rust-bitcoin/bitcoin/embedded/src/main.rs:12:5
+   |
+12 | use alloc_cortex_m::CortexMHeap;
+   |     ^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `alloc_cortex_m`
+   |
+help: you might be missing a crate named `alloc_cortex_m`, add it to your project and import it in your code
+   |
+ 6 + extern crate alloc_cortex_m;
+   |
+
+error[E0432]: unresolved import `cortex_m_rt`
+  --> ../rust-bitcoin/bitcoin/embedded/src/main.rs:15:5
+   |
+15 | use cortex_m_rt::entry;
+   |     ^^^^^^^^^^^ use of unresolved module or unlinked crate `cortex_m_rt`
+   |
+help: you might be missing a crate named `cortex_m_rt`, add it to your project and import it in your code
+   |
+ 6 + extern crate cortex_m_rt;
+   |
+
+error[E0432]: unresolved import `cortex_m_semihosting`
+  --> ../rust-bitcoin/bitcoin/embedded/src/main.rs:16:5
+   |
+16 | use cortex_m_semihosting::{debug, hprintln};
+   |     ^^^^^^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `cortex_m_semihosting`
+   |
+help: you might be missing a crate named `cortex_m_semihosting`, add it to your project and import it in your code
+   |
+ 6 + extern crate cortex_m_semihosting;
+   |
+
+error: aborting due to 4 previous errors
+
+Some errors have detailed explanations: E0432, E0463.
+For more information about an error, try `rustc --explain E0432`.

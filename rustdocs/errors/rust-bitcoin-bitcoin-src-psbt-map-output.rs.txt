@@ -1,0 +1,223 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:54:9
+   |
+54 |     pub(super) fn insert_pair(&mut self, pair: raw::Pair) -> Result<(), ...
+   |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `crypto`
+ --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:4:12
+  |
+4 | use crate::crypto::key::XOnlyPublicKey;
+  |            ^^^^^^ use of unresolved module or unlinked crate `crypto`
+  |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+  |
+3 + extern crate crypto;
+  |
+
+error[E0432]: unresolved import `crate::bip32`
+ --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:3:12
+  |
+3 | use crate::bip32::KeySource;
+  |            ^^^^^ use of unresolved module or unlinked crate `bip32`
+  |
+help: you might be missing a crate named `bip32`, add it to your project and import it in your code
+  |
+3 + extern crate bip32;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `psbt`
+ --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:6:12
+  |
+6 | use crate::psbt::map::Map;
+  |            ^^^^ use of unresolved module or unlinked crate `psbt`
+  |
+help: you might be missing a crate named `psbt`, add it to your project and import it in your code
+  |
+3 + extern crate psbt;
+  |
+
+error[E0432]: unresolved import `crate::prelude`
+ --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:5:12
+  |
+5 | use crate::prelude::{btree_map, BTreeMap, Vec};
+  |            ^^^^^^^
+  |            |
+  |            unresolved import
+  |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `crate::psbt`
+ --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:7:12
+  |
+7 | use crate::psbt::{raw, Error};
+  |            ^^^^ use of unresolved module or unlinked crate `psbt`
+  |
+help: you might be missing a crate named `psbt`, add it to your project and import it in your code
+  |
+3 + extern crate psbt;
+  |
+
+error[E0432]: unresolved import `crate::script`
+ --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:8:12
+  |
+8 | use crate::script::{RedeemScriptBuf, WitnessScriptBuf};
+  |            ^^^^^^ use of unresolved module or unlinked crate `script`
+  |
+help: you might be missing a crate named `script`, add it to your project and import it in your code
+  |
+3 + extern crate script;
+  |
+
+error[E0432]: unresolved import `crate::taproot`
+ --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:9:12
+  |
+9 | use crate::taproot::{TapLeafHash, TapTree};
+  |            ^^^^^^^ use of unresolved module or unlinked crate `taproot`
+  |
+help: you might be missing a crate named `taproot`, add it to your project and import it in your code
+  |
+3 + extern crate taproot;
+  |
+
+error: cannot find macro `impl_psbt_insert_pair` in this scope
+  --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:59:17
+   |
+59 |                 impl_psbt_insert_pair! {
+   |                 ^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_insert_pair` in this scope
+  --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:64:17
+   |
+64 |                 impl_psbt_insert_pair! {
+   |                 ^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_insert_pair` in this scope
+  --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:69:17
+   |
+69 |                 impl_psbt_insert_pair! {
+   |                 ^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_insert_pair` in this scope
+  --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:83:17
+   |
+83 |                 impl_psbt_insert_pair! {
+   |                 ^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_insert_pair` in this scope
+  --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:88:17
+   |
+88 |                 impl_psbt_insert_pair! {
+   |                 ^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_insert_pair` in this scope
+  --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:93:17
+   |
+93 |                 impl_psbt_insert_pair! {
+   |                 ^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_insert_pair` in this scope
+  --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:98:17
+   |
+98 |                 impl_psbt_insert_pair! {
+   |                 ^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `combine` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:121:9
+    |
+121 |         combine!(redeem_script, self, other);
+    |         ^^^^^^^
+
+error: cannot find macro `combine` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:122:9
+    |
+122 |         combine!(witness_script, self, other);
+    |         ^^^^^^^
+
+error: cannot find macro `combine` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:123:9
+    |
+123 |         combine!(tap_internal_key, self, other);
+    |         ^^^^^^^
+
+error: cannot find macro `combine` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:124:9
+    |
+124 |         combine!(tap_tree, self, other);
+    |         ^^^^^^^
+
+error: cannot find macro `impl_psbt_get_pair` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:132:9
+    |
+132 |         impl_psbt_get_pair! {
+    |         ^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_get_pair` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:136:9
+    |
+136 |         impl_psbt_get_pair! {
+    |         ^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_get_pair` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:140:9
+    |
+140 |         impl_psbt_get_pair! {
+    |         ^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_get_pair` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:144:9
+    |
+144 |         impl_psbt_get_pair! {
+    |         ^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_get_pair` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:148:9
+    |
+148 |         impl_psbt_get_pair! {
+    |         ^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_get_pair` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:152:9
+    |
+152 |         impl_psbt_get_pair! {
+    |         ^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_get_pair` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:156:9
+    |
+156 |         impl_psbt_get_pair! {
+    |         ^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbtmap_ser_de_serialize` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:172:1
+    |
+172 | impl_psbtmap_ser_de_serialize!(Output);
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+  --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:38:36
+   |
+38 |     pub bip32_derivation: BTreeMap<secp256k1::PublicKey, KeySource>,
+   |                                    ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+   |
+   = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+  --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:46:46
+   |
+46 | ...pant_pubkeys: BTreeMap<secp256k1::PublicKey, Vec<secp256k1::PublicKey>>,
+   |                           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+   |
+   = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+  --> ../rust-bitcoin/bitcoin/src/psbt/map/output.rs:46:72
+   |
+46 | ...p256k1::PublicKey, Vec<secp256k1::PublicKey>>,
+   |                           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+   |
+   = help: you might be missing a crate named `secp256k1`
+
+error: aborting due to 30 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

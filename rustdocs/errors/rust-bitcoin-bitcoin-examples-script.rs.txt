@@ -1,0 +1,59 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/script.rs:10:5
+   |
+10 | use bitcoin::consensus::encode;
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+10 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/script.rs:11:5
+   |
+11 | use bitcoin::key::WPubkeyHash;
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+10 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/script.rs:12:5
+   |
+12 | use bitcoin::script::{self, ScriptBufExt as _, ScriptExt as _};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+10 + extern crate bitcoin;
+   |
+
+error[E0432]: unresolved import `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/script.rs:12:5
+   |
+12 | use bitcoin::script::{self, ScriptBufExt as _, ScriptExt as _};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+10 + extern crate bitcoin;
+   |
+
+error[E0432]: unresolved import `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/script.rs:13:5
+   |
+13 | use bitcoin::WitnessScriptBuf;
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+10 + extern crate bitcoin;
+   |
+
+error: aborting due to 5 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

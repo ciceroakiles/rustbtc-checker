@@ -1,0 +1,9 @@
+warning: unresolved link to `super::InputString`
+ --> ../rust-bitcoin/internals/src/error/parse_error.rs:6:21
+  |
+6 | /// [`InputString`](super::InputString), the type of `source` is specifie...
+  |                     ^^^^^^^^^^^^^^^^^^ no item named `super` in scope
+  |
+  = note: `#[warn(rustdoc::broken_intra_doc_links)]` on by default
+
+warning: 1 warning emitted

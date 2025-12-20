@@ -1,0 +1,50 @@
+error[E0432]: unresolved import `bitcoin_consensus_encoding`
+ --> ../rust-bitcoin/consensus_encoding/tests/iter.rs:1:5
+  |
+1 | use bitcoin_consensus_encoding::{ArrayEncoder, Encodable, EncodableByteIt...
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `bitcoin_consensus_encoding`
+  |
+help: you might be missing a crate named `bitcoin_consensus_encoding`, add it to your project and import it in your code
+  |
+1 + extern crate bitcoin_consensus_encoding;
+  |
+
+error[E0432]: unresolved import `hex`
+ --> ../rust-bitcoin/consensus_encoding/tests/iter.rs:2:5
+  |
+2 | use hex::BytesToHexIter;
+  |     ^^^ use of unresolved module or unlinked crate `hex`
+  |
+help: you might be missing a crate named `hex`, add it to your project and import it in your code
+  |
+1 + extern crate hex;
+  |
+
+error[E0223]: ambiguous associated type
+  --> ../rust-bitcoin/consensus_encoding/tests/iter.rs:12:26
+   |
+12 |     fn encoder(&self) -> Self::Encoder<'_> { ArrayEncoder::without_lengt...
+   |                          ^^^^^^^^^^^^^^^^^
+   |
+help: if there were a trait named `Example` with associated type `Encoder` implemented for `TestArray<N>`, you could use the fully-qualified path
+   |
+12 -     fn encoder(&self) -> Self::Encoder<'_> { ArrayEncoder::without_length_prefix(self.0) }
+12 +     fn encoder(&self) -> <TestArray<N> as Example>::Encoder<'_> { ArrayEncoder::without_length_prefix(self.0) }
+   |
+
+error[E0223]: ambiguous associated type
+  --> ../rust-bitcoin/consensus_encoding/tests/iter.rs:23:26
+   |
+23 |     fn encoder(&self) -> Self::Encoder<'_> {
+   |                          ^^^^^^^^^^^^^^^^^
+   |
+help: if there were a trait named `Example` with associated type `Encoder` implemented for `TestCatArray<N, M>`, you could use the fully-qualified path
+   |
+23 -     fn encoder(&self) -> Self::Encoder<'_> {
+23 +     fn encoder(&self) -> <TestCatArray<N, M> as Example>::Encoder<'_> {
+   |
+
+error: aborting due to 4 previous errors
+
+Some errors have detailed explanations: E0223, E0432.
+For more information about an error, try `rustc --explain E0223`.

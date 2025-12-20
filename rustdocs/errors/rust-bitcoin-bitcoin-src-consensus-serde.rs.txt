@@ -1,0 +1,405 @@
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:13:5
+   |
+13 | use core::marker::PhantomData;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:12:5
+   |
+12 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:16:5
+   |
+16 | use serde::de::{SeqAccess, Unexpected, Visitor};
+   |     ^^^^^ use of unresolved module or unlinked crate `serde`
+   |
+help: you might be missing a crate named `serde`, add it to your project and import it in your code
+   |
+12 + extern crate serde;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:17:5
+   |
+17 | use serde::ser::SerializeSeq;
+   |     ^^^^^ use of unresolved module or unlinked crate `serde`
+   |
+help: you might be missing a crate named `serde`, add it to your project and import it in your code
+   |
+12 + extern crate serde;
+   |
+
+error[E0432]: unresolved import `io`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:15:5
+   |
+15 | use io::Write;
+   |     ^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::io`
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:20:5
+   |
+20 | use super::{Decodable, Encodable, ParseError};
+   |     ^^^^^ there are too many leading `super` keywords
+
+error[E0432]: unresolved import `serde`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:18:5
+   |
+18 | use serde::{Deserializer, Serializer};
+   |     ^^^^^ use of unresolved module or unlinked crate `serde`
+   |
+help: you might be missing a crate named `serde`, add it to your project and import it in your code
+   |
+12 + extern crate serde;
+   |
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:21:12
+   |
+21 | use crate::consensus::{DecodeError, IterReader};
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+12 + extern crate consensus;
+   |
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:39:9
+   |
+39 |     use core::marker::PhantomData;
+   |         ^^^^
+   |         |
+   |         you might be missing crate `core`
+   |         help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:146:17
+    |
+146 |             use serde::de::Unexpected;
+    |                 ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: you might be missing a crate named `serde`, add it to your project and import it in your code
+    |
+ 12 + extern crate serde;
+    |
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:38:9
+   |
+38 |     use core::fmt;
+   |         ^^^^
+   |         |
+   |         you might be missing crate `core`
+   |         help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `hex::buf_encoder`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:41:14
+   |
+41 |     use hex::buf_encoder::BufEncoder;
+   |              ^^^^^^^^^^^ could not find `buf_encoder` in `hex`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:139:29
+    |
+139 |         fn into_de_error<E: serde::de::Error>(self) -> E {
+    |                             ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: to make use of source file ../rust-bitcoin/bitcoin/src/consensus/serde.rs, use `mod serde` in this file to declare the module
+    |
+ 12 + mod serde;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:145:29
+    |
+145 |         fn into_de_error<E: serde::de::Error>(self) -> E {
+    |                             ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: to make use of source file ../rust-bitcoin/bitcoin/src/consensus/serde.rs, use `mod serde` in this file to declare the module
+    |
+ 12 + mod serde;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:329:25
+    |
+329 |     fn into_de_error<E: serde::de::Error>(self) -> E;
+    |                         ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: to make use of source file ../rust-bitcoin/bitcoin/src/consensus/serde.rs, use `mod serde` in this file to declare the module
+    |
+ 12 + mod serde;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:355:23
+    |
+355 | impl<D: fmt::Display> serde::de::Expected for DisplayExpected<D> {
+    |                       ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: to make use of source file ../rust-bitcoin/bitcoin/src/consensus/serde.rs, use `mod serde` in this file to declare the module
+    |
+ 12 + mod serde;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:362:34
+    |
+362 | ...de<E: serde::de::Error>(error: ParseError) -> E {
+    |          ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: to make use of source file ../rust-bitcoin/bitcoin/src/consensus/serde.rs, use `mod serde` in this file to declare the module
+    |
+ 12 + mod serde;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:387:8
+    |
+387 |     E: serde::de::Error,
+    |        ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: to make use of source file ../rust-bitcoin/bitcoin/src/consensus/serde.rs, use `mod serde` in this file to declare the module
+    |
+ 12 + mod serde;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:402:26
+    |
+402 |     fn into_de_error<DE: serde::de::Error>(self) -> DE {
+    |                          ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: to make use of source file ../rust-bitcoin/bitcoin/src/consensus/serde.rs, use `mod serde` in this file to declare the module
+    |
+ 12 + mod serde;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:485:21
+    |
+485 |     fn visit_str<E: serde::de::Error>(self, s: &str) -> Result<T, E> {
+    |                     ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: to make use of source file ../rust-bitcoin/bitcoin/src/consensus/serde.rs, use `mod serde` in this file to declare the module
+    |
+ 12 + mod serde;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:505:27
+    |
+505 | ...a, S: serde::de::SeqAccess<'a>>(S, PhantomData<&'a ()>);
+    |          ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: to make use of source file ../rust-bitcoin/bitcoin/src/consensus/serde.rs, use `mod serde` in this file to declare the module
+    |
+ 12 + mod serde;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `serde`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:507:13
+    |
+507 | impl<'a, S: serde::de::SeqAccess<'a>> Iterator for SeqIterator<'a, S> {
+    |             ^^^^^ use of unresolved module or unlinked crate `serde`
+    |
+help: to make use of source file ../rust-bitcoin/bitcoin/src/consensus/serde.rs, use `mod serde` in this file to declare the module
+    |
+ 12 + mod serde;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:57:34
+   |
+57 |             const INTERNAL_CASE: hex::Case;
+   |                                  ^^^ use of unresolved module or unlinked crate `hex`
+   |
+   = help: you might be missing a crate named `hex`
+help: consider importing this module
+   |
+55 +         use hex;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:61:34
+   |
+61 |             const INTERNAL_CASE: hex::Case = hex::Case::Lower;
+   |                                  ^^^ use of unresolved module or unlinked crate `hex`
+   |
+   = help: you might be missing a crate named `hex`
+help: consider importing this module
+   |
+55 +         use hex;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:61:46
+   |
+61 |             const INTERNAL_CASE: hex::Case = hex::Case::Lower;
+   |                                              ^^^ use of unresolved module or unlinked crate `hex`
+   |
+   = help: you might be missing a crate named `hex`
+help: consider importing this trait
+   |
+55 +         use hex::Case;
+   |
+help: if you import `Case`, refer to it directly
+   |
+61 -             const INTERNAL_CASE: hex::Case = hex::Case::Lower;
+61 +             const INTERNAL_CASE: hex::Case = Case::Lower;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:65:34
+   |
+65 |             const INTERNAL_CASE: hex::Case = hex::Case::Upper;
+   |                                  ^^^ use of unresolved module or unlinked crate `hex`
+   |
+   = help: you might be missing a crate named `hex`
+help: consider importing this module
+   |
+55 +         use hex;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex`
+  --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:65:46
+   |
+65 |             const INTERNAL_CASE: hex::Case = hex::Case::Upper;
+   |                                              ^^^ use of unresolved module or unlinked crate `hex`
+   |
+   = help: you might be missing a crate named `hex`
+help: consider importing this trait
+   |
+55 +         use hex::Case;
+   |
+help: if you import `Case`, refer to it directly
+   |
+65 -             const INTERNAL_CASE: hex::Case = hex::Case::Upper;
+65 +             const INTERNAL_CASE: hex::Case = Case::Upper;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:268:42
+    |
+268 |     fn write(&mut self, bytes: &[u8]) -> io::Result<usize> {
+    |                                          ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+268 -     fn write(&mut self, bytes: &[u8]) -> io::Result<usize> {
+268 +     fn write(&mut self, bytes: &[u8]) -> i8::Result<usize> {
+    |
+help: consider importing this module
+    |
+ 12 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:278:28
+    |
+278 |     fn flush(&mut self) -> io::Result<()> { Ok(()) }
+    |                            ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+278 -     fn flush(&mut self) -> io::Result<()> { Ok(()) }
+278 +     fn flush(&mut self) -> i8::Result<()> { Ok(()) }
+    |
+help: consider importing this module
+    |
+ 12 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:338:40
+    |
+338 | ...[u8]) -> io::Result<usize> { self.write_all(buf).map(|_| buf.len()) }
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+338 -     fn write(&mut self, buf: &[u8]) -> io::Result<usize> { self.write_all(buf).map(|_| buf.len()) }
+338 +     fn write(&mut self, buf: &[u8]) -> i8::Result<usize> { self.write_all(buf).map(|_| buf.len()) }
+    |
+help: consider importing this module
+    |
+ 12 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:340:44
+    |
+340 |     fn write_all(&mut self, buf: &[u8]) -> io::Result<()> {
+    |                                            ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+340 -     fn write_all(&mut self, buf: &[u8]) -> io::Result<()> {
+340 +     fn write_all(&mut self, buf: &[u8]) -> i8::Result<()> {
+    |
+help: consider importing this module
+    |
+ 12 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:350:28
+    |
+350 |     fn flush(&mut self) -> io::Result<()> { Ok(()) }
+    |                            ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+350 -     fn flush(&mut self) -> io::Result<()> { Ok(()) }
+350 +     fn flush(&mut self) -> i8::Result<()> { Ok(()) }
+    |
+help: consider importing this module
+    |
+ 12 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:104:32
+    |
+104 |     pub struct DecodeInitError(hex::OddLengthStringError);
+    |                                ^^^ use of unresolved module or unlinked crate `hex`
+    |
+    = help: you might be missing a crate named `hex`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:108:28
+    |
+108 |     pub struct DecodeError(hex::InvalidCharError);
+    |                            ^^^ use of unresolved module or unlinked crate `hex`
+    |
+    = help: you might be missing a crate named `hex`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex`
+   --> ../rust-bitcoin/bitcoin/src/consensus/serde.rs:111:28
+    |
+111 |     pub struct Decoder<'a>(hex::HexSliceToBytesIter<'a>);
+    |                            ^^^ use of unresolved module or unlinked crate `hex`
+    |
+    = help: you might be missing a crate named `hex`
+
+error: aborting due to 35 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

@@ -1,0 +1,55 @@
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:9:5
+  |
+9 | use core::{fmt, mem};
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:11:5
+   |
+11 | use internals::write_err;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  --> ../rust-bitcoin/consensus_encoding/src/decode/mod.rs:5:1
+   |
+ 5 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `CompactSizeDecoderErrorInner`
+   --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:658:13
+    |
+658 |         use CompactSizeDecoderErrorInner as E;
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `CompactSizeDecoderErrorInner` in the root
+    |
+help: consider importing this enum instead
+    |
+658 |         use decoders::CompactSizeDecoderErrorInner as E;
+    |             ++++++++++
+
+error[E0432]: unresolved import `CompactSizeDecoderErrorInner`
+   --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:758:13
+    |
+758 |         use CompactSizeDecoderErrorInner as E;
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `CompactSizeDecoderErrorInner` in the root
+    |
+help: consider importing this enum instead
+    |
+758 |         use decoders::CompactSizeDecoderErrorInner as E;
+    |             ++++++++++
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+   --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:606:10
+    |
+606 |     buf: internals::array_vec::ArrayVec<u8, 9>,
+    |          ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+    |
+    = help: you might be missing a crate named `internals`
+
+error: aborting due to 5 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

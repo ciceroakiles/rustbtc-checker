@@ -1,0 +1,9 @@
+error[E0432]: unresolved import `bitcoin_p2p_messages`
+ --> ../rust-bitcoin/p2p/examples/handshake.rs:8:5
+  |
+8 |     self, address, message, message_network, Magic, ProtocolVersion, Serv...
+  |     ^^^^ no `bitcoin_p2p_messages` in the root
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0432`.

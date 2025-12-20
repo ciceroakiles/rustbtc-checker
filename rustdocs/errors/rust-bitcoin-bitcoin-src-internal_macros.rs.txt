@@ -1,0 +1,39 @@
+error[E0432]: unresolved import `impl_consensus_encoding`
+  --> ../rust-bitcoin/bitcoin/src/internal_macros.rs:44:16
+   |
+44 | pub(crate) use impl_consensus_encoding;
+   |                ^^^^^^^^^^^^^^^^^^^^^^^ no `impl_consensus_encoding` in the root
+
+error[E0432]: unresolved import `impl_array_newtype_stringify`
+   --> ../rust-bitcoin/bitcoin/src/internal_macros.rs:175:16
+    |
+175 | pub(crate) use impl_array_newtype_stringify;
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `impl_array_newtype_stringify` in the root
+
+error[E0432]: unresolved import `impl_asref_push_bytes`
+   --> ../rust-bitcoin/bitcoin/src/internal_macros.rs:195:16
+    |
+195 | pub(crate) use impl_asref_push_bytes;
+    |                ^^^^^^^^^^^^^^^^^^^^^ no `impl_asref_push_bytes` in the root
+
+error[E0432]: unresolved import `only_doc_attrs`
+   --> ../rust-bitcoin/bitcoin/src/internal_macros.rs:211:16
+    |
+211 | pub(crate) use only_doc_attrs;
+    |                ^^^^^^^^^^^^^^ no `only_doc_attrs` in the root
+
+error[E0432]: unresolved import `only_non_doc_attrs`
+   --> ../rust-bitcoin/bitcoin/src/internal_macros.rs:227:16
+    |
+227 | pub(crate) use only_non_doc_attrs;
+    |                ^^^^^^^^^^^^^^^^^^ no `only_non_doc_attrs` in the root
+
+error[E0432]: unresolved import `define_extension_trait`
+   --> ../rust-bitcoin/bitcoin/src/internal_macros.rs:261:16
+    |
+261 | pub(crate) use define_extension_trait;
+    |                ^^^^^^^^^^^^^^^^^^^^^^ no `define_extension_trait` in the root
+
+error: aborting due to 6 previous errors
+
+For more information about this error, try `rustc --explain E0432`.

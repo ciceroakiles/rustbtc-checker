@@ -1,0 +1,69 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/units/src/sequence.rs:75:9
+   |
+75 |     pub(super) const LOCK_TYPE_MASK: u32 = 0x0040_0000;
+   |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `locktime`
+  --> ../rust-bitcoin/units/src/sequence.rs:28:12
+   |
+28 | use crate::locktime::relative::error::TimeOverflowError;
+   |            ^^^^^^^^ use of unresolved module or unlinked crate `locktime`
+   |
+help: you might be missing a crate named `locktime`, add it to your project and import it in your code
+   |
+17 + extern crate locktime;
+   |
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/units/src/sequence.rs:19:5
+   |
+19 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `locktime`
+  --> ../rust-bitcoin/units/src/sequence.rs:29:12
+   |
+29 | use crate::locktime::relative::{self, NumberOf512Seconds};
+   |            ^^^^^^^^ use of unresolved module or unlinked crate `locktime`
+   |
+help: you might be missing a crate named `locktime`, add it to your project and import it in your code
+   |
+17 + extern crate locktime;
+   |
+
+error[E0432]: unresolved import `crate::locktime`
+  --> ../rust-bitcoin/units/src/sequence.rs:29:12
+   |
+29 | use crate::locktime::relative::{self, NumberOf512Seconds};
+   |            ^^^^^^^^ use of unresolved module or unlinked crate `locktime`
+   |
+help: you might be missing a crate named `locktime`, add it to your project and import it in your code
+   |
+17 + extern crate locktime;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `locktime`
+   --> ../rust-bitcoin/units/src/sequence.rs:210:20
+    |
+210 | ...e::locktime::relative::{LockTime, NumberOf512Seconds, NumberOfBlocks};
+    |       ^^^^^^^^ use of unresolved module or unlinked crate `locktime`
+    |
+help: you might be missing a crate named `locktime`, add it to your project and import it in your code
+    |
+ 17 + extern crate locktime;
+    |
+
+error[E0432]: unresolved import `crate::parse_int`
+  --> ../rust-bitcoin/units/src/sequence.rs:30:24
+   |
+30 | use crate::parse_int::{self, PrefixedHexError, UnprefixedHexError};
+   |                        ^^^^ no `parse_int` in the root
+
+error: aborting due to 7 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

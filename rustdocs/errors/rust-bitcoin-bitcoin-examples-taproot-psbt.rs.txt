@@ -1,0 +1,144 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:82:5
+   |
+82 | use bitcoin::ext::*;
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+27 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:80:5
+   |
+80 | use bitcoin::bip32::{ChildNumber, DerivationPath, Fingerprint, Xpriv, Xp...
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+27 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:81:5
+   |
+81 | use bitcoin::consensus::encode;
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+27 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:83:5
+   |
+83 | use bitcoin::key::{TapTweak, XOnlyPublicKey};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+27 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:84:5
+   |
+84 | use bitcoin::opcodes::all::{OP_CHECKSIG, OP_CLTV, OP_DROP};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+27 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:85:5
+   |
+85 | use bitcoin::psbt::{self, Input, Output, Psbt, PsbtSighashType};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+27 + extern crate bitcoin;
+   |
+
+error[E0432]: unresolved import `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:85:5
+   |
+85 | use bitcoin::psbt::{self, Input, Output, Psbt, PsbtSighashType};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+27 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:86:5
+   |
+86 | use bitcoin::sighash::{self, SighashCache, TapSighash, TapSighashType};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+27 + extern crate bitcoin;
+   |
+
+error[E0432]: unresolved import `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:86:5
+   |
+86 | use bitcoin::sighash::{self, SighashCache, TapSighash, TapSighashType};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+27 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:87:5
+   |
+87 | use bitcoin::taproot::{self, LeafVersion, TapLeafHash, TaprootBuilder, T...
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+27 + extern crate bitcoin;
+   |
+
+error[E0432]: unresolved import `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:87:5
+   |
+87 | use bitcoin::taproot::{self, LeafVersion, TapLeafHash, TaprootBuilder, T...
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+27 + extern crate bitcoin;
+   |
+
+error[E0432]: unresolved import `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:88:5
+   |
+88 | use bitcoin::{
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+27 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/examples/taproot-psbt.rs:726:17
+    |
+726 |     secret_key: secp256k1::SecretKey,
+    |                 ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error: aborting due to 13 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

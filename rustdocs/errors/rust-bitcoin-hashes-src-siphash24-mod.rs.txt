@@ -1,0 +1,47 @@
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/hashes/src/siphash24/mod.rs:5:5
+  |
+5 | use core::{cmp, mem};
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internal_macros`
+ --> ../rust-bitcoin/hashes/src/siphash24/mod.rs:9:8
+  |
+9 | crate::internal_macros::hash_type_no_default! {
+  |        ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `internal_macros`
+
+error[E0404]: expected trait, found struct `crate::HashEngine`
+   --> ../rust-bitcoin/hashes/src/siphash24/mod.rs:114:6
+    |
+114 | impl crate::HashEngine for HashEngine {
+    |      ^^^^^^^^^^^^^^^^^ not a trait
+
+error[E0573]: expected type, found derive macro `Hash`
+   --> ../rust-bitcoin/hashes/src/siphash24/mod.rs:115:17
+    |
+115 |     type Hash = Hash;
+    |                 ^^^^ not a type
+    |
+help: consider importing this trait instead
+    |
+  5 + use std::hash::Hash;
+    |
+
+error[E0573]: expected type, found derive macro `Hash`
+   --> ../rust-bitcoin/hashes/src/siphash24/mod.rs:165:6
+    |
+165 | impl Hash {
+    |      ^^^^ not a type
+    |
+help: consider importing this trait instead
+    |
+  5 + use std::hash::Hash;
+    |
+
+error: aborting due to 5 previous errors
+
+Some errors have detailed explanations: E0404, E0432, E0433, E0573.
+For more information about an error, try `rustc --explain E0404`.

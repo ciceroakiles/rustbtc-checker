@@ -1,0 +1,33 @@
+error[E0432]: unresolved import `hash_trait_impls`
+  --> ../rust-bitcoin/hashes/src/internal_macros.rs:43:16
+   |
+43 | pub(crate) use hash_trait_impls;
+   |                ^^^^^^^^^^^^^^^^ no `hash_trait_impls` in the root
+
+error[E0432]: unresolved import `general_hash_type`
+   --> ../rust-bitcoin/hashes/src/internal_macros.rs:106:16
+    |
+106 | pub(crate) use general_hash_type;
+    |                ^^^^^^^^^^^^^^^^^ no `general_hash_type` in the root
+
+error[E0432]: unresolved import `hash_type_no_default`
+   --> ../rust-bitcoin/hashes/src/internal_macros.rs:149:16
+    |
+149 | pub(crate) use hash_type_no_default;
+    |                ^^^^^^^^^^^^^^^^^^^^ no `hash_type_no_default` in the root
+
+error[E0432]: unresolved import `impl_write`
+   --> ../rust-bitcoin/hashes/src/internal_macros.rs:168:16
+    |
+168 | pub(crate) use impl_write;
+    |                ^^^^^^^^^^ no `impl_write` in the root
+
+error[E0432]: unresolved import `engine_input_impl`
+   --> ../rust-bitcoin/hashes/src/internal_macros.rs:199:16
+    |
+199 | pub(crate) use engine_input_impl;
+    |                ^^^^^^^^^^^^^^^^^ no `engine_input_impl` in the root
+
+error: aborting due to 5 previous errors
+
+For more information about this error, try `rustc --explain E0432`.

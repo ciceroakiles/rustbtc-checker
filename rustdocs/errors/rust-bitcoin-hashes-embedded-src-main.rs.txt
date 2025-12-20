@@ -1,0 +1,55 @@
+error[E0463]: can't find crate for `bitcoin_hashes`
+ --> ../rust-bitcoin/hashes/embedded/src/main.rs:6:1
+  |
+6 | extern crate bitcoin_hashes;
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ can't find crate
+
+error[E0432]: unresolved import `bitcoin_io`
+  --> ../rust-bitcoin/hashes/embedded/src/main.rs:16:5
+   |
+16 | use bitcoin_io::Write;
+   |     ^^^^^^^^^^ use of unresolved module or unlinked crate `bitcoin_io`
+   |
+help: you might be missing a crate named `bitcoin_io`, add it to your project and import it in your code
+   |
+ 5 + extern crate bitcoin_io;
+   |
+
+error[E0432]: unresolved import `cortex_m_rt`
+  --> ../rust-bitcoin/hashes/embedded/src/main.rs:17:5
+   |
+17 | use cortex_m_rt::entry;
+   |     ^^^^^^^^^^^ use of unresolved module or unlinked crate `cortex_m_rt`
+   |
+help: you might be missing a crate named `cortex_m_rt`, add it to your project and import it in your code
+   |
+ 5 + extern crate cortex_m_rt;
+   |
+
+error[E0432]: unresolved import `cortex_m_semihosting`
+  --> ../rust-bitcoin/hashes/embedded/src/main.rs:18:5
+   |
+18 | use cortex_m_semihosting::debug;
+   |     ^^^^^^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `cortex_m_semihosting`
+   |
+help: you might be missing a crate named `cortex_m_semihosting`, add it to your project and import it in your code
+   |
+ 5 + extern crate cortex_m_semihosting;
+   |
+
+error[E0432]: unresolved import `panic_halt`
+  --> ../rust-bitcoin/hashes/embedded/src/main.rs:21:5
+   |
+21 | use panic_halt as _;
+   |     ^^^^^^^^^^^^^^^ no `panic_halt` in the root
+
+error: cannot find macro `hash_newtype` in this scope
+  --> ../rust-bitcoin/hashes/embedded/src/main.rs:23:1
+   |
+23 | hash_newtype! {
+   | ^^^^^^^^^^^^
+
+error: aborting due to 6 previous errors
+
+Some errors have detailed explanations: E0432, E0463.
+For more information about an error, try `rustc --explain E0432`.

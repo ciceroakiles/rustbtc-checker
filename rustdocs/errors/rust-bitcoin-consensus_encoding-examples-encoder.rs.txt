@@ -1,0 +1,22 @@
+error[E0432]: unresolved import `bitcoin_consensus_encoding`
+ --> ../rust-bitcoin/consensus_encoding/examples/encoder.rs:5:5
+  |
+5 | use bitcoin_consensus_encoding as encoding;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `bitcoin_consensus_encoding` in the root
+
+error[E0425]: cannot find type `AdtEncoder` in this scope
+  --> ../rust-bitcoin/consensus_encoding/examples/encoder.rs:37:11
+   |
+37 |         = AdtEncoder<'a>
+   |           ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `InnerEncoder` in this scope
+  --> ../rust-bitcoin/consensus_encoding/examples/encoder.rs:70:24
+   |
+70 |     type Encoder<'e> = InnerEncoder;
+   |                        ^^^^^^^^^^^^ not found in this scope
+
+error: aborting due to 3 previous errors
+
+Some errors have detailed explanations: E0425, E0432.
+For more information about an error, try `rustc --explain E0425`.

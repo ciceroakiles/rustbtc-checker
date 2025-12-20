@@ -1,0 +1,125 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/bitcoin/src/psbt/raw.rs:15:5
+   |
+15 | use super::serialize::{Deserialize, Serialize};
+   |     ^^^^^ there are too many leading `super` keywords
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/bitcoin/src/psbt/raw.rs:8:5
+  |
+8 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/bitcoin/src/psbt/raw.rs:12:5
+   |
+12 | use internals::ToU64 as _;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+   |
+ 8 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `io`
+  --> ../rust-bitcoin/bitcoin/src/psbt/raw.rs:13:5
+   |
+13 | use io::{BufRead, Write};
+   |     ^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::io`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `consensus`
+  --> ../rust-bitcoin/bitcoin/src/psbt/raw.rs:16:12
+   |
+16 | use crate::consensus::encode::{
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/psbt/raw.rs:16:12
+   |
+16 | use crate::consensus::encode::{
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/psbt/raw.rs:19:12
+   |
+19 | use crate::prelude::{DisplayHex, Vec};
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `crate::psbt`
+  --> ../rust-bitcoin/bitcoin/src/psbt/raw.rs:20:12
+   |
+20 | use crate::psbt::Error;
+   |            ^^^^ use of unresolved module or unlinked crate `psbt`
+   |
+help: you might be missing a crate named `psbt`, add it to your project and import it in your code
+   |
+ 8 + extern crate psbt;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/psbt/raw.rs:140:79
+    |
+140 | ...t<usize, io::Error> {
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+140 -     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, io::Error> {
+140 +     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, i8::Error> {
+    |
+help: consider importing this module
+    |
+  8 + use std::io;
+    |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/raw.rs:174:15
+    |
+174 | impl<Subtype> TryFrom<Key> for ProprietaryKey<Subtype>
+    |               ^^^^^^^ not found in this scope
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+help: consider importing this trait
+    |
+  8 + use std::convert::TryFrom;
+    |
+
+error[E0223]: ambiguous associated type
+   --> ../rust-bitcoin/bitcoin/src/psbt/raw.rs:185:43
+    |
+185 |     fn try_from(key: Key) -> Result<Self, Self::Error> {
+    |                                           ^^^^^^^^^^^
+    |
+help: use fully-qualified syntax
+    |
+185 -     fn try_from(key: Key) -> Result<Self, Self::Error> {
+185 +     fn try_from(key: Key) -> Result<Self, <ProprietaryKey<Subtype> as std::convert::TryFrom>::Error> {
+    |
+185 -     fn try_from(key: Key) -> Result<Self, Self::Error> {
+185 +     fn try_from(key: Key) -> Result<Self, <ProprietaryKey<Subtype> as std::convert::TryInto>::Error> {
+    |
+
+error: aborting due to 11 previous errors
+
+Some errors have detailed explanations: E0223, E0405, E0432, E0433.
+For more information about an error, try `rustc --explain E0223`.

@@ -1,0 +1,138 @@
+error[E0433]: failed to resolve: you might be missing crate `core`
+ --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:5:5
+  |
+5 | use core::convert::Infallible;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:6:5
+  |
+6 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:12:5
+   |
+12 | use encoding::Encodable;
+   |     ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+   |
+help: you might be missing a crate named `encoding`, add it to your project and import it in your code
+   |
+ 5 + extern crate encoding;
+   |
+
+error[E0432]: unresolved import `hashes`
+  --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:13:5
+   |
+13 | use hashes::sha256d;
+   |     ^^^^^^ use of unresolved module or unlinked crate `hashes`
+   |
+help: you might be missing a crate named `hashes`, add it to your project and import it in your code
+   |
+ 5 + extern crate hashes;
+   |
+
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:14:5
+   |
+14 | use internals::write_err;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+   |
+ 5 + extern crate internals;
+   |
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/primitives/src/hash_types/./generic.rs:29:1
+   |
+29 | super::impl_bytelike_traits!(HashType, LEN);
+   | ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:32:1
+   |
+32 | encoding::encoder_newtype! {
+   | ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+
+error[E0425]: cannot find type `BlockHashEncoder` in this scope
+  --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:38:24
+   |
+38 |     type Encoder<'e> = BlockHashEncoder;
+   |                        ^^^^^^^^^^^^^^^^
+...
+45 | pub struct BlockHashDecoder(encoding::ArrayDecoder<32>);
+   | -------------------------------------------------------- similarly named struct `BlockHashDecoder` defined here
+   |
+help: a struct with a similar name exists
+   |
+38 -     type Encoder<'e> = BlockHashEncoder;
+38 +     type Encoder<'e> = BlockHashDecoder;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hashes`
+  --> ../rust-bitcoin/primitives/src/hash_types/./generic.rs:10:30
+   |
+10 | const LEN: usize = <Inner as hashes::Hash>::LEN;
+   |                              ^^^^^^ use of unresolved module or unlinked crate `hashes`
+   |
+   = help: you might be missing a crate named `hashes`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:45:29
+   |
+45 | pub struct BlockHashDecoder(encoding::ArrayDecoder<32>);
+   |                             ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+   |
+   = help: you might be missing a crate named `encoding`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:56:6
+   |
+56 | impl encoding::Decoder for BlockHashDecoder {
+   |      ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+   |
+   = help: you might be missing a crate named `encoding`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:75:6
+   |
+75 | impl encoding::Decodable for BlockHash {
+   |      ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+   |
+   = help: you might be missing a crate named `encoding`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:82:34
+   |
+82 | pub struct BlockHashDecoderError(encoding::UnexpectedEofError);
+   |                                  ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+   |
+   = help: you might be missing a crate named `encoding`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:88:11
+   |
+88 | impl From<encoding::UnexpectedEofError> for BlockHashDecoderError {
+   |           ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+   |
+   = help: you might be missing a crate named `encoding`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/block_hash.rs:89:16
+   |
+89 |     fn from(e: encoding::UnexpectedEofError) -> Self { Self(e) }
+   |                ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+   |
+   = help: you might be missing a crate named `encoding`
+
+error: aborting due to 15 previous errors
+
+Some errors have detailed explanations: E0425, E0432, E0433.
+For more information about an error, try `rustc --explain E0425`.

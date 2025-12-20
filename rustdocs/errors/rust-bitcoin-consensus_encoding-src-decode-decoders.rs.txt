@@ -1,0 +1,38 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:15:5
+   |
+15 | use super::Decoder;
+   |     ^^^^^ there are too many leading `super` keywords
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:9:5
+  |
+9 | use core::{fmt, mem};
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:11:5
+   |
+11 | use internals::write_err;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+   |
+ 5 + extern crate internals;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+   --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:606:10
+    |
+606 |     buf: internals::array_vec::ArrayVec<u8, 9>,
+    |          ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+    |
+    = help: you might be missing a crate named `internals`
+
+error: aborting due to 4 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

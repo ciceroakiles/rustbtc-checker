@@ -1,0 +1,720 @@
+error[E0433]: failed to resolve: you might be missing crate `core`
+ --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:8:5
+  |
+8 | use core::convert::Infallible;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+ --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:9:5
+  |
+9 | use core::fmt::{self, Write as _};
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:9:5
+  |
+9 | use core::fmt::{self, Write as _};
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:11:5
+   |
+11 | use core::str::FromStr;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:10:5
+   |
+10 | use core::ops;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `hashes`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:13:5
+   |
+13 | use hashes::hash160;
+   |     ^^^^^^ use of unresolved module or unlinked crate `hashes`
+   |
+help: you might be missing a crate named `hashes`, add it to your project and import it in your code
+   |
+ 8 + extern crate hashes;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:15:5
+   |
+15 | use internals::array::ArrayExt;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+   |
+ 8 + extern crate internals;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:16:5
+   |
+16 | use internals::array_vec::ArrayVec;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+   |
+ 8 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `hex`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:14:5
+   |
+14 | use hex::{FromHex, HexToArrayError};
+   |     ^^^ use of unresolved module or unlinked crate `hex`
+   |
+help: you might be missing a crate named `hex`, add it to your project and import it in your code
+   |
+ 8 + extern crate hex;
+   |
+
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:17:5
+   |
+17 | use internals::{impl_to_hex_from_lower_hex, write_err};
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+   |
+ 8 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `io`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:18:5
+   |
+18 | use io::{Read, Write};
+   |     ^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::io`
+
+error[E0432]: unresolved import `crate::crypto`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:20:12
+   |
+20 | use crate::crypto::ecdsa;
+   |            ^^^^^^ use of unresolved module or unlinked crate `crypto`
+   |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+   |
+ 8 + extern crate crypto;
+   |
+
+error[E0432]: unresolved import `crate::internal_macros`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:21:12
+   |
+21 | use crate::internal_macros::impl_asref_push_bytes;
+   |            ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `internal_macros`
+   |
+help: you might be missing a crate named `internal_macros`, add it to your project and import it in your code
+   |
+ 8 + extern crate internal_macros;
+   |
+
+error[E0432]: unresolved import `crate::network`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:22:12
+   |
+22 | use crate::network::NetworkKind;
+   |            ^^^^^^^ use of unresolved module or unlinked crate `network`
+   |
+help: you might be missing a crate named `network`, add it to your project and import it in your code
+   |
+ 8 + extern crate network;
+   |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:23:12
+   |
+23 | use crate::prelude::{DisplayHex, String, Vec};
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `crate::script`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:24:21
+   |
+24 | use crate::script::{self, WitnessScriptBuf};
+   |                     ^^^^ no `script` in the root
+
+error[E0432]: unresolved import `crate::taproot`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:25:12
+   |
+25 | use crate::taproot::{TapNodeHash, TapTweakHash};
+   |            ^^^^^^^ use of unresolved module or unlinked crate `taproot`
+   |
+help: you might be missing a crate named `taproot`, add it to your project and import it in your code
+   |
+ 8 + extern crate taproot;
+   |
+
+error[E0432]: unresolved import `serialized_x_only::SerializedXOnlyPublicKey`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:31:9
+   |
+31 | pub use serialized_x_only::SerializedXOnlyPublicKey;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `SerializedXOnlyPublicKey` in `serialized_x_only`
+
+error[E0432]: unresolved import `secp256k1`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:28:9
+   |
+28 | pub use secp256k1::{constants, Keypair, Parity, Verification};
+   |         ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+   |
+help: you might be missing a crate named `secp256k1`, add it to your project and import it in your code
+   |
+ 8 + extern crate secp256k1;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hashes`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:368:1
+    |
+368 | hashes::hash_newtype! {
+    | ^^^^^^ use of unresolved module or unlinked crate `hashes`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hashes`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:375:1
+    |
+375 | hashes::impl_hex_for_newtype!(PubkeyHash, WPubkeyHash);
+    | ^^^^^^ use of unresolved module or unlinked crate `hashes`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1308:5
+     |
+1308 |     internals::transparent_newtype! {
+     |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+
+error[E0425]: cannot find type `PubkeyHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:172:34
+    |
+172 |     pub fn pubkey_hash(&self) -> PubkeyHash {
+    |                                  ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `WPubkeyHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:177:42
+    |
+177 | ...self) -> Result<WPubkeyHash, UncompressedPublicKeyError> {
+    |                    ^^^^^^^^^^^ not found in this scope
+    |
+help: you might be missing a type parameter
+    |
+151 | impl<WPubkeyHash> PublicKey {
+    |     +++++++++++++
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:198:79
+    |
+198 | ...sult<(), io::Error> {
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+198 -     pub fn write_into<W: Write + ?Sized>(&self, writer: &mut W) -> Result<(), io::Error> {
+198 +     pub fn write_into<W: Write + ?Sized>(&self, writer: &mut W) -> Result<(), i8::Error> {
+    |
+help: consider importing this module
+    |
+  8 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:206:72
+    |
+206 | ...lt<Self, io::Error> {
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+206 -     pub fn read_from<R: Read + ?Sized>(reader: &mut R) -> Result<Self, io::Error> {
+206 +     pub fn read_from<R: Read + ?Sized>(reader: &mut R) -> Result<Self, i8::Error> {
+    |
+help: consider importing this module
+    |
+  8 + use std::io;
+    |
+
+error[E0425]: cannot find type `PubkeyHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:381:26
+    |
+381 | impl From<PublicKey> for PubkeyHash {
+    |                          ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `PubkeyHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:385:27
+    |
+385 | impl From<&PublicKey> for PubkeyHash {
+    |                           ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `PubkeyHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:395:34
+    |
+395 |     pub fn pubkey_hash(&self) -> PubkeyHash { PubkeyHash(hash160::Hash:...
+    |                                  ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `WPubkeyHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:398:35
+    |
+398 |     pub fn wpubkey_hash(&self) -> WPubkeyHash {
+    |                                   ^^^^^^^^^^^ not found in this scope
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:412:26
+    |
+412 | ..._into<W: io::Write + ?Sized>(&self, writer: &mut W) -> Result<(), io...
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+412 -     pub fn write_into<W: io::Write + ?Sized>(&self, writer: &mut W) -> Result<(), io::Error> {
+412 +     pub fn write_into<W: i8::Write + ?Sized>(&self, writer: &mut W) -> Result<(), io::Error> {
+    |
+help: consider importing this module
+    |
+  8 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:412:83
+    |
+412 | ...sult<(), io::Error> {
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+412 -     pub fn write_into<W: io::Write + ?Sized>(&self, writer: &mut W) -> Result<(), io::Error> {
+412 +     pub fn write_into<W: io::Write + ?Sized>(&self, writer: &mut W) -> Result<(), i8::Error> {
+    |
+help: consider importing this module
+    |
+  8 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:420:25
+    |
+420 | ..._from<R: io::Read + ?Sized>(reader: &mut R) -> Result<Self, io::Erro...
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+420 -     pub fn read_from<R: io::Read + ?Sized>(reader: &mut R) -> Result<Self, io::Error> {
+420 +     pub fn read_from<R: i8::Read + ?Sized>(reader: &mut R) -> Result<Self, io::Error> {
+    |
+help: consider importing this module
+    |
+  8 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:420:76
+    |
+420 | ...lt<Self, io::Error> {
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+420 -     pub fn read_from<R: io::Read + ?Sized>(reader: &mut R) -> Result<Self, io::Error> {
+420 +     pub fn read_from<R: io::Read + ?Sized>(reader: &mut R) -> Result<Self, i8::Error> {
+    |
+help: consider importing this module
+    |
+  8 + use std::io;
+    |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:483:6
+    |
+483 | impl TryFrom<PublicKey> for CompressedPublicKey {
+    |      ^^^^^^^ not found in this scope
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+help: consider importing this trait
+    |
+  8 + use std::convert::TryFrom;
+    |
+
+error[E0425]: cannot find type `PubkeyHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:503:36
+    |
+503 | impl From<CompressedPublicKey> for PubkeyHash {
+    |                                    ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `PubkeyHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:507:37
+    |
+507 | impl From<&CompressedPublicKey> for PubkeyHash {
+    |                                     ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `WPubkeyHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:511:36
+    |
+511 | impl From<CompressedPublicKey> for WPubkeyHash {
+    |                                    ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `WPubkeyHash` in this scope
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:515:37
+    |
+515 | impl From<&CompressedPublicKey> for WPubkeyHash {
+    |                                     ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `SerializedXOnlyPublicKey` in this scope
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1321:10
+     |
+1321 |     impl SerializedXOnlyPublicKey {
+     |          ^^^^^^^^^^^^^^^^^^^^^^^^ not found in this scope
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:36:27
+   |
+36 | pub struct XOnlyPublicKey(secp256k1::XOnlyPublicKey);
+   |                           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+   |
+   = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:40:31
+   |
+40 | ... fn new(key: impl Into<secp256k1::XOnlyPublicKey>) -> Self { Self(key...
+   |                           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+   |
+   = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:65:32
+   |
+65 |     pub fn into_inner(self) -> secp256k1::XOnlyPublicKey { self.0 }
+   |                                ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+   |
+   = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+  --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:84:16
+   |
+84 |         tweak: secp256k1::Scalar,
+   |                ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+   |
+   = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:103:17
+    |
+103 |         tweak: &secp256k1::Scalar,
+    |                 ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:124:11
+    |
+124 | impl From<secp256k1::XOnlyPublicKey> for XOnlyPublicKey {
+    |           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:125:17
+    |
+125 |     fn from(pk: secp256k1::XOnlyPublicKey) -> Self { Self::new(pk) }
+    |                 ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:128:11
+    |
+128 | impl From<secp256k1::PublicKey> for XOnlyPublicKey {
+    |           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:129:17
+    |
+129 |     fn from(pk: secp256k1::PublicKey) -> Self { Self::new(pk) }
+    |                 ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:148:16
+    |
+148 |     pub inner: secp256k1::PublicKey,
+    |                ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:153:31
+    |
+153 |     pub fn new(key: impl Into<secp256k1::PublicKey>) -> Self {
+    |                               ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:159:44
+    |
+159 | ...pressed(key: impl Into<secp256k1::PublicKey>) -> Self {
+    |                           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:320:14
+    |
+320 |         msg: secp256k1::Message,
+    |              ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:322:21
+    |
+322 |     ) -> Result<(), secp256k1::Error> {
+    |                     ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:327:11
+    |
+327 | impl From<secp256k1::PublicKey> for PublicKey {
+    |           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:328:17
+    |
+328 |     fn from(pk: secp256k1::PublicKey) -> Self { Self::new(pk) }
+    |                 ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:391:36
+    |
+391 | pub struct CompressedPublicKey(pub secp256k1::PublicKey);
+    |                                    ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:444:52
+    |
+444 |     pub fn from_slice(data: &[u8]) -> Result<Self, secp256k1::Error> {
+    |                                                    ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:456:14
+    |
+456 |         msg: secp256k1::Message,
+    |              ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:458:21
+    |
+458 |     ) -> Result<(), secp256k1::Error> {
+    |                     ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:527:16
+    |
+527 |     pub inner: secp256k1::SecretKey,
+    |                ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:540:21
+    |
+540 |     pub fn new(key: secp256k1::SecretKey, network: impl Into<NetworkKin...
+    |                     ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:546:34
+    |
+546 | ... new_uncompressed(key: secp256k1::SecretKey, network: impl Into<Netw...
+    |                           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:569:23
+    |
+569 |     ) -> Result<Self, secp256k1::Error> {
+    |                       ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:578:23
+    |
+578 |     ) -> Result<Self, secp256k1::Error> {
+    |                       ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1045:15
+     |
+1045 |     Secp256k1(secp256k1::Error),
+     |               ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+     |
+     = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1075:11
+     |
+1075 | impl From<secp256k1::Error> for FromSliceError {
+     |           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+     |
+     = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1076:16
+     |
+1076 |     fn from(e: secp256k1::Error) -> Self { Self::Secp256k1(e) }
+     |                ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+     |
+     = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `base58`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1084:12
+     |
+1084 |     Base58(base58::Error),
+     |            ^^^^^^ use of unresolved module or unlinked crate `base58`
+     |
+     = help: you might be missing a crate named `base58`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1090:15
+     |
+1090 |     Secp256k1(secp256k1::Error),
+     |               ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+     |
+     = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `base58`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1127:11
+     |
+1127 | impl From<base58::Error> for FromWifError {
+     |           ^^^^^^ use of unresolved module or unlinked crate `base58`
+     |
+     = help: you might be missing a crate named `base58`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `base58`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1128:16
+     |
+1128 |     fn from(e: base58::Error) -> Self { Self::Base58(e) }
+     |                ^^^^^^ use of unresolved module or unlinked crate `base58`
+     |
+     = help: you might be missing a crate named `base58`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1131:11
+     |
+1131 | impl From<secp256k1::Error> for FromWifError {
+     |           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+     |
+     = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1132:16
+     |
+1132 |     fn from(e: secp256k1::Error) -> Self { Self::Secp256k1(e) }
+     |                ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+     |
+     = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1153:17
+     |
+1153 |     InvalidChar(hex::InvalidCharError),
+     |                 ^^^ use of unresolved module or unlinked crate `hex`
+     |
+     = help: you might be missing a crate named `hex`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1192:15
+     |
+1192 |     Secp256k1(secp256k1::Error),
+     |               ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+     |
+     = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1194:9
+     |
+1194 |     Hex(hex::HexToArrayError),
+     |         ^^^ use of unresolved module or unlinked crate `hex`
+     |
+     = help: you might be missing a crate named `hex`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1220:11
+     |
+1220 | impl From<secp256k1::Error> for ParseCompressedPublicKeyError {
+     |           ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+     |
+     = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1221:16
+     |
+1221 |     fn from(e: secp256k1::Error) -> Self { Self::Secp256k1(e) }
+     |                ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+     |
+     = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1224:11
+     |
+1224 | impl From<hex::HexToArrayError> for ParseCompressedPublicKeyError {
+     |           ^^^ use of unresolved module or unlinked crate `hex`
+     |
+     = help: you might be missing a crate named `hex`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hex`
+    --> ../rust-bitcoin/bitcoin/src/crypto/key.rs:1225:16
+     |
+1225 |     fn from(e: hex::HexToArrayError) -> Self { Self::Hex(e) }
+     |                ^^^ use of unresolved module or unlinked crate `hex`
+     |
+     = help: you might be missing a crate named `hex`
+
+error: aborting due to 81 previous errors
+
+Some errors have detailed explanations: E0405, E0425, E0432, E0433.
+For more information about an error, try `rustc --explain E0405`.

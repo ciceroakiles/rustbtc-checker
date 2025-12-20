@@ -1,0 +1,106 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/io.rs:10:5
+   |
+10 | use bitcoin::consensus::{Decodable, Encodable as _};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+10 + extern crate bitcoin;
+   |
+
+error[E0432]: unresolved import `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/io.rs:11:5
+   |
+11 | use bitcoin::{OutPoint, Txid};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+10 + extern crate bitcoin;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/examples/io.rs:55:10
+   |
+55 |     impl io::Write for WriteCounter {
+   |          ^^ use of unresolved module or unlinked crate `io`
+   |
+help: a builtin type with a similar name exists
+   |
+55 -     impl io::Write for WriteCounter {
+55 +     impl i8::Write for WriteCounter {
+   |
+help: to make use of source file ../rust-bitcoin/bitcoin/examples/io.rs, use `mod io` in this file to declare the module
+   |
+10 + mod io;
+   |
+help: consider importing this module
+   |
+10 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/examples/io.rs:56:58
+   |
+56 |         fn write(&mut self, buf: &[u8]) -> Result<usize, io::Error> {
+   |                                                          ^^ use of unresolved module or unlinked crate `io`
+   |
+help: a builtin type with a similar name exists
+   |
+56 -         fn write(&mut self, buf: &[u8]) -> Result<usize, io::Error> {
+56 +         fn write(&mut self, buf: &[u8]) -> Result<usize, i8::Error> {
+   |
+help: to make use of source file ../rust-bitcoin/bitcoin/examples/io.rs, use `mod io` in this file to declare the module
+   |
+10 + mod io;
+   |
+help: consider importing this module
+   |
+10 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/examples/io.rs:61:59
+   |
+61 |         fn write_all(&mut self, buf: &[u8]) -> Result<(), io::Error> {
+   |                                                           ^^ use of unresolved module or unlinked crate `io`
+   |
+help: a builtin type with a similar name exists
+   |
+61 -         fn write_all(&mut self, buf: &[u8]) -> Result<(), io::Error> {
+61 +         fn write_all(&mut self, buf: &[u8]) -> Result<(), i8::Error> {
+   |
+help: to make use of source file ../rust-bitcoin/bitcoin/examples/io.rs, use `mod io` in this file to declare the module
+   |
+10 + mod io;
+   |
+help: consider importing this module
+   |
+10 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/examples/io.rs:65:43
+   |
+65 |         fn flush(&mut self) -> Result<(), io::Error> { Ok(()) }
+   |                                           ^^ use of unresolved module or unlinked crate `io`
+   |
+help: a builtin type with a similar name exists
+   |
+65 -         fn flush(&mut self) -> Result<(), io::Error> { Ok(()) }
+65 +         fn flush(&mut self) -> Result<(), i8::Error> { Ok(()) }
+   |
+help: to make use of source file ../rust-bitcoin/bitcoin/examples/io.rs, use `mod io` in this file to declare the module
+   |
+10 + mod io;
+   |
+help: consider importing this module
+   |
+10 + use std::io;
+   |
+
+error: aborting due to 6 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

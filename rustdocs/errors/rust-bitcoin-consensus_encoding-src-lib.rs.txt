@@ -1,0 +1,80 @@
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:11:5
+   |
+11 | use internals::write_err;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  --> ../rust-bitcoin/consensus_encoding/src/lib.rs:15:1
+   |
+15 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `CompactSizeDecoderErrorInner`
+   --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:658:13
+    |
+658 |         use CompactSizeDecoderErrorInner as E;
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `CompactSizeDecoderErrorInner` in the root
+    |
+help: a similar name exists in the module
+    |
+658 -         use CompactSizeDecoderErrorInner as E;
+658 +         use CompactSizeDecoderError as E;
+    |
+help: consider importing this enum instead
+    |
+658 |         use decode::decoders::CompactSizeDecoderErrorInner as E;
+    |             ++++++++++++++++++
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+  --> ../rust-bitcoin/consensus_encoding/src/encode/encoders.rs:14:5
+   |
+14 | use internals::array_vec::ArrayVec;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  --> ../rust-bitcoin/consensus_encoding/src/lib.rs:15:1
+   |
+15 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `CompactSizeDecoderErrorInner`
+   --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:758:13
+    |
+758 |         use CompactSizeDecoderErrorInner as E;
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `CompactSizeDecoderErrorInner` in the root
+    |
+help: a similar name exists in the module
+    |
+758 -         use CompactSizeDecoderErrorInner as E;
+758 +         use CompactSizeDecoderError as E;
+    |
+help: consider importing this enum instead
+    |
+758 |         use decode::decoders::CompactSizeDecoderErrorInner as E;
+    |             ++++++++++++++++++
+
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/consensus_encoding/src/encode/encoders.rs:15:5
+   |
+15 | use internals::compact_size;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  --> ../rust-bitcoin/consensus_encoding/src/lib.rs:15:1
+   |
+15 + extern crate internals;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+   --> ../rust-bitcoin/consensus_encoding/src/decode/decoders.rs:606:10
+    |
+606 |     buf: internals::array_vec::ArrayVec<u8, 9>,
+    |          ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+    |
+    = help: you might be missing a crate named `internals`
+
+error: aborting due to 6 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

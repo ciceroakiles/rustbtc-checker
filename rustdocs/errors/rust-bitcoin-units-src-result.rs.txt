@@ -1,0 +1,38 @@
+error[E0433]: failed to resolve: you might be missing crate `core`
+ --> ../rust-bitcoin/units/src/result.rs:5:5
+  |
+5 | use core::convert::Infallible;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/units/src/result.rs:6:5
+  |
+6 | use core::{fmt, ops};
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved imports `crate::Amount`, `crate::FeeRate`, `crate::SignedAmount`, `crate::Weight`
+  --> ../rust-bitcoin/units/src/result.rs:12:13
+   |
+12 | use crate::{Amount, FeeRate, SignedAmount, Weight};
+   |             ^^^^^^  ^^^^^^^  ^^^^^^^^^^^^  ^^^^^^ no `Weight` in the root
+   |             |       |        |
+   |             |       |        no `SignedAmount` in the root
+   |             |       no `FeeRate` in the root
+   |             no `Amount` in the root
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internal_macros`
+   --> ../rust-bitcoin/units/src/result.rs:219:8
+    |
+219 | crate::internal_macros::impl_op_for_references! {
+    |        ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `internal_macros`
+
+error: aborting due to 4 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

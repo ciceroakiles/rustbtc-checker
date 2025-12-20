@@ -1,0 +1,48 @@
+warning: unresolved link to `crate::impl_hex_for_newtype`
+ --> ../rust-bitcoin/hashes/src/macros.rs:7:32
+  |
+7 | //! - [`impl_hex_for_newtype`](crate::impl_hex_for_newtype)
+  |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^ no item named `impl_hex_for_newtype` in module `macros`
+  |
+  = note: `#[warn(rustdoc::broken_intra_doc_links)]` on by default
+
+warning: unresolved link to `crate::impl_serde_for_newtype`
+ --> ../rust-bitcoin/hashes/src/macros.rs:8:34
+  |
+8 | //! - [`impl_serde_for_newtype`](crate::impl_serde_for_newtype)
+  |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no item named `impl_serde_for_newtype` in module `macros`
+
+warning: redundant explicit link target
+ --> ../rust-bitcoin/hashes/src/macros.rs:5:23
+  |
+5 | //! - [`sha256t_tag`](crate::sha256t_tag)
+  |        -------------  ^^^^^^^^^^^^^^^^^^ explicit target is redundant
+  |        |
+  |        because label contains path that resolves to same destination
+  |
+  = note: when a link's destination is not specified,
+          the label is used to resolve intra-doc links
+  = note: `#[warn(rustdoc::redundant_explicit_links)]` on by default
+help: remove explicit link target
+  |
+5 - //! - [`sha256t_tag`](crate::sha256t_tag)
+5 + //! - [`sha256t_tag`]
+  |
+
+warning: redundant explicit link target
+ --> ../rust-bitcoin/hashes/src/macros.rs:6:24
+  |
+6 | //! - [`hash_newtype`](crate::hash_newtype)
+  |        --------------  ^^^^^^^^^^^^^^^^^^^ explicit target is redundant
+  |        |
+  |        because label contains path that resolves to same destination
+  |
+  = note: when a link's destination is not specified,
+          the label is used to resolve intra-doc links
+help: remove explicit link target
+  |
+6 - //! - [`hash_newtype`](crate::hash_newtype)
+6 + //! - [`hash_newtype`]
+  |
+
+warning: 4 warnings emitted

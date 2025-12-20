@@ -1,0 +1,303 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:13:5
+   |
+13 | use super::map::{Input, Map, Output, PsbtSighashType};
+   |     ^^^^^ there are too many leading `super` keywords
+
+error[E0432]: unresolved import `hashes`
+ --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:8:5
+  |
+8 | use hashes::{hash160, ripemd160, sha256, sha256d};
+  |     ^^^^^^ use of unresolved module or unlinked crate `hashes`
+  |
+help: you might be missing a crate named `hashes`, add it to your project and import it in your code
+  |
+8 + extern crate hashes;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:11:5
+   |
+11 | use internals::slice::SliceExt;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+   |
+ 8 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `internals`
+ --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:9:5
+  |
+9 | use internals::compact_size;
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  |
+8 + extern crate internals;
+  |
+
+error[E0432]: unresolved import `crate::bip32`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:14:12
+   |
+14 | use crate::bip32::{ChildNumber, Fingerprint, KeySource};
+   |            ^^^^^ use of unresolved module or unlinked crate `bip32`
+   |
+help: you might be missing a crate named `bip32`, add it to your project and import it in your code
+   |
+ 8 + extern crate bip32;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `consensus`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:15:12
+   |
+15 | use crate::consensus::encode::{self, deserialize_partial, serialize, Dec...
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `crypto`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:16:12
+   |
+16 | use crate::crypto::key::{PublicKey, XOnlyPublicKey};
+   |            ^^^^^^ use of unresolved module or unlinked crate `crypto`
+   |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+   |
+ 8 + extern crate crypto;
+   |
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:15:12
+   |
+15 | use crate::consensus::encode::{self, deserialize_partial, serialize, Dec...
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0432]: unresolved import `crate::crypto`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:17:12
+   |
+17 | use crate::crypto::{ecdsa, taproot};
+   |            ^^^^^^ use of unresolved module or unlinked crate `crypto`
+   |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+   |
+ 8 + extern crate crypto;
+   |
+
+error[E0432]: unresolved import `crate::io`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:18:12
+   |
+18 | use crate::io::Write;
+   |            ^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::io`
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:19:12
+   |
+19 | use crate::prelude::{DisplayHex, String, Vec};
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `crate::psbt`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:20:12
+   |
+20 | use crate::psbt::{Error, Psbt};
+   |            ^^^^ use of unresolved module or unlinked crate `psbt`
+   |
+help: you might be missing a crate named `psbt`, add it to your project and import it in your code
+   |
+ 8 + extern crate psbt;
+   |
+
+error[E0432]: unresolved import `crate::script`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:21:12
+   |
+21 | use crate::script::ScriptBuf;
+   |            ^^^^^^ use of unresolved module or unlinked crate `script`
+   |
+help: you might be missing a crate named `script`, add it to your project and import it in your code
+   |
+ 8 + extern crate script;
+   |
+
+error[E0432]: unresolved import `crate::transaction`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:25:12
+   |
+25 | use crate::transaction::{Transaction, TxOut};
+   |            ^^^^^^^^^^^ use of unresolved module or unlinked crate `transaction`
+   |
+help: you might be missing a crate named `transaction`, add it to your project and import it in your code
+   |
+ 8 + extern crate transaction;
+   |
+
+error[E0432]: unresolved import `crate::witness`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:26:12
+   |
+26 | use crate::witness::Witness;
+   |            ^^^^^^^ use of unresolved module or unlinked crate `witness`
+   |
+help: you might be missing a crate named `witness`, add it to your project and import it in your code
+   |
+ 8 + extern crate witness;
+   |
+
+error: cannot find macro `impl_psbt_de_serialize` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:153:1
+    |
+153 | impl_psbt_de_serialize!(Vec<TapLeafHash>);
+    | ^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_hash_de_serialize` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:150:1
+    |
+150 | impl_psbt_hash_de_serialize!(sha256d::Hash);
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_hash_de_serialize` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:149:1
+    |
+149 | impl_psbt_hash_de_serialize!(hash160::Hash);
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_hash_de_serialize` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:148:1
+    |
+148 | impl_psbt_hash_de_serialize!(TapNodeHash);
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_hash_de_serialize` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:147:1
+    |
+147 | impl_psbt_hash_de_serialize!(TapLeafHash);
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_hash_de_serialize` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:146:1
+    |
+146 | impl_psbt_hash_de_serialize!(sha256::Hash);
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_hash_de_serialize` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:145:1
+    |
+145 | impl_psbt_hash_de_serialize!(ripemd160::Hash);
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_de_serialize` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:144:1
+    |
+144 | impl_psbt_de_serialize!(Witness);
+    | ^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_de_serialize` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:143:1
+    |
+143 | impl_psbt_de_serialize!(TxOut);
+    | ^^^^^^^^^^^^^^^^^^^^^^
+
+error: cannot find macro `impl_psbt_de_serialize` in this scope
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:142:1
+    |
+142 | impl_psbt_de_serialize!(Transaction);
+    | ^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:53:62
+   |
+53 | ...rite) -> io::Result<usize> {
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+53 -     pub fn serialize_to_writer(&self, w: &mut impl Write) -> io::Result<usize> {
+53 +     pub fn serialize_to_writer(&self, w: &mut impl Write) -> i8::Result<usize> {
+   |
+help: consider importing this module
+   |
+ 8 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:56:58
+   |
+56 | ...[u8]) -> io::Result<usize> {
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+56 -         fn write_all(w: &mut impl Write, data: &[u8]) -> io::Result<usize> {
+56 +         fn write_all(w: &mut impl Write, data: &[u8]) -> i8::Result<usize> {
+   |
+help: consider importing this module
+   |
+ 8 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:84:39
+   |
+84 | ...eader<R: io::BufRead>(r: &mut R) -> Result<Self, Error> {
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+84 -     pub fn deserialize_from_reader<R: io::BufRead>(r: &mut R) -> Result<Self, Error> {
+84 +     pub fn deserialize_from_reader<R: i8::BufRead>(r: &mut R) -> Result<Self, Error> {
+   |
+help: consider importing this module
+   |
+ 8 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:177:20
+    |
+177 | impl Serialize for secp256k1::PublicKey {
+    |                    ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:181:22
+    |
+181 | impl Deserialize for secp256k1::PublicKey {
+    |                      ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:187:24
+    |
+187 | impl Serialize for Vec<secp256k1::PublicKey> {
+    |                        ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `secp256k1`
+   --> ../rust-bitcoin/bitcoin/src/psbt/serialize.rs:200:26
+    |
+200 | impl Deserialize for Vec<secp256k1::PublicKey> {
+    |                          ^^^^^^^^^ use of unresolved module or unlinked crate `secp256k1`
+    |
+    = help: you might be missing a crate named `secp256k1`
+
+error: aborting due to 32 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

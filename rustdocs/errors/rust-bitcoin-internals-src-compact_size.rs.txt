@@ -1,0 +1,20 @@
+error[E0432]: unresolved import `crate::array_vec`
+  --> ../rust-bitcoin/internals/src/compact_size.rs:10:12
+   |
+10 | use crate::array_vec::ArrayVec;
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `array_vec`
+   |
+help: you might be missing a crate named `array_vec`, add it to your project and import it in your code
+   |
+10 + extern crate array_vec;
+   |
+
+error[E0432]: unresolved import `crate::ToU64`
+  --> ../rust-bitcoin/internals/src/compact_size.rs:11:5
+   |
+11 | use crate::ToU64;
+   |     ^^^^^^^^^^^^ no `ToU64` in the root
+
+error: aborting due to 2 previous errors
+
+For more information about this error, try `rustc --explain E0432`.

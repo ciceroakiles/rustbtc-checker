@@ -1,0 +1,118 @@
+error[E0433]: failed to resolve: unresolved import
+ --> ../rust-bitcoin/p2p/src/message_network.rs:8:5
+  |
+8 | use alloc::borrow::Cow;
+  |     ^^^^^
+  |     |
+  |     unresolved import
+  |     help: a similar path exists: `std::alloc`
+
+error[E0433]: failed to resolve: unresolved import
+  --> ../rust-bitcoin/p2p/src/message_network.rs:10:5
+   |
+10 | use alloc::string::{String, ToString};
+   |     ^^^^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::alloc`
+
+error[E0433]: failed to resolve: unresolved import
+  --> ../rust-bitcoin/p2p/src/message_network.rs:11:5
+   |
+11 | use alloc::vec::Vec;
+   |     ^^^^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::alloc`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_network.rs:15:5
+   |
+15 | use bitcoin::consensus::{encode, Decodable, Encodable, ReadExt, WriteExt};
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+ 8 + extern crate bitcoin;
+   |
+
+error[E0432]: unresolved import `alloc`
+ --> ../rust-bitcoin/p2p/src/message_network.rs:9:5
+  |
+9 | use alloc::format;
+  |     ^^^^^
+  |     |
+  |     unresolved import
+  |     help: a similar path exists: `std::alloc`
+
+error[E0432]: unresolved import `hashes`
+  --> ../rust-bitcoin/p2p/src/message_network.rs:16:5
+   |
+16 | use hashes::sha256d;
+   |     ^^^^^^ use of unresolved module or unlinked crate `hashes`
+   |
+help: you might be missing a crate named `hashes`, add it to your project and import it in your code
+   |
+ 8 + extern crate hashes;
+   |
+
+error[E0432]: unresolved import `io`
+  --> ../rust-bitcoin/p2p/src/message_network.rs:17:5
+   |
+17 | use io::{BufRead, Write};
+   |     ^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::io`
+
+error[E0432]: unresolved import `crate::address`
+  --> ../rust-bitcoin/p2p/src/message_network.rs:19:12
+   |
+19 | use crate::address::Address;
+   |            ^^^^^^^ use of unresolved module or unlinked crate `address`
+   |
+help: you might be missing a crate named `address`, add it to your project and import it in your code
+   |
+ 8 + extern crate address;
+   |
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/p2p/src/message_network.rs:20:12
+   |
+20 | use crate::consensus::{impl_consensus_encoding, impl_vec_wrapper};
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+ 8 + extern crate consensus;
+   |
+
+error[E0432]: unresolved imports `crate::ProtocolVersion`, `crate::ServiceFlags`
+  --> ../rust-bitcoin/p2p/src/message_network.rs:21:13
+   |
+21 | use crate::{ProtocolVersion, ServiceFlags};
+   |             ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^ no `ServiceFlags` in the root
+   |             |
+   |             no `ProtocolVersion` in the root
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/p2p/src/message_network.rs:267:79
+    |
+267 | ...t<usize, io::Error> {
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+267 -     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, io::Error> {
+267 +     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, i8::Error> {
+    |
+help: consider importing this module
+    |
+  8 + use std::io;
+    |
+
+error: aborting due to 11 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

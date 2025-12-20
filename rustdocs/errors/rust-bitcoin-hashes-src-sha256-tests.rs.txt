@@ -1,0 +1,27 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+ --> ../rust-bitcoin/hashes/src/sha256/tests.rs:3:5
+  |
+3 | use super::*;
+  |     ^^^^^ there are too many leading `super` keywords
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/hashes/src/sha256/tests.rs:1:5
+  |
+1 | use core::array;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved imports `crate::sha256`, `crate::HashEngine`
+ --> ../rust-bitcoin/hashes/src/sha256/tests.rs:4:13
+  |
+4 | use crate::{sha256, HashEngine};
+  |             ^^^^^^  ^^^^^^^^^^ no `HashEngine` in the root
+  |             |
+  |             no `sha256` in the root
+
+error: aborting due to 3 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

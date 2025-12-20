@@ -1,0 +1,145 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `opcodes`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:13:12
+   |
+13 | use crate::opcodes::all::*;
+   |            ^^^^^^^ use of unresolved module or unlinked crate `opcodes`
+   |
+help: you might be missing a crate named `opcodes`, add it to your project and import it in your code
+   |
+ 9 + extern crate opcodes;
+   |
+
+error[E0432]: unresolved import `crate::block`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:9:20
+  |
+9 | use crate::block::{self, Block, Checked};
+  |            -----   ^^^^ no `block` in the root
+  |            |
+  |            help: a similar name exists in the module: `Block`
+
+error[E0432]: unresolved import `crate::internal_macros`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:10:12
+   |
+10 | use crate::internal_macros::impl_array_newtype_stringify;
+   |            ^^^^^^^^^^^^^^^ use of unresolved module or unlinked crate `internal_macros`
+   |
+help: you might be missing a crate named `internal_macros`, add it to your project and import it in your code
+   |
+ 9 + extern crate internal_macros;
+   |
+
+error[E0432]: unresolved import `crate::locktime`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:11:12
+   |
+11 | use crate::locktime::absolute;
+   |            ^^^^^^^^ use of unresolved module or unlinked crate `locktime`
+   |
+help: you might be missing a crate named `locktime`, add it to your project and import it in your code
+   |
+ 9 + extern crate locktime;
+   |
+
+error[E0432]: unresolved import `crate::network`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:12:12
+   |
+12 | use crate::network::{Network, Params};
+   |            ^^^^^^^ use of unresolved module or unlinked crate `network`
+   |
+help: you might be missing a crate named `network`, add it to your project and import it in your code
+   |
+ 9 + extern crate network;
+   |
+
+error[E0432]: unresolved import `crate::pow`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:14:12
+   |
+14 | use crate::pow::CompactTarget;
+   |            ^^^ use of unresolved module or unlinked crate `pow`
+   |
+help: you might be missing a crate named `pow`, add it to your project and import it in your code
+   |
+ 9 + extern crate pow;
+   |
+
+error[E0432]: unresolved import `crate::transaction`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:15:26
+   |
+15 | use crate::transaction::{self, OutPoint, Transaction, TxIn, TxOut};
+   |            -----------   ^^^^ no `transaction` in the root
+   |            |
+   |            help: a similar name exists in the module: `Transaction`
+
+error[E0432]: unresolved import `crate::witness`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:16:12
+   |
+16 | use crate::witness::Witness;
+   |            ^^^^^^^ use of unresolved module or unlinked crate `witness`
+   |
+help: you might be missing a crate named `witness`, add it to your project and import it in your code
+   |
+ 9 + extern crate witness;
+   |
+
+error[E0432]: unresolved imports `crate::script`, `crate::Amount`, `crate::BlockHash`, `crate::BlockTime`, `crate::Sequence`, `crate::TestnetVersion`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:17:13
+   |
+17 | ...::{script, Amount, BlockHash, BlockTime, Sequence, TestnetVersion};
+   |       ^^^^^^  ^^^^^^  ^^^^^^^^^  ^^^^^^^^^  ^^^^^^^^  ^^^^^^^^^^^^^^ no `TestnetVersion` in the root
+   |       |       |       |          |          |
+   |       |       |       |          |          no `Sequence` in the root
+   |       |       |       |          no `BlockTime` in the root
+   |       |       |       no `BlockHash` in the root
+   |       |       no `Amount` in the root
+   |       no `script` in the root
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+   --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:195:1
+    |
+195 | internals::impl_array_newtype!(ChainHash, u8, 32);
+    | ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `units`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:27:41
+   |
+27 | ...ize = units::weight::WITNESS_SCALE_FACTOR;
+   |          ^^^^^ use of unresolved module or unlinked crate `units`
+   |
+   = help: you might be missing a crate named `units`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `primitives`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:39:43
+   |
+39 | ...M_SCRIPT_SIZE: usize = primitives::script::MAX_REDEEM_SCRIPT_SIZE; //...
+   |                           ^^^^^^^^^^ use of unresolved module or unlinked crate `primitives`
+   |
+   = help: you might be missing a crate named `primitives`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `primitives`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:41:44
+   |
+41 | ...S_SCRIPT_SIZE: usize = primitives::script::MAX_WITNESS_SCRIPT_SIZE; /...
+   |                           ^^^^^^^^^^ use of unresolved module or unlinked crate `primitives`
+   |
+   = help: you might be missing a crate named `primitives`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `alloc`
+   --> ../rust-bitcoin/bitcoin/src/blockdata/constants.rs:268:30
+    |
+268 |     pub fn to_bytes(self) -> alloc::vec::Vec<u8> { self.to_vec() }
+    |                              ^^^^^ use of unresolved module or unlinked crate `alloc`
+    |
+    = help: add `extern crate alloc` to use the `alloc` crate
+help: consider importing this module
+    |
+  9 + use std::vec;
+    |
+help: if you import `vec`, refer to it directly
+    |
+268 -     pub fn to_bytes(self) -> alloc::vec::Vec<u8> { self.to_vec() }
+268 +     pub fn to_bytes(self) -> vec::Vec<u8> { self.to_vec() }
+    |
+
+error: aborting due to 14 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

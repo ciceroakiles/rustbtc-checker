@@ -1,0 +1,122 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/units/src/amount/error.rs:177:9
+    |
+177 |     pub(super) is_signed: bool,
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/units/src/amount/error.rs:178:9
+    |
+178 |     pub(super) is_greater_than_max: bool,
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/units/src/amount/error.rs:239:9
+    |
+239 |     pub(super) position: usize,
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/units/src/amount/error.rs:261:9
+    |
+261 |     pub(super) len: usize,
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/units/src/amount/error.rs:289:9
+    |
+289 |     pub(super) kind: MissingDigitsKind,
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/units/src/amount/error.rs:306:5
+    |
+306 | pub(super) enum MissingDigitsKind {
+    |     ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/units/src/amount/error.rs:314:9
+    |
+314 |     pub(super) invalid_char: char,
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/units/src/amount/error.rs:315:9
+    |
+315 |     pub(super) position: usize,
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/units/src/amount/error.rs:338:9
+    |
+338 |     pub(super) char: char,
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/units/src/amount/error.rs:339:9
+    |
+339 |     pub(super) position: usize,
+    |         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/units/src/amount/error.rs:401:41
+    |
+401 | pub struct UnknownDenominationError(pub(super) InputString);
+    |                                         ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+   --> ../rust-bitcoin/units/src/amount/error.rs:417:51
+    |
+417 | pub struct PossiblyConfusingDenominationError(pub(super) InputString);
+    |                                                   ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/units/src/amount/error.rs:11:5
+   |
+11 | use super::INPUT_STRING_LEN_LIMIT;
+   |     ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+ --> ../rust-bitcoin/units/src/amount/error.rs:5:5
+  |
+5 | use core::convert::Infallible;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+ --> ../rust-bitcoin/units/src/amount/error.rs:8:5
+  |
+8 | use internals::error::InputString;
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  |
+5 + extern crate internals;
+  |
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/units/src/amount/error.rs:6:5
+  |
+6 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `internals`
+ --> ../rust-bitcoin/units/src/amount/error.rs:9:5
+  |
+9 | use internals::write_err;
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+  |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  |
+5 + extern crate internals;
+  |
+
+error: aborting due to 17 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

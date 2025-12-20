@@ -1,0 +1,301 @@
+error[E0433]: failed to resolve: unresolved import
+ --> ../rust-bitcoin/p2p/src/message_filter.rs:7:5
+  |
+7 | use alloc::vec::Vec;
+  |     ^^^^^
+  |     |
+  |     unresolved import
+  |     help: a similar path exists: `std::alloc`
+
+error[E0432]: unresolved import `primitives`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:11:5
+   |
+11 | use primitives::BlockHash;
+   |     ^^^^^^^^^^ use of unresolved module or unlinked crate `primitives`
+   |
+help: you might be missing a crate named `primitives`, add it to your project and import it in your code
+   |
+ 7 + extern crate primitives;
+   |
+
+error[E0432]: unresolved import `hashes`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:12:5
+   |
+12 | use hashes::{sha256d, HashEngine};
+   |     ^^^^^^ use of unresolved module or unlinked crate `hashes`
+   |
+help: you might be missing a crate named `hashes`, add it to your project and import it in your code
+   |
+ 7 + extern crate hashes;
+   |
+
+error[E0432]: unresolved import `units`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:13:5
+   |
+13 | use units::BlockHeight;
+   |     ^^^^^ use of unresolved module or unlinked crate `units`
+   |
+help: you might be missing a crate named `units`, add it to your project and import it in your code
+   |
+ 7 + extern crate units;
+   |
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:15:12
+   |
+15 | use crate::consensus::impl_consensus_encoding;
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+ 7 + extern crate consensus;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hashes`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:17:1
+   |
+17 | hashes::hash_newtype! {
+   | ^^^^^^ use of unresolved module or unlinked crate `hashes`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hashes`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:24:1
+   |
+24 | hashes::impl_hex_for_newtype!(FilterHash, FilterHeader);
+   | ^^^^^^ use of unresolved module or unlinked crate `hashes`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:39:14
+   |
+39 |         impl bitcoin::consensus::Encodable for $hashtype {
+   |              ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+...
+53 | impl_hashencode!(FilterHash);
+   | ---------------------------- in this macro invocation
+   |
+   = help: you might be missing a crate named `bitcoin`
+   = note: this error originates in the macro `impl_hashencode` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:45:14
+   |
+45 |         impl bitcoin::consensus::Decodable for $hashtype {
+   |              ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+...
+53 | impl_hashencode!(FilterHash);
+   | ---------------------------- in this macro invocation
+   |
+   = help: you might be missing a crate named `bitcoin`
+   = note: this error originates in the macro `impl_hashencode` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:46:108
+   |
+46 |             fn consensus_decode<R: bitcoin::io::BufRead + ?Sized>(r: &mut R) -> core::result::Result<Self, bitcoin::c...
+   |                                                                                                            ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+...
+53 | impl_hashencode!(FilterHash);
+   | ---------------------------- in this macro invocation
+   |
+   = help: you might be missing a crate named `bitcoin`
+   = note: this error originates in the macro `impl_hashencode` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:39:14
+   |
+39 |         impl bitcoin::consensus::Encodable for $hashtype {
+   |              ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+...
+54 | impl_hashencode!(FilterHeader);
+   | ------------------------------ in this macro invocation
+   |
+   = help: you might be missing a crate named `bitcoin`
+   = note: this error originates in the macro `impl_hashencode` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:45:14
+   |
+45 |         impl bitcoin::consensus::Decodable for $hashtype {
+   |              ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+...
+54 | impl_hashencode!(FilterHeader);
+   | ------------------------------ in this macro invocation
+   |
+   = help: you might be missing a crate named `bitcoin`
+   = note: this error originates in the macro `impl_hashencode` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:46:108
+   |
+46 |             fn consensus_decode<R: bitcoin::io::BufRead + ?Sized>(r: &mut R) -> core::result::Result<Self, bitcoin::c...
+   |                                                                                                            ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+...
+54 | impl_hashencode!(FilterHeader);
+   | ------------------------------ in this macro invocation
+   |
+   = help: you might be missing a crate named `bitcoin`
+   = note: this error originates in the macro `impl_hashencode` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0425]: cannot find type `FilterHash` in this scope
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:26:6
+   |
+26 | impl FilterHash {
+   |      ^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `FilterHeader` in this scope
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:28:57
+   |
+28 | ..._filter_header: FilterHeader) -> FilterHeader {
+   |                    ^^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `FilterHeader` in this scope
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:28:74
+   |
+28 | ...ilterHeader) -> FilterHeader {
+   |                    ^^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `FilterHash` in this scope
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:53:18
+   |
+39 |         impl bitcoin::consensus::Encodable for $hashtype {
+   |                                                --------- due to this macro variable
+...
+53 | impl_hashencode!(FilterHash);
+   |                  ^^^^^^^^^^ not found in this scope
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:40:36
+   |
+40 |             fn consensus_encode<W: bitcoin::io::Write + ?Sized>(&self, w...
+   |                                    ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+...
+53 | impl_hashencode!(FilterHash);
+   | ---------------------------- in this macro invocation
+   |
+   = help: you might be missing a crate named `bitcoin`
+   = note: this error originates in the macro `impl_hashencode` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this module
+   |
+ 7 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:40:114
+   |
+40 |             fn consensus_encode<W: bitcoin::io::Write + ?Sized>(&self, w: &mut W) -> core::result::Result<usize, bitcoin::i...
+   |                                                                                                                  ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+...
+53 | impl_hashencode!(FilterHash);
+   | ---------------------------- in this macro invocation
+   |
+   = help: you might be missing a crate named `bitcoin`
+   = note: this error originates in the macro `impl_hashencode` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this module
+   |
+ 7 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:46:36
+   |
+46 |             fn consensus_decode<R: bitcoin::io::BufRead + ?Sized>(r: &mu...
+   |                                    ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+...
+53 | impl_hashencode!(FilterHash);
+   | ---------------------------- in this macro invocation
+   |
+   = help: you might be missing a crate named `bitcoin`
+   = note: this error originates in the macro `impl_hashencode` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this module
+   |
+ 7 + use std::io;
+   |
+
+error[E0425]: cannot find type `FilterHeader` in this scope
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:54:18
+   |
+39 |         impl bitcoin::consensus::Encodable for $hashtype {
+   |                                                --------- due to this macro variable
+...
+54 | impl_hashencode!(FilterHeader);
+   |                  ^^^^^^^^^^^^ not found in this scope
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:40:36
+   |
+40 |             fn consensus_encode<W: bitcoin::io::Write + ?Sized>(&self, w...
+   |                                    ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+...
+54 | impl_hashencode!(FilterHeader);
+   | ------------------------------ in this macro invocation
+   |
+   = help: you might be missing a crate named `bitcoin`
+   = note: this error originates in the macro `impl_hashencode` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this module
+   |
+ 7 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:40:114
+   |
+40 |             fn consensus_encode<W: bitcoin::io::Write + ?Sized>(&self, w: &mut W) -> core::result::Result<usize, bitcoin::i...
+   |                                                                                                                  ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+...
+54 | impl_hashencode!(FilterHeader);
+   | ------------------------------ in this macro invocation
+   |
+   = help: you might be missing a crate named `bitcoin`
+   = note: this error originates in the macro `impl_hashencode` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this module
+   |
+ 7 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/message_filter.rs:46:36
+   |
+46 |             fn consensus_decode<R: bitcoin::io::BufRead + ?Sized>(r: &mu...
+   |                                    ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+...
+54 | impl_hashencode!(FilterHeader);
+   | ------------------------------ in this macro invocation
+   |
+   = help: you might be missing a crate named `bitcoin`
+   = note: this error originates in the macro `impl_hashencode` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this module
+   |
+ 7 + use std::io;
+   |
+
+error[E0425]: cannot find type `FilterHeader` in this scope
+   --> ../rust-bitcoin/p2p/src/message_filter.rs:114:33
+    |
+114 |     pub previous_filter_header: FilterHeader,
+    |                                 ^^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find type `FilterHash` in this scope
+   --> ../rust-bitcoin/p2p/src/message_filter.rs:116:28
+    |
+116 |     pub filter_hashes: Vec<FilterHash>,
+    |                            ^^^^^^^^^^ not found in this scope
+    |
+help: you might be missing a type parameter
+    |
+108 | pub struct CFHeaders<FilterHash> {
+    |                     ++++++++++++
+
+error[E0425]: cannot find type `FilterHeader` in this scope
+   --> ../rust-bitcoin/p2p/src/message_filter.rs:138:29
+    |
+138 |     pub filter_headers: Vec<FilterHeader>,
+    |                             ^^^^^^^^^^^^ not found in this scope
+    |
+help: you might be missing a type parameter
+    |
+132 | pub struct CFCheckpt<FilterHeader> {
+    |                     ++++++++++++++
+
+error: aborting due to 27 previous errors
+
+Some errors have detailed explanations: E0425, E0432, E0433.
+For more information about an error, try `rustc --explain E0425`.

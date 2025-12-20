@@ -1,0 +1,152 @@
+error[E0433]: failed to resolve: you might be missing crate `core`
+ --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:5:5
+  |
+5 | use core::convert::Infallible;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:6:5
+  |
+6 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `hashes`
+  --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:12:5
+   |
+12 | use hashes::sha256d;
+   |     ^^^^^^ use of unresolved module or unlinked crate `hashes`
+   |
+help: you might be missing a crate named `hashes`, add it to your project and import it in your code
+   |
+ 5 + extern crate hashes;
+   |
+
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:13:5
+   |
+13 | use internals::write_err;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+   |
+ 5 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `crate::merkle_tree`
+  --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:15:12
+   |
+15 | use crate::merkle_tree::MerkleNode;
+   |            ^^^^^^^^^^^ use of unresolved module or unlinked crate `merkle_tree`
+   |
+help: you might be missing a crate named `merkle_tree`, add it to your project and import it in your code
+   |
+ 5 + extern crate merkle_tree;
+   |
+
+error[E0432]: unresolved import `crate::Txid`
+  --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:16:5
+   |
+16 | use crate::Txid;
+   |     ^^^^^^^^^^^ no `Txid` in the root
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/primitives/src/hash_types/./generic.rs:29:1
+   |
+29 | super::impl_bytelike_traits!(HashType, LEN);
+   | ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:51:1
+   |
+51 | encoding::encoder_newtype! {
+   | ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+
+error[E0425]: cannot find type `TxMerkleNodeEncoder` in this scope
+  --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:57:24
+   |
+57 |     type Encoder<'e> = TxMerkleNodeEncoder;
+   |                        ^^^^^^^^^^^^^^^^^^^
+...
+64 | pub struct TxMerkleNodeDecoder(encoding::ArrayDecoder<32>);
+   | ----------------------------------------------------------- similarly named struct `TxMerkleNodeDecoder` defined here
+   |
+help: a struct with a similar name exists
+   |
+57 -     type Encoder<'e> = TxMerkleNodeEncoder;
+57 +     type Encoder<'e> = TxMerkleNodeDecoder;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hashes`
+  --> ../rust-bitcoin/primitives/src/hash_types/./generic.rs:10:30
+   |
+10 | const LEN: usize = <Inner as hashes::Hash>::LEN;
+   |                              ^^^^^^ use of unresolved module or unlinked crate `hashes`
+   |
+   = help: you might be missing a crate named `hashes`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:56:6
+   |
+56 | impl encoding::Encodable for TxMerkleNode {
+   |      ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+   |
+   = help: you might be missing a crate named `encoding`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:64:32
+   |
+64 | pub struct TxMerkleNodeDecoder(encoding::ArrayDecoder<32>);
+   |                                ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+   |
+   = help: you might be missing a crate named `encoding`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:75:6
+   |
+75 | impl encoding::Decoder for TxMerkleNodeDecoder {
+   |      ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+   |
+   = help: you might be missing a crate named `encoding`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+  --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:94:6
+   |
+94 | impl encoding::Decodable for TxMerkleNode {
+   |      ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+   |
+   = help: you might be missing a crate named `encoding`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+   --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:101:37
+    |
+101 | pub struct TxMerkleNodeDecoderError(encoding::UnexpectedEofError);
+    |                                     ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+    |
+    = help: you might be missing a crate named `encoding`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+   --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:107:11
+    |
+107 | impl From<encoding::UnexpectedEofError> for TxMerkleNodeDecoderError {
+    |           ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+    |
+    = help: you might be missing a crate named `encoding`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `encoding`
+   --> ../rust-bitcoin/primitives/src/hash_types/transaction_merkle_node.rs:108:16
+    |
+108 |     fn from(e: encoding::UnexpectedEofError) -> Self { Self(e) }
+    |                ^^^^^^^^ use of unresolved module or unlinked crate `encoding`
+    |
+    = help: you might be missing a crate named `encoding`
+
+error: aborting due to 17 previous errors
+
+Some errors have detailed explanations: E0425, E0432, E0433.
+For more information about an error, try `rustc --explain E0425`.

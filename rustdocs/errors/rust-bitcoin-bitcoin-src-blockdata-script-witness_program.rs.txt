@@ -1,0 +1,78 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:15:5
+   |
+15 | use super::witness_version::WitnessVersion;
+   |     ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:16:5
+   |
+16 | use super::{PushBytes, WScriptHash, WitnessScript, WitnessScriptSizeError};
+   |     ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:10:5
+   |
+10 | use core::convert::Infallible;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `internals`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:13:5
+   |
+13 | use internals::array_vec::ArrayVec;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+   |
+10 + extern crate internals;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `crypto`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:17:12
+   |
+17 | use crate::crypto::key::{CompressedPublicKey, TapTweak, TweakedPublicKey...
+   |            ^^^^^^ use of unresolved module or unlinked crate `crypto`
+   |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+   |
+10 + extern crate crypto;
+   |
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:11:5
+   |
+11 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `crate::script`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:18:12
+   |
+18 | use crate::script::WitnessScriptExt as _;
+   |            ^^^^^^ use of unresolved module or unlinked crate `script`
+   |
+help: you might be missing a crate named `script`, add it to your project and import it in your code
+   |
+10 + extern crate script;
+   |
+
+error[E0432]: unresolved import `crate::taproot`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/witness_program.rs:19:12
+   |
+19 | use crate::taproot::TapNodeHash;
+   |            ^^^^^^^ use of unresolved module or unlinked crate `taproot`
+   |
+help: you might be missing a crate named `taproot`, add it to your project and import it in your code
+   |
+10 + extern crate taproot;
+   |
+
+error: aborting due to 8 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

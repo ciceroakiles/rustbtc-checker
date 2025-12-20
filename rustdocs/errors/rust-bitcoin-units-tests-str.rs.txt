@@ -1,0 +1,37 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin_units`
+ --> ../rust-bitcoin/units/tests/str.rs:5:5
+  |
+5 | use bitcoin_units::amount::Denomination;
+  |     ^^^^^^^^^^^^^ use of unresolved module or unlinked crate `bitcoin_units`
+  |
+help: you might be missing a crate named `bitcoin_units`, add it to your project and import it in your code
+  |
+5 + extern crate bitcoin_units;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin_units`
+ --> ../rust-bitcoin/units/tests/str.rs:6:5
+  |
+6 | use bitcoin_units::locktime::{absolute, relative};
+  |     ^^^^^^^^^^^^^ use of unresolved module or unlinked crate `bitcoin_units`
+  |
+help: you might be missing a crate named `bitcoin_units`, add it to your project and import it in your code
+  |
+5 + extern crate bitcoin_units;
+  |
+
+error[E0432]: unresolved import `bitcoin_units`
+ --> ../rust-bitcoin/units/tests/str.rs:7:5
+  |
+7 | use bitcoin_units::{Amount, BlockHeight, BlockHeightInterval, SignedAmoun...
+  |     ^^^^^^^^^^^^^ use of unresolved module or unlinked crate `bitcoin_units`
+  |
+help: you might be missing a crate named `bitcoin_units`, add it to your project and import it in your code
+  |
+5 + extern crate bitcoin_units;
+  |
+
+error: aborting due to 3 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

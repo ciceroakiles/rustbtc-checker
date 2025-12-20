@@ -1,0 +1,203 @@
+error[E0433]: failed to resolve: unresolved import
+ --> ../rust-bitcoin/p2p/src/address.rs:9:5
+  |
+9 | use alloc::vec::Vec;
+  |     ^^^^^
+  |     |
+  |     unresolved import
+  |     help: a similar path exists: `std::alloc`
+
+error[E0432]: unresolved import `alloc`
+ --> ../rust-bitcoin/p2p/src/address.rs:8:5
+  |
+8 | use alloc::vec;
+  |     ^^^^^
+  |     |
+  |     unresolved import
+  |     help: a similar path exists: `std::alloc`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+  --> ../rust-bitcoin/p2p/src/address.rs:15:5
+   |
+15 | use bitcoin::consensus::encode::{self, Decodable, Encodable, ReadExt, Wr...
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+ 8 + extern crate bitcoin;
+   |
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/p2p/src/address.rs:10:5
+   |
+10 | use core::{fmt, iter};
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `io`
+  --> ../rust-bitcoin/p2p/src/address.rs:16:5
+   |
+16 | use io::{BufRead, Read, Write};
+   |     ^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::io`
+
+error[E0432]: unresolved import `crate::ServiceFlags`
+  --> ../rust-bitcoin/p2p/src/address.rs:18:5
+   |
+18 | use crate::ServiceFlags;
+   |     ^^^^^^^^^^^^^^^^^^^ no `ServiceFlags` in the root
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/p2p/src/address.rs:71:79
+   |
+71 | ...t<usize, io::Error> {
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+71 -     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, io::Error> {
+71 +     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, i8::Error> {
+   |
+help: consider importing this module
+   |
+ 8 + use std::io;
+   |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/p2p/src/address.rs:154:6
+    |
+154 | impl TryFrom<AddrV2> for IpAddr {
+    |      ^^^^^^^ not found in this scope
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+help: consider importing this trait
+    |
+  8 + use std::convert::TryFrom;
+    |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/p2p/src/address.rs:169:6
+    |
+169 | impl TryFrom<AddrV2> for Ipv4Addr {
+    |      ^^^^^^^ not found in this scope
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+help: consider importing this trait
+    |
+  8 + use std::convert::TryFrom;
+    |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/p2p/src/address.rs:184:6
+    |
+184 | impl TryFrom<AddrV2> for Ipv6Addr {
+    |      ^^^^^^^ not found in this scope
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+help: consider importing this trait
+    |
+  8 + use std::convert::TryFrom;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/p2p/src/address.rs:217:79
+    |
+217 | ...t<usize, io::Error> {
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+217 -     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, io::Error> {
+217 +     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, i8::Error> {
+    |
+help: consider importing this module
+    |
+  8 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/p2p/src/address.rs:222:28
+    |
+222 |         ) -> Result<usize, io::Error> {
+    |                            ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+222 -         ) -> Result<usize, io::Error> {
+222 +         ) -> Result<usize, i8::Error> {
+    |
+help: consider importing this module
+    |
+  8 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/p2p/src/address.rs:342:79
+    |
+342 | ...t<usize, io::Error> {
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+342 -     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, io::Error> {
+342 +     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, i8::Error> {
+    |
+help: consider importing this module
+    |
+  8 + use std::io;
+    |
+
+error[E0277]: `AddrV2ToIpAddrError` doesn't implement `std::fmt::Display`
+   --> ../rust-bitcoin/p2p/src/address.rs:433:28
+    |
+433 | impl std::error::Error for AddrV2ToIpAddrError {}
+    |                            ^^^^^^^^^^^^^^^^^^^ unsatisfied trait bound
+    |
+help: the trait `std::fmt::Display` is not implemented for `AddrV2ToIpAddrError`
+   --> ../rust-bitcoin/p2p/src/address.rs:411:1
+    |
+411 | pub enum AddrV2ToIpAddrError {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+note: required by a bound in `std::error::Error`
+   --> library/core/src/error.rs:59:0
+
+error[E0277]: `AddrV2ToIpv4AddrError` doesn't implement `std::fmt::Display`
+   --> ../rust-bitcoin/p2p/src/address.rs:462:28
+    |
+462 | impl std::error::Error for AddrV2ToIpv4AddrError {}
+    |                            ^^^^^^^^^^^^^^^^^^^^^ unsatisfied trait bound
+    |
+help: the trait `std::fmt::Display` is not implemented for `AddrV2ToIpv4AddrError`
+   --> ../rust-bitcoin/p2p/src/address.rs:437:1
+    |
+437 | pub enum AddrV2ToIpv4AddrError {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+note: required by a bound in `std::error::Error`
+   --> library/core/src/error.rs:59:0
+
+error[E0277]: `AddrV2ToIpv6AddrError` doesn't implement `std::fmt::Display`
+   --> ../rust-bitcoin/p2p/src/address.rs:491:28
+    |
+491 | impl std::error::Error for AddrV2ToIpv6AddrError {}
+    |                            ^^^^^^^^^^^^^^^^^^^^^ unsatisfied trait bound
+    |
+help: the trait `std::fmt::Display` is not implemented for `AddrV2ToIpv6AddrError`
+   --> ../rust-bitcoin/p2p/src/address.rs:466:1
+    |
+466 | pub enum AddrV2ToIpv6AddrError {
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+note: required by a bound in `std::error::Error`
+   --> library/core/src/error.rs:59:0
+
+error: aborting due to 16 previous errors
+
+Some errors have detailed explanations: E0277, E0405, E0432, E0433.
+For more information about an error, try `rustc --explain E0277`.

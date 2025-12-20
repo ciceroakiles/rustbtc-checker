@@ -1,0 +1,226 @@
+error[E0433]: failed to resolve: you might be missing crate `core`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:12:5
+   |
+12 | use core::convert::Infallible;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:13:5
+   |
+13 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `internals`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:17:5
+   |
+17 | use internals::ToU64 as _;
+   |     ^^^^^^^^^ use of unresolved module or unlinked crate `internals`
+   |
+help: you might be missing a crate named `internals`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/mod.rs:17:1
+   |
+17 + extern crate internals;
+   |
+
+error[E0432]: unresolved import `io`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:18:5
+   |
+18 | use io::{BufRead, Write};
+   |     ^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::io`
+
+error[E0432]: unresolved imports `crate::block::Block`, `crate::block::Checked`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:20:26
+   |
+20 | use crate::block::{self, Block, Checked};
+   |                          ^^^^^  ^^^^^^^ no `Checked` in `block`
+   |                          |
+   |                          no `Block` in `block`
+   |                          help: a similar name exists in the module: `block`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `consensus`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:21:12
+   |
+21 | use crate::consensus::encode::{self, Decodable, Encodable, ReadExt, Writ...
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/mod.rs:17:1
+   |
+17 + extern crate consensus;
+   |
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:21:12
+   |
+21 | use crate::consensus::encode::{self, Decodable, Encodable, ReadExt, Writ...
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/mod.rs:17:1
+   |
+17 + extern crate consensus;
+   |
+
+error[E0432]: unresolved import `crate::merkle_tree`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:22:12
+   |
+22 | use crate::merkle_tree::TxMerkleNode;
+   |            ^^^^^^^^^^^ use of unresolved module or unlinked crate `merkle_tree`
+   |
+help: you might be missing a crate named `merkle_tree`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/mod.rs:17:1
+   |
+17 + extern crate merkle_tree;
+   |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:23:12
+   |
+23 | use crate::prelude::Vec;
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `crate::transaction`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:24:12
+   |
+24 | use crate::transaction::{Transaction, Txid};
+   |            ^^^^^^^^^^^ use of unresolved module or unlinked crate `transaction`
+   |
+help: you might be missing a crate named `transaction`, add it to your project and import it in your code
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/mod.rs:17:1
+   |
+17 + extern crate transaction;
+   |
+
+error[E0432]: unresolved import `crate::Weight`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:25:5
+   |
+25 | use crate::Weight;
+   |     ^^^^^^^^^^^^^ no `Weight` in the root
+
+error[E0432]: unresolved import `io`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/mod.rs:19:5
+   |
+19 | use io::{BufRead, Write};
+   |     ^^
+   |     |
+   |     unresolved import
+   |     help: a similar path exists: `std::io`
+
+error[E0432]: unresolved import `primitives`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/mod.rs:24:9
+   |
+24 | pub use primitives::{TxMerkleNode, WitnessMerkleNode};
+   |         ^^^^^^^^^^ use of unresolved module or unlinked crate `primitives`
+   |
+help: you might be missing a crate named `primitives`, add it to your project and import it in your code
+   |
+17 + extern crate primitives;
+   |
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/mod.rs:26:12
+   |
+26 | use crate::consensus::{encode, Decodable, Encodable};
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+17 + extern crate consensus;
+   |
+
+error[E0425]: cannot find type `Header` in module `block`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:34:24
+   |
+34 |     pub header: block::Header,
+   |                        ^^^^^^ not found in `block`
+
+error[E0425]: cannot find type `Header` in module `block`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:90:25
+   |
+90 |         header: &block::Header,
+   |                         ^^^^^^ not found in `block`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:122:79
+    |
+122 | ...t<usize, io::Error> {
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+122 -     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, io::Error> {
+122 +     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, i8::Error> {
+    |
+help: consider importing this module
+    |
+ 12 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+   --> ../rust-bitcoin/bitcoin/src/merkle_tree/block.rs:403:79
+    |
+403 | ...t<usize, io::Error> {
+    |             ^^ use of unresolved module or unlinked crate `io`
+    |
+    = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+    |
+403 -     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, io::Error> {
+403 +     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, i8::Error> {
+    |
+help: consider importing this module
+    |
+ 12 + use std::io;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/mod.rs:29:79
+   |
+29 | ...t<usize, io::Error> {
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+29 -     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, io::Error> {
+29 +     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, i8::Error> {
+   |
+help: consider importing this module
+   |
+19 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/src/merkle_tree/mod.rs:41:79
+   |
+41 | ...t<usize, io::Error> {
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+41 -     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, io::Error> {
+41 +     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, i8::Error> {
+   |
+help: consider importing this module
+   |
+19 + use std::io;
+   |
+
+error: aborting due to 20 previous errors
+
+Some errors have detailed explanations: E0425, E0432, E0433.
+For more information about an error, try `rustc --explain E0425`.

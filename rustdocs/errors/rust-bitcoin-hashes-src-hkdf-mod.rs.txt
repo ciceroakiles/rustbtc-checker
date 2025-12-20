@@ -1,0 +1,73 @@
+error[E0432]: unresolved import `core`
+  --> ../rust-bitcoin/hashes/src/hkdf/mod.rs:12:5
+   |
+12 | use core::fmt;
+   |     ^^^^
+   |     |
+   |     you might be missing crate `core`
+   |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved imports `crate::HashEngine`, `crate::Hmac`, `crate::HmacEngine`, `crate::IsByteArray`
+  --> ../rust-bitcoin/hashes/src/hkdf/mod.rs:14:13
+   |
+14 | use crate::{HashEngine, Hmac, HmacEngine, IsByteArray};
+   |             ^^^^^^^^^^  ^^^^  ^^^^^^^^^^  ^^^^^^^^^^^ no `IsByteArray` in the root
+   |             |           |     |
+   |             |           |     no `HmacEngine` in the root
+   |             |           no `Hmac` in the root
+   |             no `HashEngine` in the root
+
+error[E0432]: unresolved imports `crate::sha256t`, `crate::sha256t_tag`
+   --> ../rust-bitcoin/hashes/src/hkdf/mod.rs:111:21
+    |
+111 |         use crate::{sha256t, sha256t_tag};
+    |                     ^^^^^^^  ^^^^^^^^^^^ no `sha256t_tag` in the root
+    |                     |
+    |                     no `sha256t` in the root
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+   --> ../rust-bitcoin/hashes/src/hkdf/mod.rs:110:29
+    |
+110 |     fn fmt(&self, f: &mut ::core::fmt::Formatter) -> ::core::fmt::Result {
+    |                             ^^^^ you might be missing crate `core`
+    |
+help: try using `std` instead of `core`
+    |
+110 -     fn fmt(&self, f: &mut ::core::fmt::Formatter) -> ::core::fmt::Result {
+110 +     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::core::fmt::Result {
+    |
+help: consider importing this module
+    |
+ 12 + use std::fmt;
+    |
+help: if you import `fmt`, refer to it directly
+    |
+110 -     fn fmt(&self, f: &mut ::core::fmt::Formatter) -> ::core::fmt::Result {
+110 +     fn fmt(&self, f: &mut fmt::Formatter) -> ::core::fmt::Result {
+    |
+
+error[E0433]: failed to resolve: you might be missing crate `core`
+   --> ../rust-bitcoin/hashes/src/hkdf/mod.rs:110:56
+    |
+110 |     fn fmt(&self, f: &mut ::core::fmt::Formatter) -> ::core::fmt::Result {
+    |                                                        ^^^^ you might be missing crate `core`
+    |
+help: try using `std` instead of `core`
+    |
+110 -     fn fmt(&self, f: &mut ::core::fmt::Formatter) -> ::core::fmt::Result {
+110 +     fn fmt(&self, f: &mut ::core::fmt::Formatter) -> ::std::fmt::Result {
+    |
+help: consider importing this module
+    |
+ 12 + use std::fmt;
+    |
+help: if you import `fmt`, refer to it directly
+    |
+110 -     fn fmt(&self, f: &mut ::core::fmt::Formatter) -> ::core::fmt::Result {
+110 +     fn fmt(&self, f: &mut ::core::fmt::Formatter) -> fmt::Result {
+    |
+
+error: aborting due to 5 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

@@ -1,0 +1,122 @@
+error[E0432]: unresolved import `io`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:7:5
+  |
+7 | use io::{BufRead, Write};
+  |     ^^
+  |     |
+  |     unresolved import
+  |     help: a similar path exists: `std::io`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `consensus`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:9:12
+  |
+9 | use crate::consensus::encode::{self, Error, ParseError, WriteExt};
+  |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+  |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+  |
+7 + extern crate consensus;
+  |
+
+error[E0432]: unresolved import `crate::consensus`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:9:12
+  |
+9 | use crate::consensus::encode::{self, Error, ParseError, WriteExt};
+  |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+  |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+  |
+7 + extern crate consensus;
+  |
+
+error[E0432]: unresolved import `crate::consensus`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:10:12
+   |
+10 | use crate::consensus::{Decodable, Encodable};
+   |            ^^^^^^^^^ use of unresolved module or unlinked crate `consensus`
+   |
+help: you might be missing a crate named `consensus`, add it to your project and import it in your code
+   |
+ 7 + extern crate consensus;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `crypto`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:12:12
+   |
+12 | use crate::crypto::key::SerializedXOnlyPublicKey;
+   |            ^^^^^^ use of unresolved module or unlinked crate `crypto`
+   |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+   |
+ 7 + extern crate crypto;
+   |
+
+error[E0432]: unresolved import `crate::crypto`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:11:12
+   |
+11 | use crate::crypto::ecdsa;
+   |            ^^^^^^ use of unresolved module or unlinked crate `crypto`
+   |
+help: you might be missing a crate named `crypto`, add it to your project and import it in your code
+   |
+ 7 + extern crate crypto;
+   |
+
+error[E0432]: unresolved import `crate::taproot`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:13:22
+   |
+13 | use crate::taproot::{self, ControlBlock, LeafScript, TaprootMerkleBranch...
+   |                      ^^^^ no `taproot` in the root
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `primitives`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:22:9
+   |
+22 | pub use primitives::witness::UnexpectedEofError;
+   |         ^^^^^^^^^^ use of unresolved module or unlinked crate `primitives`
+   |
+help: you might be missing a crate named `primitives`, add it to your project and import it in your code
+   |
+ 7 + extern crate primitives;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `primitives`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:20:9
+   |
+20 | pub use primitives::witness::{Iter, Witness};
+   |         ^^^^^^^^^^ use of unresolved module or unlinked crate `primitives`
+   |
+help: you might be missing a crate named `primitives`, add it to your project and import it in your code
+   |
+ 7 + extern crate primitives;
+   |
+
+error[E0432]: unresolved imports `crate::internal_macros`, `crate::TapScript`, `crate::WitnessScript`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:14:13
+   |
+14 | use crate::{internal_macros, TapScript, WitnessScript};
+   |             ^^^^^^^^^^^^^^^  ^^^^^^^^^  ^^^^^^^^^^^^^ no `WitnessScript` in the root
+   |             |                |
+   |             |                no `TapScript` in the root
+   |             no `internal_macros` in the root
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/witness.rs:32:79
+   |
+32 | ...t<usize, io::Error> {
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+32 -     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, io::Error> {
+32 +     fn consensus_encode<W: Write + ?Sized>(&self, w: &mut W) -> Result<usize, i8::Error> {
+   |
+help: consider importing this module
+   |
+ 7 + use std::io;
+   |
+
+error: aborting due to 11 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

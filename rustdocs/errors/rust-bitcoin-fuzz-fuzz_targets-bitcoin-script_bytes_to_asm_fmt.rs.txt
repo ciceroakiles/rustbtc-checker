@@ -1,0 +1,14 @@
+error[E0432]: unresolved import `honggfuzz`
+ --> ../rust-bitcoin/fuzz/fuzz_targets/bitcoin/script_bytes_to_asm_fmt.rs:3:5
+  |
+3 | use honggfuzz::fuzz;
+  |     ^^^^^^^^^ use of unresolved module or unlinked crate `honggfuzz`
+  |
+help: you might be missing a crate named `honggfuzz`, add it to your project and import it in your code
+  |
+1 + extern crate honggfuzz;
+  |
+
+error: aborting due to 1 previous error
+
+For more information about this error, try `rustc --explain E0432`.

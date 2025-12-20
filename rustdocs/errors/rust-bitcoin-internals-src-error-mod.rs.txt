@@ -1,0 +1,27 @@
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/internals/src/error/input_string.rs:3:5
+  |
+3 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `storage`
+ --> ../rust-bitcoin/internals/src/error/input_string.rs:5:5
+  |
+5 | use storage::Storage;
+  |     ^^^^^^^ help: a similar path exists: `self::storage`
+
+error[E0432]: unresolved import `core`
+   --> ../rust-bitcoin/internals/src/error/input_string.rs:117:9
+    |
+117 |     use core::fmt;
+    |         ^^^^
+    |         |
+    |         you might be missing crate `core`
+    |         help: try using `std` instead of `core`: `std`
+
+error: aborting due to 3 previous errors
+
+For more information about this error, try `rustc --explain E0432`.

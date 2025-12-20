@@ -1,0 +1,70 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/bitcoin/examples/sign-tx-segwit-v0.rs:5:5
+  |
+5 | use bitcoin::ext::*;
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+5 + extern crate bitcoin;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/bitcoin/examples/sign-tx-segwit-v0.rs:6:5
+  |
+6 | use bitcoin::key::WPubkeyHash;
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+5 + extern crate bitcoin;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/bitcoin/examples/sign-tx-segwit-v0.rs:7:5
+  |
+7 | use bitcoin::locktime::absolute;
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+5 + extern crate bitcoin;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/bitcoin/examples/sign-tx-segwit-v0.rs:8:5
+  |
+8 | use bitcoin::secp256k1::{rand, Message, SecretKey};
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+5 + extern crate bitcoin;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/bitcoin/examples/sign-tx-segwit-v0.rs:9:5
+  |
+9 | use bitcoin::sighash::{EcdsaSighashType, SighashCache};
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+5 + extern crate bitcoin;
+  |
+
+error[E0432]: unresolved import `bitcoin`
+  --> ../rust-bitcoin/bitcoin/examples/sign-tx-segwit-v0.rs:10:5
+   |
+10 | use bitcoin::{
+   |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+   |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+   |
+ 5 + extern crate bitcoin;
+   |
+
+error: aborting due to 6 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

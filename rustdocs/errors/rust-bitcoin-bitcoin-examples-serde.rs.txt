@@ -1,0 +1,83 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/bitcoin/examples/serde.rs:6:5
+  |
+6 | use bitcoin::block::{Header, Version};
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+6 + extern crate bitcoin;
+  |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `bitcoin`
+ --> ../rust-bitcoin/bitcoin/examples/serde.rs:7:5
+  |
+7 | use bitcoin::consensus::serde::Hex;
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+6 + extern crate bitcoin;
+  |
+
+error[E0432]: unresolved import `bitcoin`
+ --> ../rust-bitcoin/bitcoin/examples/serde.rs:8:5
+  |
+8 | use bitcoin::consensus::{self};
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+6 + extern crate bitcoin;
+  |
+
+error[E0432]: unresolved import `bitcoin`
+ --> ../rust-bitcoin/bitcoin/examples/serde.rs:9:5
+  |
+9 | use bitcoin::{
+  |     ^^^^^^^ use of unresolved module or unlinked crate `bitcoin`
+  |
+help: you might be missing a crate named `bitcoin`, add it to your project and import it in your code
+  |
+6 + extern crate bitcoin;
+  |
+
+error[E0432]: unresolved import `serde`
+  --> ../rust-bitcoin/bitcoin/examples/serde.rs:12:5
+   |
+12 | use serde::{Deserialize, Serialize};
+   |     ^^^^^ use of unresolved module or unlinked crate `serde`
+   |
+help: you might be missing a crate named `serde`, add it to your project and import it in your code
+   |
+ 6 + extern crate serde;
+   |
+
+error: cannot find attribute `serde` in this scope
+  --> ../rust-bitcoin/bitcoin/examples/serde.rs:17:7
+   |
+17 |     #[serde(with = "consensus::serde::With::<Hex>")]
+   |       ^^^^^
+
+error: cannot find attribute `serde` in this scope
+  --> ../rust-bitcoin/bitcoin/examples/serde.rs:23:7
+   |
+23 |     #[serde(with = "consensus::serde::With::<Hex>")]
+   |       ^^^^^
+
+error: cannot find attribute `serde` in this scope
+  --> ../rust-bitcoin/bitcoin/examples/serde.rs:27:7
+   |
+27 |     #[serde(with = "amount::serde::as_sat")]
+   |       ^^^^^
+
+error: cannot find attribute `serde` in this scope
+  --> ../rust-bitcoin/bitcoin/examples/serde.rs:31:7
+   |
+31 |     #[serde(with = "fee_rate::serde::as_sat_per_kwu_floor")]
+   |       ^^^^^
+
+error: aborting due to 9 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

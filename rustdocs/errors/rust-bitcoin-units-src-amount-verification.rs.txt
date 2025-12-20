@@ -1,0 +1,33 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+ --> ../rust-bitcoin/units/src/amount/verification.rs:7:5
+  |
+7 | use super::{Amount, SignedAmount};
+  |     ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `kani`
+  --> ../rust-bitcoin/units/src/amount/verification.rs:43:3
+   |
+43 | #[kani::unwind(4)]
+   |   ^^^^ use of unresolved module or unlinked crate `kani`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `kani`
+  --> ../rust-bitcoin/units/src/amount/verification.rs:44:3
+   |
+44 | #[kani::proof]
+   |   ^^^^ use of unresolved module or unlinked crate `kani`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `kani`
+  --> ../rust-bitcoin/units/src/amount/verification.rs:21:3
+   |
+21 | #[kani::unwind(4)]
+   |   ^^^^ use of unresolved module or unlinked crate `kani`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `kani`
+  --> ../rust-bitcoin/units/src/amount/verification.rs:22:3
+   |
+22 | #[kani::proof]
+   |   ^^^^ use of unresolved module or unlinked crate `kani`
+
+error: aborting due to 5 previous errors
+
+For more information about this error, try `rustc --explain E0433`.

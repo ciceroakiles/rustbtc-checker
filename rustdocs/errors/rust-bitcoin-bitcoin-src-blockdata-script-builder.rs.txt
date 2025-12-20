@@ -1,0 +1,102 @@
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `blockdata`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:76:19
+   |
+76 |     pub(in crate::blockdata) fn push_int_non_minimal(mut self, data: i64...
+   |                   ^^^^^^^^^ use of unresolved module or unlinked crate `blockdata`
+   |
+help: you might be missing a crate named `blockdata`, add it to your project and import it in your code
+   |
+ 3 + extern crate blockdata;
+   |
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:5:5
+  |
+5 | use super::{opcode_to_verify, Error, PushBytes, Script, ScriptBuf};
+  |     ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `opcodes`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:8:12
+  |
+8 | use crate::opcodes::all::*;
+  |            ^^^^^^^ use of unresolved module or unlinked crate `opcodes`
+  |
+help: you might be missing a crate named `opcodes`, add it to your project and import it in your code
+  |
+3 + extern crate opcodes;
+  |
+
+error[E0432]: unresolved import `core`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:3:5
+  |
+3 | use core::fmt;
+  |     ^^^^
+  |     |
+  |     you might be missing crate `core`
+  |     help: try using `std` instead of `core`: `std`
+
+error[E0432]: unresolved import `crate::key`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:6:12
+  |
+6 | use crate::key::{PublicKey, XOnlyPublicKey};
+  |            ^^^ use of unresolved module or unlinked crate `key`
+  |
+help: you might be missing a crate named `key`, add it to your project and import it in your code
+  |
+3 + extern crate key;
+  |
+
+error[E0432]: unresolved import `crate::locktime`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:7:12
+  |
+7 | use crate::locktime::absolute;
+  |            ^^^^^^^^ use of unresolved module or unlinked crate `locktime`
+  |
+help: you might be missing a crate named `locktime`, add it to your project and import it in your code
+  |
+3 + extern crate locktime;
+  |
+
+error[E0432]: unresolved import `crate::opcodes`
+ --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:9:12
+  |
+9 | use crate::opcodes::Opcode;
+  |            ^^^^^^^ use of unresolved module or unlinked crate `opcodes`
+  |
+help: you might be missing a crate named `opcodes`, add it to your project and import it in your code
+  |
+3 + extern crate opcodes;
+  |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:10:12
+   |
+10 | use crate::prelude::Vec;
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0432]: unresolved import `crate::script`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:11:12
+   |
+11 | use crate::script::{ScriptBufExt as _, ScriptBufExtPriv as _, ScriptExtP...
+   |            ^^^^^^ use of unresolved module or unlinked crate `script`
+   |
+help: you might be missing a crate named `script`, add it to your project and import it in your code
+   |
+ 3 + extern crate script;
+   |
+
+error[E0432]: unresolved imports `crate::relative`, `crate::Sequence`
+  --> ../rust-bitcoin/bitcoin/src/blockdata/script/builder.rs:12:13
+   |
+12 | use crate::{relative, Sequence};
+   |             ^^^^^^^^  ^^^^^^^^ no `Sequence` in the root
+   |             |
+   |             no `relative` in the root
+
+error: aborting due to 10 previous errors
+
+Some errors have detailed explanations: E0432, E0433.
+For more information about an error, try `rustc --explain E0432`.

@@ -1,0 +1,135 @@
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+  --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:89:12
+   |
+89 |     pub(in super::super) fn push(
+   |            ^^^^^ there are too many leading `super` keywords
+
+error[E0433]: failed to resolve: there are too many leading `super` keywords
+ --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:7:5
+  |
+7 | use super::{
+  |     ^^^^^ there are too many leading `super` keywords
+
+error[E0432]: unresolved import `hashes`
+ --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:5:5
+  |
+5 | use hashes::Hash;
+  |     ^^^^^^ use of unresolved module or unlinked crate `hashes`
+  |
+help: you might be missing a crate named `hashes`, add it to your project and import it in your code
+  |
+5 + extern crate hashes;
+  |
+
+error[E0432]: unresolved import `crate::prelude`
+  --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:11:12
+   |
+11 | use crate::prelude::{Borrow, BorrowMut, Box, Vec};
+   |            ^^^^^^^
+   |            |
+   |            unresolved import
+   |            help: a similar path exists: `std::prelude`
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:76:26
+   |
+76 | ...e<Write: io::Write + ?Sized>(&self, writer: &mut Write) -> io::Result...
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+76 -     pub fn encode<Write: io::Write + ?Sized>(&self, writer: &mut Write) -> io::Result<usize> {
+76 +     pub fn encode<Write: i8::Write + ?Sized>(&self, writer: &mut Write) -> io::Result<usize> {
+   |
+help: consider importing this module
+   |
+ 5 + use std::io;
+   |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `io`
+  --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:76:76
+   |
+76 | ...rite) -> io::Result<usize> {
+   |             ^^ use of unresolved module or unlinked crate `io`
+   |
+   = help: you might be missing a crate named `io`
+help: a builtin type with a similar name exists
+   |
+76 -     pub fn encode<Write: io::Write + ?Sized>(&self, writer: &mut Write) -> io::Result<usize> {
+76 +     pub fn encode<Write: io::Write + ?Sized>(&self, writer: &mut Write) -> i8::Result<usize> {
+   |
+help: consider importing this module
+   |
+ 5 + use std::io;
+   |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:113:14
+    |
+113 |         impl TryFrom<$from> for TaprootMerkleBranchBuf {
+    |              ^^^^^^^ not found in this scope
+...
+128 | impl_try_from!(&[TapNodeHash]);
+    | ------------------------------ in this macro invocation
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+    = note: this error originates in the macro `impl_try_from` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this trait
+    |
+  5 + use std::convert::TryFrom;
+    |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:113:14
+    |
+113 |         impl TryFrom<$from> for TaprootMerkleBranchBuf {
+    |              ^^^^^^^ not found in this scope
+...
+129 | impl_try_from!(Vec<TapNodeHash>);
+    | -------------------------------- in this macro invocation
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+    = note: this error originates in the macro `impl_try_from` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this trait
+    |
+  5 + use std::convert::TryFrom;
+    |
+
+error[E0405]: cannot find trait `TryFrom` in this scope
+   --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:113:14
+    |
+113 |         impl TryFrom<$from> for TaprootMerkleBranchBuf {
+    |              ^^^^^^^ not found in this scope
+...
+130 | impl_try_from!(Box<[TapNodeHash]>);
+    | ---------------------------------- in this macro invocation
+    |
+    = note: 'std::convert::TryFrom' is included in the prelude starting in Edition 2021
+    = note: this error originates in the macro `impl_try_from` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this trait
+    |
+  5 + use std::convert::TryFrom;
+    |
+
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `alloc`
+   --> ../rust-bitcoin/bitcoin/src/taproot/merkle_branch/buf.rs:226:21
+    |
+226 | pub struct IntoIter(alloc::vec::IntoIter<TapNodeHash>);
+    |                     ^^^^^ use of unresolved module or unlinked crate `alloc`
+    |
+    = help: add `extern crate alloc` to use the `alloc` crate
+help: consider importing this module
+    |
+  5 + use std::vec;
+    |
+help: if you import `vec`, refer to it directly
+    |
+226 - pub struct IntoIter(alloc::vec::IntoIter<TapNodeHash>);
+226 + pub struct IntoIter(vec::IntoIter<TapNodeHash>);
+    |
+
+error: aborting due to 10 previous errors
+
+Some errors have detailed explanations: E0405, E0432, E0433.
+For more information about an error, try `rustc --explain E0405`.
