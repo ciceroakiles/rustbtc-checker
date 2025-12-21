@@ -1,0 +1,443 @@
+
+crate bitcoin_primitives
+├── type BlockInterval: pub
+├── mod _export: pub
+│   └── mod _core: pub
+├── mod block: pub
+│   ├── struct Block: pub #[cfg(feature = "alloc")]
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn assume_checked: pub
+│   │   ├── fn block_hash: pub
+│   │   ├── fn cached_witness_root: pub
+│   │   ├── fn check_merkle_root: pub
+│   │   ├── fn check_witness_commitment: pub
+│   │   ├── fn compute_witness_commitment: pub
+│   │   ├── fn decoder: pub(self)
+│   │   ├── fn encoder: pub(self)
+│   │   ├── fn header: pub
+│   │   ├── fn into_parts: pub
+│   │   ├── fn new_unchecked: pub
+│   │   ├── fn transactions: pub
+│   │   └── fn validate: pub
+│   ├── struct BlockDecoder: pub #[cfg(feature = "alloc")]
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct BlockDecoderError: pub #[cfg(feature = "alloc")]
+│   ├── struct BlockEncoder: pub
+│   │   ├── fn advance: pub(self)
+│   │   └── fn current_chunk: pub(self)
+│   ├── type BlockInnerDecoder: pub(self) #[cfg(feature = "alloc")]
+│   ├── enum Checked: pub #[cfg(feature = "alloc")]
+│   ├── struct Header: pub
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn block_hash: pub
+│   │   ├── fn decoder: pub(self)
+│   │   └── fn encoder: pub(self)
+│   ├── struct HeaderDecoder: pub #[cfg(feature = "alloc")]
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── fn from_inner: pub(self)
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── enum HeaderDecoderError: pub #[cfg(feature = "alloc")]
+│   ├── struct HeaderEncoder: pub
+│   │   ├── fn advance: pub(self)
+│   │   └── fn current_chunk: pub(self)
+│   ├── type HeaderInnerDecoder: pub(self) #[cfg(feature = "alloc")]
+│   ├── struct HeaderIter: pub(self) #[cfg(feature = "hex")]
+│   ├── enum InvalidBlockError: pub #[cfg(feature = "alloc")]
+│   ├── enum Unchecked: pub #[cfg(feature = "alloc")]
+│   ├── trait Validation: pub #[cfg(feature = "alloc")]
+│   ├── struct Version: pub
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn decoder: pub(self)
+│   │   ├── fn encoder: pub(self)
+│   │   ├── const fn from_consensus: pub
+│   │   ├── fn is_signalling_soft_fork: pub
+│   │   └── const fn to_consensus: pub
+│   ├── struct VersionDecoder: pub
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── const fn new: pub
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct VersionDecoderError: pub
+│   ├── struct VersionEncoder: pub
+│   │   ├── fn advance: pub(self)
+│   │   └── fn current_chunk: pub(self)
+│   ├── fn compute_merkle_root: pub #[cfg(feature = "alloc")]
+│   ├── fn compute_witness_root: pub #[cfg(feature = "alloc")]
+│   ├── mod sealed: pub(self) #[cfg(feature = "alloc")]
+│   │   └── trait Validation: pub
+│   └── fn witness_commitment_from_coinbase: pub(self) #[cfg(feature = "alloc")]
+├── mod hash_types: pub(crate)
+│   ├── mod block_hash: pub(self)
+│   │   ├── struct BlockHash: pub
+│   │   │   ├── type Decoder: pub(self)
+│   │   │   ├── type Encoder: pub(self)
+│   │   │   ├── fn decoder: pub(self)
+│   │   │   └── fn encoder: pub(self)
+│   │   ├── struct BlockHashDecoder: pub
+│   │   │   ├── type Error: pub(self)
+│   │   │   ├── type Output: pub(self)
+│   │   │   ├── fn end: pub(self)
+│   │   │   ├── const fn new: pub
+│   │   │   ├── fn push_bytes: pub(self)
+│   │   │   └── fn read_limit: pub(self)
+│   │   ├── struct BlockHashDecoderError: pub
+│   │   ├── struct BlockHashEncoder: pub
+│   │   │   ├── fn advance: pub(self)
+│   │   │   └── fn current_chunk: pub(self)
+│   │   ├── type HashType: pub(self)
+│   │   └── type Inner: pub(self)
+│   ├── mod ntxid: pub(self)
+│   │   ├── type HashType: pub(self)
+│   │   ├── type Inner: pub(self)
+│   │   └── struct Ntxid: pub
+│   ├── mod script_hash: pub(self) #[cfg(feature = "alloc")]
+│   │   ├── type HashType: pub(self)
+│   │   ├── type Inner: pub(self)
+│   │   ├── struct RedeemScriptSizeError: pub
+│   │   │   └── fn invalid_size: pub
+│   │   └── struct ScriptHash: pub
+│   │       ├── fn from_script: pub
+│   │       └── fn from_script_unchecked: pub
+│   ├── mod serde_details: pub #[cfg(feature = "serde")]
+│   │   ├── struct BytesVisitor: pub
+│   │   │   ├── type Value: pub(self)
+│   │   │   ├── fn expecting: pub(self)
+│   │   │   └── fn visit_bytes: pub(self)
+│   │   └── struct HexVisitor: pub
+│   │       ├── type Value: pub(self)
+│   │       ├── fn expecting: pub(self)
+│   │       ├── fn visit_bytes: pub(self)
+│   │       └── fn visit_str: pub(self)
+│   ├── mod transaction_merkle_node: pub(self)
+│   │   ├── type HashType: pub(self)
+│   │   ├── type Inner: pub(self)
+│   │   ├── struct TxMerkleNode: pub
+│   │   │   ├── type Decoder: pub(self)
+│   │   │   ├── type Encoder: pub(self)
+│   │   │   ├── type Leaf: pub(self)
+│   │   │   ├── fn calculate_root: pub
+│   │   │   ├── fn combine: pub
+│   │   │   ├── fn combine: pub(self)
+│   │   │   ├── fn decoder: pub(self)
+│   │   │   ├── fn encoder: pub(self)
+│   │   │   ├── fn from_leaf: pub
+│   │   │   └── fn from_leaf: pub(self)
+│   │   ├── struct TxMerkleNodeDecoder: pub
+│   │   │   ├── type Error: pub(self)
+│   │   │   ├── type Output: pub(self)
+│   │   │   ├── fn end: pub(self)
+│   │   │   ├── const fn new: pub
+│   │   │   ├── fn push_bytes: pub(self)
+│   │   │   └── fn read_limit: pub(self)
+│   │   ├── struct TxMerkleNodeDecoderError: pub
+│   │   └── struct TxMerkleNodeEncoder: pub
+│   │       ├── fn advance: pub(self)
+│   │       └── fn current_chunk: pub(self)
+│   ├── mod txid: pub(self)
+│   │   ├── type HashType: pub(self)
+│   │   ├── type Inner: pub(self)
+│   │   └── struct Txid: pub
+│   ├── mod witness_commitment: pub(self)
+│   │   ├── type HashType: pub(self)
+│   │   ├── type Inner: pub(self)
+│   │   └── struct WitnessCommitment: pub
+│   ├── mod witness_merkle_node: pub(self)
+│   │   ├── type HashType: pub(self)
+│   │   ├── type Inner: pub(self)
+│   │   ├── struct WitnessMerkleNode: pub
+│   │   │   ├── type Decoder: pub(self)
+│   │   │   ├── type Encoder: pub(self)
+│   │   │   ├── type Leaf: pub(self)
+│   │   │   ├── fn calculate_root: pub
+│   │   │   ├── fn combine: pub
+│   │   │   ├── fn combine: pub(self)
+│   │   │   ├── fn decoder: pub(self)
+│   │   │   ├── fn encoder: pub(self)
+│   │   │   ├── fn from_leaf: pub
+│   │   │   └── fn from_leaf: pub(self)
+│   │   ├── struct WitnessMerkleNodeDecoder: pub
+│   │   │   ├── type Error: pub(self)
+│   │   │   ├── type Output: pub(self)
+│   │   │   ├── fn end: pub(self)
+│   │   │   ├── fn new: pub
+│   │   │   ├── fn push_bytes: pub(self)
+│   │   │   └── fn read_limit: pub(self)
+│   │   ├── struct WitnessMerkleNodeDecoderError: pub
+│   │   └── struct WitnessMerkleNodeEncoder: pub
+│   │       ├── fn advance: pub(self)
+│   │       └── fn current_chunk: pub(self)
+│   ├── mod witness_script_hash: pub(self) #[cfg(feature = "alloc")]
+│   │   ├── type HashType: pub(self)
+│   │   ├── type Inner: pub(self)
+│   │   ├── struct WScriptHash: pub
+│   │   │   ├── fn from_script: pub
+│   │   │   └── fn from_script_unchecked: pub
+│   │   └── struct WitnessScriptSizeError: pub
+│   │       └── fn invalid_size: pub
+│   └── mod wtxid: pub(self)
+│       ├── type HashType: pub(self)
+│       ├── type Inner: pub(self)
+│       └── struct Wtxid: pub
+├── mod merkle_tree: pub
+│   └── trait MerkleNode: pub(crate)
+├── mod opcodes: pub(crate) #[cfg(feature = "alloc")]
+│   └── fn fmt_opcode: pub
+├── mod pow: pub
+│   ├── struct CompactTarget: pub
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn decoder: pub(self)
+│   │   ├── fn encoder: pub(self)
+│   │   ├── fn from_consensus: pub
+│   │   ├── const fn to_consensus: pub
+│   │   └── fn to_hex: pub #[cfg(feature = "alloc")]
+│   ├── struct CompactTargetDecoder: pub
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── const fn new: pub
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct CompactTargetDecoderError: pub
+│   └── struct CompactTargetEncoder: pub
+│       ├── fn advance: pub(self)
+│       └── fn current_chunk: pub(self)
+├── mod prelude: pub(crate)
+├── mod script: pub #[cfg(feature = "alloc")]
+│   ├── type RedeemScript: pub
+│   ├── type RedeemScriptBuf: pub
+│   ├── trait ScriptHashableTag: pub
+│   ├── type ScriptPubKey: pub
+│   ├── type ScriptPubKeyBuf: pub
+│   ├── type ScriptPubKeyBufDecoder: pub
+│   ├── type ScriptSig: pub
+│   ├── type ScriptSigBuf: pub
+│   ├── type ScriptSigBufDecoder: pub
+│   ├── type TapScript: pub
+│   ├── type TapScriptBuf: pub
+│   ├── type WitnessScript: pub
+│   ├── type WitnessScriptBuf: pub
+│   ├── mod borrowed: pub(self)
+│   │   ├── struct Script: pub
+│   │   │   ├── type Encoder: pub(self)
+│   │   │   ├── fn arbitrary: pub(self)
+│   │   │   ├── const fn as_bytes: pub
+│   │   │   ├── fn as_mut_bytes: pub
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── fn encoder: pub(self)
+│   │   │   ├── fn from_arc_bytes: pub(crate) #[cfg(target_has_atomic = "ptr")]
+│   │   │   ├── fn from_boxed_bytes: pub(crate)
+│   │   │   ├── const fn from_bytes: pub
+│   │   │   ├── fn from_bytes_mut: pub
+│   │   │   ├── fn from_rc_bytes: pub(crate)
+│   │   │   ├── fn into_script_buf: pub
+│   │   │   ├── const fn is_empty: pub
+│   │   │   ├── const fn len: pub
+│   │   │   ├── const fn new: pub
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── fn to_bytes: pub
+│   │   │   ├── fn to_hex: pub #[cfg(feature = "alloc")], #[cfg(feature = "hex")]
+│   │   │   └── fn to_vec: pub
+│   │   └── struct ScriptEncoder: pub
+│   │       ├── fn advance: pub(self)
+│   │       └── fn current_chunk: pub(self)
+│   ├── mod owned: pub(self)
+│   │   ├── struct ScriptBuf: pub
+│   │   │   ├── type Decoder: pub(self)
+│   │   │   ├── fn arbitrary: pub(self)
+│   │   │   ├── fn as_mut_script: pub
+│   │   │   ├── fn as_script: pub
+│   │   │   ├── fn capacity: pub
+│   │   │   ├── fn decoder: pub(self)
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── const fn from_bytes: pub
+│   │   │   ├── fn into_boxed_script: pub
+│   │   │   ├── fn into_bytes: pub
+│   │   │   ├── const fn new: pub
+│   │   │   ├── fn reserve: pub
+│   │   │   ├── fn reserve_exact: pub
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── fn to_hex: pub #[cfg(feature = "alloc")], #[cfg(feature = "hex")]
+│   │   │   └── fn with_capacity: pub
+│   │   ├── struct ScriptBufDecoder: pub
+│   │   │   ├── type Error: pub(self)
+│   │   │   ├── type Output: pub(self)
+│   │   │   ├── fn end: pub(self)
+│   │   │   ├── const fn new: pub
+│   │   │   ├── fn push_bytes: pub(self)
+│   │   │   └── fn read_limit: pub(self)
+│   │   └── struct ScriptBufDecoderError: pub
+│   ├── mod sealed: pub(self)
+│   │   └── trait Sealed: pub
+│   └── mod tag: pub(self)
+│       ├── enum RedeemScriptTag: pub
+│       ├── enum ScriptPubKeyTag: pub
+│       ├── enum ScriptSigTag: pub
+│       ├── trait Tag: pub
+│       ├── enum TapScriptTag: pub
+│       └── enum WitnessScriptTag: pub
+├── mod transaction: pub
+│   ├── enum Attempt: pub(self) #[cfg(feature = "alloc")]
+│   ├── enum IsSegwit: pub(self) #[cfg(feature = "alloc")]
+│   ├── struct Iteration: pub(self) #[cfg(feature = "alloc")]
+│   ├── struct OutPoint: pub
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn decoder: pub(self)
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── fn encoder: pub(self)
+│   │   └── fn serialize: pub(self)
+│   ├── struct OutPointDecoder: pub
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── const fn new: pub
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct OutPointDecoderError: pub
+│   ├── struct OutPointEncoder: pub
+│   │   ├── fn advance: pub(self)
+│   │   └── fn current_chunk: pub(self)
+│   ├── enum ParseOutPointError: pub #[cfg(feature = "alloc")], #[cfg(feature = "hex")]
+│   ├── struct Transaction: pub #[cfg(feature = "alloc")]
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn compute_ntxid: pub
+│   │   ├── fn compute_txid: pub
+│   │   ├── fn compute_wtxid: pub
+│   │   ├── fn decoder: pub(self)
+│   │   ├── fn encoder: pub(self)
+│   │   ├── fn is_coinbase: pub
+│   │   └── fn uses_segwit_serialization: pub(self)
+│   ├── struct TransactionDecoder: pub #[cfg(feature = "alloc")]
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── const fn new: pub
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct TransactionDecoderError: pub #[cfg(feature = "alloc")]
+│   ├── enum TransactionDecoderErrorInner: pub(self) #[cfg(feature = "alloc")]
+│   ├── enum TransactionDecoderState: pub(self) #[cfg(feature = "alloc")]
+│   ├── struct TransactionEncoder: pub
+│   │   ├── fn advance: pub(self)
+│   │   └── fn current_chunk: pub(self)
+│   ├── trait TxIdentifier: pub(crate)
+│   ├── struct TxIn: pub #[cfg(feature = "alloc")]
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn decoder: pub(self)
+│   │   └── fn encoder: pub(self)
+│   ├── struct TxInDecoder: pub #[cfg(feature = "alloc")]
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct TxInDecoderError: pub #[cfg(feature = "alloc")]
+│   ├── struct TxInEncoder: pub
+│   │   ├── fn advance: pub(self)
+│   │   └── fn current_chunk: pub(self)
+│   ├── type TxInInnerDecoder: pub(self) #[cfg(feature = "alloc")]
+│   ├── struct TxOut: pub #[cfg(feature = "alloc")]
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn decoder: pub(self)
+│   │   └── fn encoder: pub(self)
+│   ├── struct TxOutDecoder: pub #[cfg(feature = "alloc")]
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct TxOutDecoderError: pub #[cfg(feature = "alloc")]
+│   ├── struct TxOutEncoder: pub
+│   │   ├── fn advance: pub(self)
+│   │   └── fn current_chunk: pub(self)
+│   ├── type TxOutInnerDecoder: pub(self) #[cfg(feature = "alloc")]
+│   ├── struct Version: pub
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn decoder: pub(self)
+│   │   ├── fn encoder: pub(self)
+│   │   ├── const fn is_standard: pub
+│   │   ├── const fn maybe_non_standard: pub
+│   │   └── const fn to_u32: pub
+│   ├── struct VersionDecoder: pub
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── const fn new: pub
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct VersionDecoderError: pub
+│   ├── struct VersionEncoder: pub
+│   │   ├── fn advance: pub(self)
+│   │   └── fn current_chunk: pub(self)
+│   ├── struct WitnessesEncoder: pub #[cfg(feature = "alloc")]
+│   │   ├── fn advance: pub(self)
+│   │   ├── fn current_chunk: pub(self)
+│   │   └── fn new: pub
+│   ├── fn hash_transaction: pub(self) #[cfg(feature = "alloc")]
+│   └── fn parse_vout: pub(self) #[cfg(feature = "alloc")], #[cfg(feature = "hex")]
+└── mod witness: pub #[cfg(feature = "alloc")]
+    ├── struct Iter: pub
+    ├── struct UnexpectedEofError: pub
+    ├── struct Witness: pub
+    │   ├── type Decoder: pub(self)
+    │   ├── type Encoder: pub(self)
+    │   ├── fn arbitrary: pub(self)
+    │   ├── fn clear: pub
+    │   ├── fn decoder: pub(self)
+    │   ├── fn deserialize: pub(self)
+    │   ├── fn encoder: pub(self)
+    │   ├── fn from_hex: pub #[cfg(feature = "hex")]
+    │   ├── fn from_slice: pub
+    │   ├── fn get: pub
+    │   ├── fn get_back: pub
+    │   ├── fn is_empty: pub
+    │   ├── fn iter: pub
+    │   ├── fn last: pub
+    │   ├── const fn len: pub
+    │   ├── const fn new: pub
+    │   ├── fn push: pub
+    │   ├── fn push_slice: pub(self)
+    │   ├── fn serialize: pub(self)
+    │   ├── fn size: pub
+    │   └── fn to_vec: pub
+    ├── struct WitnessDecoder: pub #[cfg(feature = "alloc")]
+    │   ├── type Error: pub(self)
+    │   ├── type Output: pub(self)
+    │   ├── fn end: pub(self)
+    │   ├── const fn new: pub
+    │   ├── fn push_bytes: pub(self)
+    │   ├── fn read_limit: pub(self)
+    │   └── fn resize_if_needed: pub(self)
+    ├── struct WitnessDecoderError: pub
+    ├── enum WitnessDecoderErrorInner: pub(self)
+    ├── struct WitnessEncoder: pub
+    │   ├── fn advance: pub(self)
+    │   └── fn current_chunk: pub(self)
+    ├── fn cast_to_usize_if_valid: pub(self)
+    ├── fn decode_cursor: pub(self)
+    └── fn encode_cursor: pub(self)

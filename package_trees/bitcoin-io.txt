@@ -1,0 +1,79 @@
+
+crate bitcoin_io
+├── trait BufRead: pub
+├── struct Cursor: pub
+│   ├── fn consume: pub(crate)
+│   ├── fn fill_buf: pub(crate)
+│   ├── fn flush: pub(crate)
+│   ├── fn get_mut: pub
+│   ├── const fn get_ref: pub
+│   ├── fn inner: pub
+│   ├── fn into_inner: pub
+│   ├── const fn new: pub
+│   ├── const fn position: pub
+│   ├── fn read: pub(crate)
+│   ├── fn set_position: pub
+│   └── fn write: pub(crate)
+├── trait Read: pub
+├── enum ReadError: pub
+├── type Result: pub
+├── struct Sink: pub
+│   ├── fn flush: pub(crate)
+│   ├── fn write: pub(crate)
+│   └── fn write_all: pub(crate)
+├── struct Take: pub
+│   ├── fn consume: pub(crate)
+│   ├── fn fill_buf: pub(crate)
+│   ├── fn read: pub(crate)
+│   └── fn read_to_end: pub #[cfg(feature = "alloc")]
+├── trait Write: pub
+├── mod bridge: pub(crate) #[cfg(feature = "std")]
+│   ├── struct FromStd: pub
+│   │   ├── fn consume: pub(self)
+│   │   ├── fn fill_buf: pub(self)
+│   │   ├── fn flush: pub(self)
+│   │   ├── fn get_mut: pub
+│   │   ├── fn get_ref: pub
+│   │   ├── fn inner: pub
+│   │   ├── fn inner_mut: pub
+│   │   ├── fn into_inner: pub
+│   │   ├── const fn new: pub
+│   │   ├── fn new_boxed: pub
+│   │   ├── fn new_mut: pub
+│   │   ├── fn read: pub(self)
+│   │   ├── fn read_exact: pub(self)
+│   │   ├── fn write: pub(self)
+│   │   └── fn write_all: pub(self)
+│   └── struct ToStd: pub
+│       ├── fn consume: pub(self)
+│       ├── fn fill_buf: pub(self)
+│       ├── fn flush: pub(self)
+│       ├── fn inner: pub
+│       ├── fn inner_mut: pub
+│       ├── fn into_inner: pub
+│       ├── const fn new: pub
+│       ├── fn new_boxed: pub
+│       ├── fn new_mut: pub
+│       ├── fn read: pub(self)
+│       ├── fn read_exact: pub(self)
+│       ├── fn write: pub(self)
+│       └── fn write_all: pub(self)
+├── fn decode_from_read: pub
+├── fn decode_from_read_unbuffered: pub
+├── fn decode_from_read_unbuffered_with: pub
+├── fn encode_to_writer: pub
+├── mod error: pub(crate)
+│   ├── struct Error: pub
+│   │   ├── fn get_ref: pub #[cfg(feature = "std")]
+│   │   ├── fn kind: pub
+│   │   └── fn new: pub #[cfg(feature = "std")]
+│   ├── enum ErrorKind: pub
+│   │   ├── fn description: pub(self)
+│   │   ├── fn from_std: pub(self) #[cfg(feature = "std")]
+│   │   └── fn to_std: pub(self) #[cfg(feature = "std")]
+│   └── struct NotUnwindSafe: pub(self)
+├── const fn from_std: pub #[cfg(feature = "std")]
+├── fn from_std_mut: pub #[cfg(feature = "std")]
+├── mod hash: pub(crate) #[cfg(feature = "hashes")]
+│   └── fn hash_reader: pub
+└── fn sink: pub

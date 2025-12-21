@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Setup exclusion list for first run
+EXCLUDE_LIST="exclusion_list"
+touch $EXCLUDE_LIST
+
 process_fields() {
   # Remove system info from JSON
   file=$1
@@ -76,8 +80,7 @@ cd $OUTPUT_DIR
 
 # Get *.rs file locations and filter them,
 # by removing the ones present in the exclusion list
-EXCLUDE_LIST="exclusion_list"
-files=$(find ../rust-bitcoin/ -type f -name '*.rs')
+files=$(find ../../rust-bitcoin/ -type f -name '*.rs')
 echo "$files" > files_preload
 grep -Fxvf ../$EXCLUDE_LIST files_preload > ../files
 rm -f files_preload

@@ -1,0 +1,504 @@
+
+crate bitcoin_units
+├── type BlockInterval: pub
+├── mod _export: pub
+│   └── mod _core: pub
+├── mod amount: pub
+│   ├── enum Denomination: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn as_str: pub(self)
+│   │   ├── fn forms: pub(self)
+│   │   └── fn precision: pub(self)
+│   ├── struct Display: pub
+│   │   └── fn show_denomination: pub
+│   ├── enum DisplayStyle: pub(self)
+│   ├── struct FormatOptions: pub(self)
+│   │   └── fn from_formatter: pub(self)
+│   ├── enum InnerParseError: pub(self)
+│   │   └── fn convert: pub(self)
+│   ├── fn dec_width: pub(self)
+│   ├── mod error: pub
+│   │   ├── struct AmountDecoderError: pub #[cfg(feature = "encoding")]
+│   │   │   ├── fn eof: pub(super)
+│   │   │   └── fn out_of_range: pub(super)
+│   │   ├── enum AmountDecoderErrorInner: pub(super) #[cfg(feature = "encoding")]
+│   │   ├── struct BadPositionError: pub
+│   │   ├── struct InputTooLargeError: pub
+│   │   ├── struct InvalidCharacterError: pub
+│   │   ├── struct MissingDenominationError: pub
+│   │   ├── struct MissingDigitsError: pub
+│   │   ├── enum MissingDigitsKind: pub(super)
+│   │   ├── struct OutOfRangeError: pub
+│   │   │   ├── fn is_above_max: pub
+│   │   │   ├── fn is_below_min: pub
+│   │   │   ├── fn negative: pub(crate)
+│   │   │   └── fn valid_range: pub
+│   │   ├── struct ParseAmountError: pub
+│   │   ├── enum ParseAmountErrorInner: pub(crate)
+│   │   ├── enum ParseDenominationError: pub
+│   │   ├── struct ParseError: pub
+│   │   ├── enum ParseErrorInner: pub(crate)
+│   │   ├── struct PossiblyConfusingDenominationError: pub
+│   │   ├── struct TooPreciseError: pub
+│   │   └── struct UnknownDenominationError: pub
+│   ├── fn fmt_satoshi_in: pub(self)
+│   ├── fn is_too_precise: pub(self)
+│   ├── fn parse_signed_to_satoshi: pub(self)
+│   ├── fn repeat_char: pub(self)
+│   ├── mod result: pub(self)
+│   ├── mod serde: pub #[cfg(feature = "serde")]
+│   │   ├── struct DisplayFullError: pub(self) #[cfg(feature = "alloc")]
+│   │   ├── mod as_btc: pub #[cfg(feature = "alloc")]
+│   │   │   ├── fn deserialize: pub
+│   │   │   ├── mod opt: pub
+│   │   │   │   ├── fn deserialize: pub
+│   │   │   │   └── fn serialize: pub
+│   │   │   └── fn serialize: pub
+│   │   ├── mod as_sat: pub
+│   │   │   ├── fn deserialize: pub
+│   │   │   ├── mod opt: pub
+│   │   │   │   ├── fn deserialize: pub
+│   │   │   │   └── fn serialize: pub
+│   │   │   └── fn serialize: pub
+│   │   └── mod as_str: pub #[cfg(feature = "alloc")]
+│   │       ├── fn deserialize: pub
+│   │       ├── mod opt: pub
+│   │       │   ├── fn deserialize: pub
+│   │       │   └── fn serialize: pub
+│   │       └── fn serialize: pub
+│   ├── mod signed: pub(self)
+│   │   └── mod encapsulate: pub(self)
+│   │       └── struct SignedAmount: pub
+│   │           ├── const fn abs: pub
+│   │           ├── fn arbitrary: pub(self)
+│   │           ├── const fn checked_abs: pub
+│   │           ├── const fn checked_add: pub
+│   │           ├── const fn checked_div: pub
+│   │           ├── const fn checked_mul: pub
+│   │           ├── const fn checked_rem: pub
+│   │           ├── const fn checked_sub: pub
+│   │           ├── fn display_dynamic: pub
+│   │           ├── fn display_in: pub
+│   │           ├── fn from_btc: pub #[cfg(feature = "alloc")]
+│   │           ├── const fn from_btc_i16: pub
+│   │           ├── fn from_float_in: pub #[cfg(feature = "alloc")]
+│   │           ├── fn from_int_btc: pub
+│   │           ├── const fn from_sat: pub
+│   │           ├── const fn from_sat_i32: pub
+│   │           ├── fn from_str_in: pub
+│   │           ├── fn from_str_with_denomination: pub
+│   │           ├── fn is_negative: pub
+│   │           ├── fn is_positive: pub
+│   │           ├── fn positive_sub: pub
+│   │           ├── fn signum: pub
+│   │           ├── fn to_btc: pub #[cfg(feature = "alloc")]
+│   │           ├── fn to_float_in: pub #[cfg(feature = "alloc")]
+│   │           ├── const fn to_sat: pub
+│   │           ├── fn to_string_in: pub #[cfg(feature = "alloc")]
+│   │           ├── fn to_string_with_denomination: pub #[cfg(feature = "alloc")]
+│   │           ├── fn to_unsigned: pub
+│   │           └── fn unsigned_abs: pub
+│   ├── fn split_amount_and_denomination: pub(self)
+│   └── mod unsigned: pub(self)
+│       ├── struct AmountDecoder: pub #[cfg(feature = "encoding")]
+│       │   ├── type Error: pub(self)
+│       │   ├── type Output: pub(self)
+│       │   ├── fn end: pub(self)
+│       │   ├── const fn new: pub
+│       │   ├── fn push_bytes: pub(self)
+│       │   └── fn read_limit: pub(self)
+│       ├── struct AmountEncoder: pub
+│       │   ├── fn advance: pub(self)
+│       │   └── fn current_chunk: pub(self)
+│       └── mod encapsulate: pub(self)
+│           └── struct Amount: pub
+│               ├── type Decoder: pub(self)
+│               ├── type Encoder: pub(self)
+│               ├── fn arbitrary: pub(self)
+│               ├── const fn checked_add: pub
+│               ├── const fn checked_div: pub
+│               ├── const fn checked_mul: pub
+│               ├── const fn checked_rem: pub
+│               ├── const fn checked_sub: pub
+│               ├── fn decoder: pub(self)
+│               ├── fn display_dynamic: pub
+│               ├── fn display_in: pub
+│               ├── const fn div_by_fee_rate_ceil: pub
+│               ├── const fn div_by_fee_rate_floor: pub
+│               ├── const fn div_by_weight_ceil: pub
+│               ├── const fn div_by_weight_floor: pub
+│               ├── fn encoder: pub(self)
+│               ├── fn from_btc: pub #[cfg(feature = "alloc")]
+│               ├── const fn from_btc_u16: pub
+│               ├── fn from_float_in: pub #[cfg(feature = "alloc")]
+│               ├── fn from_int_btc: pub
+│               ├── const fn from_sat: pub
+│               ├── const fn from_sat_u32: pub
+│               ├── fn from_str_in: pub
+│               ├── fn from_str_with_denomination: pub
+│               ├── fn signed_sub: pub
+│               ├── fn to_btc: pub #[cfg(feature = "alloc")]
+│               ├── fn to_float_in: pub #[cfg(feature = "alloc")]
+│               ├── const fn to_sat: pub
+│               ├── fn to_signed: pub
+│               ├── fn to_string_in: pub #[cfg(feature = "alloc")]
+│               └── fn to_string_with_denomination: pub #[cfg(feature = "alloc")]
+├── mod block: pub
+│   ├── struct BlockHeight: pub
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn checked_add: pub
+│   │   ├── fn checked_sub: pub
+│   │   ├── fn decoder: pub(self)
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── fn encoder: pub(self)
+│   │   ├── const fn from_u32: pub
+│   │   ├── fn serialize: pub(self)
+│   │   └── const fn to_u32: pub
+│   ├── struct BlockHeightDecoder: pub #[cfg(feature = "encoding")]
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── const fn new: pub
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct BlockHeightDecoderError: pub #[cfg(feature = "encoding")]
+│   ├── struct BlockHeightEncoder: pub
+│   │   ├── fn advance: pub(self)
+│   │   └── fn current_chunk: pub(self)
+│   ├── struct BlockHeightInterval: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn checked_add: pub
+│   │   ├── fn checked_sub: pub
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── const fn from_u32: pub
+│   │   ├── fn serialize: pub(self)
+│   │   └── const fn to_u32: pub
+│   ├── struct BlockMtp: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn checked_add: pub
+│   │   ├── fn checked_sub: pub
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── const fn from_u32: pub
+│   │   ├── fn new: pub
+│   │   ├── fn serialize: pub(self)
+│   │   └── const fn to_u32: pub
+│   ├── struct BlockMtpInterval: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn checked_add: pub
+│   │   ├── fn checked_sub: pub
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── const fn from_u32: pub
+│   │   ├── fn serialize: pub(self)
+│   │   ├── const fn to_relative_mtp_interval_ceil: pub
+│   │   ├── const fn to_relative_mtp_interval_floor: pub
+│   │   └── const fn to_u32: pub
+│   └── struct TooBigForRelativeHeightError: pub
+├── mod fee: pub(crate)
+├── mod fee_rate: pub
+│   ├── mod encapsulate: pub(self)
+│   │   └── struct FeeRate: pub
+│   │       ├── fn arbitrary: pub(self)
+│   │       ├── const fn checked_add: pub
+│   │       ├── const fn checked_div: pub
+│   │       ├── const fn checked_mul: pub
+│   │       ├── const fn checked_sub: pub
+│   │       ├── fn fee_vb: pub
+│   │       ├── fn fee_wu: pub
+│   │       ├── const fn from_per_kvb: pub
+│   │       ├── const fn from_per_kwu: pub
+│   │       ├── const fn from_per_vb: pub
+│   │       ├── const fn from_sat_per_kvb: pub
+│   │       ├── const fn from_sat_per_kwu: pub
+│   │       ├── const fn from_sat_per_mvb: pub(crate)
+│   │       ├── const fn from_sat_per_vb: pub
+│   │       ├── const fn mul_by_weight: pub
+│   │       ├── const fn to_fee: pub
+│   │       ├── const fn to_sat_per_kvb_ceil: pub
+│   │       ├── const fn to_sat_per_kvb_floor: pub
+│   │       ├── const fn to_sat_per_kwu_ceil: pub
+│   │       ├── const fn to_sat_per_kwu_floor: pub
+│   │       ├── const fn to_sat_per_mvb: pub(crate)
+│   │       ├── const fn to_sat_per_vb_ceil: pub
+│   │       └── const fn to_sat_per_vb_floor: pub
+│   └── mod serde: pub #[cfg(feature = "serde")]
+│       ├── struct OverflowError: pub
+│       ├── mod as_sat_per_kwu_floor: pub
+│       │   ├── fn deserialize: pub
+│       │   ├── mod opt: pub
+│       │   │   ├── fn deserialize: pub
+│       │   │   └── fn serialize: pub
+│       │   └── fn serialize: pub
+│       ├── mod as_sat_per_vb_ceil: pub
+│       │   ├── fn deserialize: pub
+│       │   ├── mod opt: pub
+│       │   │   ├── fn deserialize: pub
+│       │   │   └── fn serialize: pub
+│       │   └── fn serialize: pub
+│       └── mod as_sat_per_vb_floor: pub
+│           ├── fn deserialize: pub
+│           ├── mod opt: pub
+│           │   ├── fn deserialize: pub
+│           │   └── fn serialize: pub
+│           └── fn serialize: pub
+├── mod internal_macros: pub(crate)
+├── mod locktime: pub
+│   ├── mod absolute: pub
+│   │   ├── struct Height: pub
+│   │   │   ├── fn arbitrary: pub(self)
+│   │   │   ├── const fn from_consensus: pub
+│   │   │   ├── fn from_hex: pub
+│   │   │   ├── const fn from_u32: pub
+│   │   │   ├── fn is_satisfied_by: pub
+│   │   │   ├── const fn to_consensus_u32: pub
+│   │   │   └── const fn to_u32: pub
+│   │   ├── enum LockTime: pub
+│   │   │   ├── type Decoder: pub(self)
+│   │   │   ├── type Encoder: pub(self)
+│   │   │   ├── fn arbitrary: pub(self)
+│   │   │   ├── fn decoder: pub(self)
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── fn encoder: pub(self)
+│   │   │   ├── fn from_consensus: pub
+│   │   │   ├── fn from_height: pub
+│   │   │   ├── fn from_hex: pub
+│   │   │   ├── fn from_mtp: pub
+│   │   │   ├── fn from_time: pub
+│   │   │   ├── fn from_unprefixed_hex: pub
+│   │   │   ├── const fn is_block_height: pub
+│   │   │   ├── const fn is_block_time: pub
+│   │   │   ├── fn is_implied_by: pub
+│   │   │   ├── const fn is_same_unit: pub
+│   │   │   ├── fn is_satisfied_by: pub
+│   │   │   ├── fn is_satisfied_by_height: pub
+│   │   │   ├── fn is_satisfied_by_time: pub
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   └── fn to_consensus_u32: pub
+│   │   ├── struct LockTimeDecoder: pub #[cfg(feature = "encoding")]
+│   │   │   ├── type Error: pub(self)
+│   │   │   ├── type Output: pub(self)
+│   │   │   ├── fn end: pub(self)
+│   │   │   ├── const fn new: pub
+│   │   │   ├── fn push_bytes: pub(self)
+│   │   │   └── fn read_limit: pub(self)
+│   │   ├── struct LockTimeEncoder: pub
+│   │   │   ├── fn advance: pub(self)
+│   │   │   └── fn current_chunk: pub(self)
+│   │   ├── struct MedianTimePast: pub
+│   │   │   ├── fn arbitrary: pub(self)
+│   │   │   ├── const fn from_consensus: pub
+│   │   │   ├── fn from_hex: pub
+│   │   │   ├── const fn from_u32: pub
+│   │   │   ├── fn is_satisfied_by: pub
+│   │   │   ├── fn new: pub
+│   │   │   ├── const fn to_consensus_u32: pub
+│   │   │   └── const fn to_u32: pub
+│   │   ├── type Time: pub
+│   │   ├── mod error: pub
+│   │   │   ├── struct ConversionError: pub
+│   │   │   │   ├── const fn invalid_height: pub(super)
+│   │   │   │   └── const fn invalid_time: pub(super)
+│   │   │   ├── struct IncompatibleHeightError: pub
+│   │   │   │   ├── fn incompatible: pub
+│   │   │   │   └── fn lock: pub
+│   │   │   ├── struct IncompatibleTimeError: pub
+│   │   │   │   ├── fn incompatible: pub
+│   │   │   │   └── fn lock: pub
+│   │   │   ├── struct LockTimeDecoderError: pub #[cfg(feature = "encoding")]
+│   │   │   ├── enum LockTimeUnit: pub(self)
+│   │   │   ├── enum ParseError: pub(super)
+│   │   │   │   ├── fn display: pub(super)
+│   │   │   │   ├── fn invalid_int: pub(super)
+│   │   │   │   └── fn source: pub(super) #[cfg(feature = "std")]
+│   │   │   ├── struct ParseHeightError: pub
+│   │   │   └── struct ParseTimeError: pub
+│   │   ├── const fn is_block_height: pub
+│   │   ├── const fn is_block_time: pub
+│   │   ├── fn parse_hex: pub(self)
+│   │   └── fn parser: pub(self)
+│   └── mod relative: pub
+│       ├── type Height: pub
+│       ├── enum LockTime: pub
+│       │   ├── fn deserialize: pub(self)
+│       │   ├── const fn from_512_second_intervals: pub
+│       │   ├── fn from_consensus: pub
+│       │   ├── const fn from_height: pub
+│       │   ├── const fn from_seconds_ceil: pub
+│       │   ├── const fn from_seconds_floor: pub
+│       │   ├── fn from_sequence: pub
+│       │   ├── const fn is_block_height: pub
+│       │   ├── const fn is_block_time: pub
+│       │   ├── fn is_implied_by: pub
+│       │   ├── fn is_implied_by_sequence: pub
+│       │   ├── const fn is_same_unit: pub
+│       │   ├── fn is_satisfied_by: pub
+│       │   ├── fn is_satisfied_by_height: pub
+│       │   ├── fn is_satisfied_by_time: pub
+│       │   ├── fn serialize: pub(self)
+│       │   ├── fn to_consensus_u32: pub
+│       │   └── fn to_sequence: pub
+│       ├── struct NumberOf512Seconds: pub
+│       │   ├── fn arbitrary: pub(self)
+│       │   ├── const fn from_512_second_intervals: pub
+│       │   ├── const fn from_seconds_ceil: pub
+│       │   ├── const fn from_seconds_floor: pub
+│       │   ├── fn is_satisfied_by: pub
+│       │   ├── const fn to_512_second_intervals: pub
+│       │   ├── const fn to_consensus_u32: pub
+│       │   ├── const fn to_seconds: pub
+│       │   └── const fn value: pub
+│       ├── struct NumberOfBlocks: pub
+│       │   ├── fn arbitrary: pub(self)
+│       │   ├── const fn from_height: pub
+│       │   ├── fn is_satisfied_by: pub
+│       │   ├── const fn to_consensus_u32: pub
+│       │   ├── const fn to_height: pub
+│       │   └── const fn value: pub
+│       ├── type Time: pub
+│       └── mod error: pub
+│           ├── struct DisabledLockTimeError: pub
+│           │   └── fn disabled_locktime_value: pub
+│           ├── struct InvalidHeightError: pub
+│           ├── struct InvalidTimeError: pub
+│           ├── enum IsSatisfiedByError: pub
+│           ├── enum IsSatisfiedByHeightError: pub
+│           ├── enum IsSatisfiedByTimeError: pub
+│           └── struct TimeOverflowError: pub
+├── mod parse_int: pub
+│   ├── struct ContainsPrefixError: pub(self)
+│   │   └── fn new: pub(crate)
+│   ├── trait Integer: pub
+│   ├── struct MissingPrefixError: pub(self)
+│   │   └── fn new: pub(crate)
+│   ├── struct ParseIntError: pub
+│   ├── struct PrefixedHexError: pub
+│   ├── enum PrefixedHexErrorInner: pub(self)
+│   ├── struct UnprefixedHexError: pub
+│   ├── enum UnprefixedHexErrorInner: pub(self)
+│   ├── fn hex_check_unprefixed: pub
+│   ├── fn hex_remove_optional_prefix: pub(crate)
+│   ├── fn hex_remove_prefix: pub
+│   ├── fn hex_u128: pub
+│   ├── fn hex_u128_prefixed: pub
+│   ├── fn hex_u128_unchecked: pub
+│   ├── fn hex_u128_unprefixed: pub
+│   ├── fn hex_u32: pub
+│   ├── fn hex_u32_prefixed: pub
+│   ├── fn hex_u32_unchecked: pub
+│   ├── fn hex_u32_unprefixed: pub
+│   ├── fn int: pub(self)
+│   ├── fn int_from_box: pub #[cfg(feature = "alloc")]
+│   ├── fn int_from_str: pub
+│   ├── fn int_from_string: pub #[cfg(feature = "alloc")]
+│   └── mod sealed: pub(self)
+│       └── trait Sealed: pub
+├── mod result: pub
+│   ├── enum MathOp: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn is_addition: pub
+│   │   ├── fn is_div_by_zero: pub
+│   │   ├── fn is_multiplication: pub
+│   │   ├── fn is_negation: pub
+│   │   ├── fn is_overflow: pub
+│   │   └── fn is_subtraction: pub
+│   ├── struct NumOpError: pub
+│   │   ├── fn is_div_by_zero: pub
+│   │   ├── fn is_overflow: pub
+│   │   ├── fn operation: pub
+│   │   └── const fn while_doing: pub(crate)
+│   ├── enum NumOpResult: pub
+│   │   ├── fn and_then: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn expect: pub
+│   │   ├── fn into_result: pub
+│   │   ├── fn is_error: pub
+│   │   ├── fn is_valid: pub
+│   │   ├── fn map: pub
+│   │   ├── fn ok: pub
+│   │   ├── fn unwrap: pub
+│   │   ├── fn unwrap_err: pub
+│   │   ├── fn unwrap_or: pub
+│   │   └── fn unwrap_or_else: pub
+│   └── trait OptionExt: pub(crate)
+├── mod sequence: pub
+│   ├── struct Sequence: pub
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn decoder: pub(self)
+│   │   ├── fn enables_absolute_lock_time: pub
+│   │   ├── fn encoder: pub(self)
+│   │   ├── fn from_512_second_intervals: pub
+│   │   ├── fn from_consensus: pub
+│   │   ├── fn from_height: pub
+│   │   ├── fn from_hex: pub
+│   │   ├── fn from_seconds_ceil: pub
+│   │   ├── fn from_seconds_floor: pub
+│   │   ├── fn from_unprefixed_hex: pub
+│   │   ├── fn is_final: pub
+│   │   ├── fn is_height_locked: pub
+│   │   ├── fn is_rbf: pub
+│   │   ├── fn is_relative_lock_time: pub
+│   │   ├── fn is_time_locked: pub
+│   │   ├── const fn low_u16: pub(self)
+│   │   ├── const fn to_consensus_u32: pub
+│   │   ├── fn to_hex: pub #[cfg(feature = "alloc")]
+│   │   └── fn to_relative_lock_time: pub
+│   ├── struct SequenceDecoder: pub #[cfg(feature = "encoding")]
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── const fn new: pub
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct SequenceDecoderError: pub #[cfg(feature = "encoding")]
+│   └── struct SequenceEncoder: pub
+│       ├── fn advance: pub(self)
+│       └── fn current_chunk: pub(self)
+├── mod time: pub
+│   ├── struct BlockTimeDecoder: pub #[cfg(feature = "encoding")]
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── const fn new: pub
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct BlockTimeDecoderError: pub #[cfg(feature = "encoding")]
+│   ├── struct BlockTimeEncoder: pub
+│   │   ├── fn advance: pub(self)
+│   │   └── fn current_chunk: pub(self)
+│   └── mod encapsulate: pub(self)
+│       └── struct BlockTime: pub
+│           ├── type Decoder: pub(self)
+│           ├── type Encoder: pub(self)
+│           ├── fn arbitrary: pub(self)
+│           ├── fn decoder: pub(self)
+│           ├── fn deserialize: pub(self)
+│           ├── fn encoder: pub(self)
+│           ├── const fn from_u32: pub
+│           ├── fn serialize: pub(self)
+│           └── const fn to_u32: pub
+└── mod weight: pub
+    └── mod encapsulate: pub(self)
+        └── struct Weight: pub
+            ├── fn arbitrary: pub(self)
+            ├── const fn checked_add: pub
+            ├── const fn checked_div: pub
+            ├── const fn checked_mul: pub
+            ├── const fn checked_sub: pub
+            ├── fn deserialize: pub(self)
+            ├── const fn from_kwu: pub
+            ├── const fn from_non_witness_data_size: pub
+            ├── const fn from_vb: pub
+            ├── const fn from_vb_unchecked: pub
+            ├── const fn from_vb_unwrap: pub
+            ├── const fn from_witness_data_size: pub
+            ├── const fn from_wu: pub
+            ├── const fn mul_by_fee_rate: pub
+            ├── fn serialize: pub(self)
+            ├── const fn to_kwu_ceil: pub
+            ├── const fn to_kwu_floor: pub
+            ├── const fn to_vbytes_ceil: pub
+            ├── const fn to_vbytes_floor: pub
+            └── const fn to_wu: pub

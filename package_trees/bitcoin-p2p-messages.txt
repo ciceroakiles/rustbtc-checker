@@ -1,0 +1,358 @@
+
+crate bitcoin_p2p_messages
+├── struct Magic: pub
+│   ├── fn arbitrary: pub(crate)
+│   ├── fn consensus_decode: pub(crate)
+│   ├── fn consensus_encode: pub(crate)
+│   ├── const fn from_bytes: pub
+│   ├── fn from_params: pub
+│   ├── fn to_bytes: pub
+│   └── fn to_hex: pub
+├── struct ParseMagicError: pub
+├── struct ProtocolVersion: pub
+│   ├── fn arbitrary: pub(crate)
+│   ├── fn consensus_decode: pub(crate)
+│   ├── fn consensus_encode: pub(crate)
+│   └── fn from_nonstandard: pub
+├── struct ServiceFlags: pub
+│   ├── fn add: pub
+│   ├── fn arbitrary: pub(crate)
+│   ├── fn consensus_decode: pub(crate)
+│   ├── fn consensus_encode: pub(crate)
+│   ├── fn has: pub
+│   ├── fn remove: pub
+│   ├── fn to_hex: pub
+│   └── fn to_u64: pub
+├── struct UnknownMagicError: pub
+├── struct UnknownNetworkError: pub
+├── mod address: pub #[cfg(feature = "std")]
+│   ├── enum AddrV2: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct AddrV2Message: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   └── fn socket_addr: pub
+│   ├── enum AddrV2ToIpAddrError: pub
+│   ├── enum AddrV2ToIpv4AddrError: pub
+│   ├── enum AddrV2ToIpv6AddrError: pub
+│   ├── struct Address: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   ├── fn new: pub
+│   │   ├── fn socket_addr: pub
+│   │   └── const fn useless: pub
+│   ├── enum UnroutableAddressError: pub
+│   └── fn read_be_address: pub(self)
+├── mod bip152: pub
+│   ├── struct BlockTransactions: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   └── fn from_request: pub
+│   ├── struct BlockTransactionsRequest: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── enum Error: pub
+│   ├── struct HeaderAndShortIds: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   └── fn from_block: pub
+│   ├── struct PrefilledTransaction: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct ShortId: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn as_byte_array: pub
+│   │   ├── fn as_bytes: pub
+│   │   ├── fn as_mut_ptr: pub
+│   │   ├── fn as_ptr: pub
+│   │   ├── fn calculate_siphash_keys: pub
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   ├── fn from_byte_array: pub
+│   │   ├── fn is_empty: pub
+│   │   ├── fn len: pub
+│   │   ├── fn to_byte_array: pub
+│   │   ├── fn to_vec: pub
+│   │   └── fn with_siphash_keys: pub
+│   └── struct TxIndexOutOfRangeError: pub
+├── mod consensus: pub(crate)
+│   ├── fn consensus_encode_with_size: pub(crate) #[cfg(feature = "std")]
+│   └── fn parse_failed_error: pub(crate)
+├── mod message: pub #[cfg(feature = "std")]
+│   ├── struct AddrPayload: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct AddrV2Payload: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct CheckedData: pub
+│   │   ├── fn checksum: pub
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   ├── fn data: pub
+│   │   ├── fn into_data: pub
+│   │   └── fn new: pub
+│   ├── struct CommandString: pub
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   ├── fn decoder: pub(self)
+│   │   ├── fn encoder: pub(self)
+│   │   ├── fn try_from_static: pub
+│   │   └── fn try_from_static_cow: pub(self)
+│   ├── enum CommandStringDecodeError: pub
+│   ├── struct CommandStringDecoder: pub
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct CommandStringError: pub
+│   ├── enum DecoderState: pub(self)
+│   ├── struct FeeFilter: pub
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   ├── fn decoder: pub(self)
+│   │   ├── fn encoder: pub(self)
+│   │   ├── const fn fee_rate: pub
+│   │   └── const fn new: pub
+│   ├── struct FeeFilterDecoder: pub
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── fn new: pub
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct FeeFilterEncoder: pub
+│   │   ├── fn advance: pub(self)
+│   │   └── fn current_chunk: pub(self)
+│   ├── struct HeadersMessage: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   └── fn is_connected: pub
+│   ├── struct InventoryPayload: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── enum NetworkMessage: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn cmd: pub
+│   │   ├── fn command: pub
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct NetworkMessageDecoder: pub(self)
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── fn new: pub(self)
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct NetworkMessageEncoder: pub(self)
+│   │   ├── fn advance: pub(self)
+│   │   ├── fn current_chunk: pub(self)
+│   │   └── fn new: pub(self)
+│   ├── struct RawNetworkMessage: pub
+│   │   ├── type Decoder: pub(self)
+│   │   ├── type Encoder: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn cmd: pub
+│   │   ├── fn command: pub
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   ├── fn decoder: pub(self)
+│   │   ├── fn encoder: pub(self)
+│   │   ├── fn into_payload: pub
+│   │   ├── fn magic: pub
+│   │   ├── fn new: pub
+│   │   └── fn payload: pub
+│   ├── struct RawNetworkMessageDecodeError: pub
+│   ├── enum RawNetworkMessageDecodeErrorInner: pub(self)
+│   ├── struct RawNetworkMessageDecoder: pub
+│   │   ├── type Error: pub(self)
+│   │   ├── type Output: pub(self)
+│   │   ├── fn end: pub(self)
+│   │   ├── fn push_bytes: pub(self)
+│   │   └── fn read_limit: pub(self)
+│   ├── struct RawNetworkMessageEncoder: pub
+│   │   ├── fn advance: pub(self)
+│   │   └── fn current_chunk: pub(self)
+│   ├── struct ReadBytesFromFiniteReaderOpts: pub(self)
+│   ├── struct V1MessageHeader: pub
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct V2NetworkMessage: pub
+│   │   ├── fn cmd: pub
+│   │   ├── fn command: pub
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   ├── fn into_payload: pub
+│   │   ├── fn new: pub
+│   │   └── fn payload: pub
+│   ├── fn read_bytes_from_finite_reader: pub(self)
+│   └── fn sha2_checksum: pub(self)
+├── mod message_blockdata: pub
+│   ├── struct GetBlocksMessage: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct GetHeadersMessage: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   └── enum Inventory: pub
+│       ├── fn arbitrary: pub(self)
+│       ├── fn consensus_decode: pub(self)
+│       ├── fn consensus_encode: pub(self)
+│       └── fn network_hash: pub
+├── mod message_bloom: pub
+│   ├── enum BloomFlags: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct FilterAdd: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   └── struct FilterLoad: pub
+│       ├── fn arbitrary: pub(self)
+│       ├── fn consensus_decode: pub(self)
+│       ├── fn consensus_decode_from_finite_reader: pub(self)
+│       └── fn consensus_encode: pub(self)
+├── mod message_compact_blocks: pub
+│   ├── struct BlockTxn: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct CmpctBlock: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct GetBlockTxn: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   └── struct SendCmpct: pub
+│       ├── fn arbitrary: pub(self)
+│       ├── fn consensus_decode: pub(self)
+│       ├── fn consensus_decode_from_finite_reader: pub(self)
+│       └── fn consensus_encode: pub(self)
+├── mod message_filter: pub
+│   ├── struct CFCheckpt: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct CFHeaders: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct CFilter: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct FilterHash: pub
+│   │   ├── type Bytes: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── const fn as_byte_array: pub
+│   │   ├── fn as_byte_array: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   ├── fn filter_header: pub
+│   │   ├── const fn from_byte_array: pub
+│   │   ├── fn from_byte_array: pub(self)
+│   │   ├── const fn to_byte_array: pub
+│   │   └── fn to_byte_array: pub(self)
+│   ├── struct FilterHeader: pub
+│   │   ├── type Bytes: pub(self)
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── const fn as_byte_array: pub
+│   │   ├── fn as_byte_array: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   ├── const fn from_byte_array: pub
+│   │   ├── fn from_byte_array: pub(self)
+│   │   ├── const fn to_byte_array: pub
+│   │   └── fn to_byte_array: pub(self)
+│   ├── struct GetCFCheckpt: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct GetCFHeaders: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   └── struct GetCFilters: pub
+│       ├── fn arbitrary: pub(self)
+│       ├── fn consensus_decode: pub(self)
+│       ├── fn consensus_decode_from_finite_reader: pub(self)
+│       └── fn consensus_encode: pub(self)
+├── mod message_network: pub #[cfg(feature = "std")]
+│   ├── struct Alert: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   ├── fn final_alert: pub
+│   │   └── fn is_final_alert: pub
+│   ├── enum ClientSoftwareVersion: pub
+│   │   └── fn arbitrary: pub(self)
+│   ├── struct Reject: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── enum RejectReason: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   └── fn consensus_encode: pub(self)
+│   ├── struct UserAgent: pub
+│   │   ├── fn add_client: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── fn consensus_decode: pub(self)
+│   │   ├── fn consensus_decode_from_finite_reader: pub(self)
+│   │   ├── fn consensus_encode: pub(self)
+│   │   ├── fn from_nonstandard: pub
+│   │   ├── fn new: pub
+│   │   ├── fn panic_invalid_chars: pub(self)
+│   │   └── fn panic_max_len: pub(self)
+│   ├── struct UserAgentVersion: pub
+│   │   ├── fn arbitrary: pub(self)
+│   │   ├── const fn new: pub
+│   │   └── fn push_comment: pub
+│   └── struct VersionMessage: pub
+│       ├── fn arbitrary: pub(self)
+│       ├── fn consensus_decode: pub(self)
+│       ├── fn consensus_decode_from_finite_reader: pub(self)
+│       ├── fn consensus_encode: pub(self)
+│       └── fn new: pub
+└── mod network_ext: pub(crate)
+    └── trait NetworkExt: pub

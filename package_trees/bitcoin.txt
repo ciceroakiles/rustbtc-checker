@@ -1,0 +1,1220 @@
+
+crate bitcoin
+├── type BlockInterval: pub
+├── mod address: pub
+│   ├── struct Address: pub
+│   │   ├── fn address_type: pub
+│   │   ├── fn as_unchecked: pub
+│   │   ├── fn assume_checked: pub
+│   │   ├── fn assume_checked_ref: pub
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── fn from_base58_str: pub
+│   │   ├── fn from_bech32_str: pub
+│   │   ├── fn from_inner: pub(self)
+│   │   ├── const fn from_inner_ref: pub(self)
+│   │   ├── fn from_script: pub
+│   │   ├── fn from_witness_program: pub
+│   │   ├── fn inner: pub(self)
+│   │   ├── fn into_unchecked: pub
+│   │   ├── fn is_related_to_pubkey: pub
+│   │   ├── fn is_related_to_xonly_pubkey: pub
+│   │   ├── fn is_spend_standard: pub
+│   │   ├── fn is_valid_for_network: pub
+│   │   ├── fn matches_script_pubkey: pub
+│   │   ├── fn network_kind: pub
+│   │   ├── fn p2a: pub
+│   │   ├── fn p2pkh: pub
+│   │   ├── fn p2sh: pub
+│   │   ├── fn p2sh_from_hash: pub
+│   │   ├── fn p2shwpkh: pub
+│   │   ├── fn p2shwsh: pub
+│   │   ├── fn p2tr: pub
+│   │   ├── fn p2tr_tweaked: pub
+│   │   ├── fn p2wpkh: pub
+│   │   ├── fn p2wsh: pub
+│   │   ├── fn p2wsh_from_hash: pub
+│   │   ├── fn payload_as_bytes: pub(self)
+│   │   ├── fn pubkey_hash: pub
+│   │   ├── fn require_network: pub
+│   │   ├── fn script_hash: pub
+│   │   ├── fn script_pubkey: pub
+│   │   ├── fn serialize: pub(self)
+│   │   ├── fn to_address_data: pub
+│   │   ├── fn to_inner: pub(self)
+│   │   ├── fn to_qr_uri: pub
+│   │   ├── fn to_unchecked: pub
+│   │   └── fn witness_program: pub
+│   ├── enum AddressData: pub
+│   ├── enum AddressInner: pub(self)
+│   ├── enum AddressType: pub
+│   ├── struct DisplayUnchecked: pub(self) #[cfg(feature = "serde")]
+│   ├── enum KnownHrp: pub
+│   │   ├── fn from_hrp: pub(self)
+│   │   ├── fn from_network: pub(self)
+│   │   └── fn to_hrp: pub(self)
+│   ├── enum NetworkChecked: pub
+│   ├── enum NetworkUnchecked: pub
+│   ├── trait NetworkValidation: pub
+│   ├── trait NetworkValidationUnchecked: pub
+│   ├── mod error: pub
+│   │   ├── enum Base58Error: pub
+│   │   ├── enum Bech32Error: pub
+│   │   ├── enum FromScriptError: pub
+│   │   ├── struct InvalidBase58PayloadLengthError: pub
+│   │   │   └── fn invalid_base58_payload_length: pub
+│   │   ├── struct InvalidLegacyPrefixError: pub
+│   │   │   └── fn invalid_legacy_address_prefix: pub
+│   │   ├── struct LegacyAddressTooLongError: pub
+│   │   │   ├── fn invalid_legacy_address_length: pub
+│   │   │   └── fn invalid_legcay_address_length: pub
+│   │   ├── struct NetworkValidationError: pub
+│   │   ├── struct ParseBech32Error: pub
+│   │   ├── enum ParseError: pub
+│   │   ├── struct UnknownAddressTypeError: pub
+│   │   └── struct UnknownHrpError: pub
+│   ├── mod sealed: pub(self)
+│   │   ├── trait NetworkValidation: pub
+│   │   └── trait NetworkValidationUnchecked: pub
+│   └── fn segwit_redeem_hash: pub(self)
+├── mod amount: pub
+│   └── mod error: pub
+├── mod bip158: pub
+│   ├── struct BitStreamReader: pub
+│   │   ├── fn new: pub
+│   │   └── fn read: pub
+│   ├── struct BitStreamWriter: pub
+│   │   ├── fn flush: pub
+│   │   ├── fn new: pub
+│   │   └── fn write: pub
+│   ├── struct BlockFilter: pub
+│   │   ├── fn filter_hash: pub
+│   │   ├── fn match_all: pub
+│   │   ├── fn match_any: pub
+│   │   ├── fn new: pub
+│   │   └── fn new_script_filter: pub
+│   ├── struct BlockFilterReader: pub
+│   │   ├── fn match_all: pub
+│   │   ├── fn match_any: pub
+│   │   └── fn new: pub
+│   ├── struct BlockFilterWriter: pub
+│   │   ├── fn add_element: pub
+│   │   ├── fn add_input_scripts: pub
+│   │   ├── fn add_output_scripts: pub
+│   │   ├── fn finish: pub
+│   │   └── fn new: pub
+│   ├── enum Error: pub
+│   ├── struct GcsFilter: pub(self)
+│   │   ├── fn golomb_rice_decode: pub(self)
+│   │   ├── fn golomb_rice_encode: pub(self)
+│   │   ├── fn hash: pub(self)
+│   │   └── fn new: pub(self)
+│   ├── struct GcsFilterReader: pub
+│   │   ├── fn match_all: pub
+│   │   ├── fn match_any: pub
+│   │   └── fn new: pub
+│   ├── struct GcsFilterWriter: pub
+│   │   ├── fn add_element: pub
+│   │   ├── fn finish: pub
+│   │   └── fn new: pub
+│   └── fn map_to_range: pub(self)
+├── mod bip32: pub
+│   ├── struct ChainCode: pub
+│   │   ├── fn as_byte_array: pub
+│   │   ├── fn as_bytes: pub
+│   │   ├── fn as_mut_ptr: pub
+│   │   ├── fn as_ptr: pub
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── fn from_byte_array: pub
+│   │   ├── fn from_hex: pub
+│   │   ├── fn from_hmac: pub(self)
+│   │   ├── fn is_empty: pub
+│   │   ├── fn len: pub
+│   │   ├── fn serialize: pub(self)
+│   │   ├── fn to_byte_array: pub
+│   │   ├── fn to_bytes: pub
+│   │   └── fn to_vec: pub
+│   ├── enum ChildNumber: pub
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── fn format_with: pub(self)
+│   │   ├── fn from_hardened_idx: pub
+│   │   ├── fn from_normal_idx: pub
+│   │   ├── fn increment: pub
+│   │   ├── fn is_hardened: pub
+│   │   ├── fn is_normal: pub
+│   │   └── fn serialize: pub(self)
+│   ├── struct Common: pub(self)
+│   │   └── fn decode: pub(self)
+│   ├── enum DerivationError: pub
+│   ├── struct DerivationPath: pub
+│   │   ├── fn child: pub
+│   │   ├── fn children_from: pub
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── fn extend: pub
+│   │   ├── fn from_u32_slice: pub
+│   │   ├── fn hardened_children: pub
+│   │   ├── fn into_child: pub
+│   │   ├── fn is_empty: pub
+│   │   ├── fn is_master: pub
+│   │   ├── fn len: pub
+│   │   ├── fn master: pub
+│   │   ├── fn normal_children: pub
+│   │   ├── fn serialize: pub(self)
+│   │   └── fn to_u32_vec: pub
+│   ├── struct DerivationPathIterator: pub
+│   │   └── fn start_from: pub
+│   ├── type ExtendedPrivKey: pub
+│   ├── type ExtendedPubKey: pub
+│   ├── struct Fingerprint: pub
+│   │   ├── fn as_byte_array: pub
+│   │   ├── fn as_bytes: pub
+│   │   ├── fn as_mut_ptr: pub
+│   │   ├── fn as_ptr: pub
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── fn from_byte_array: pub
+│   │   ├── fn from_hex: pub
+│   │   ├── fn is_empty: pub
+│   │   ├── fn len: pub
+│   │   ├── fn serialize: pub(self)
+│   │   ├── fn to_byte_array: pub
+│   │   └── fn to_vec: pub
+│   ├── struct IndexOutOfRangeError: pub
+│   ├── trait IntoDerivationPath: pub
+│   ├── struct InvalidBase58PayloadLengthError: pub
+│   │   └── fn invalid_base58_payload_length: pub
+│   ├── type KeySource: pub
+│   ├── enum ParseChildNumberError: pub
+│   ├── enum ParseError: pub
+│   ├── struct XKeyIdentifier: pub
+│   │   ├── type Bytes: pub(self)
+│   │   ├── const fn as_byte_array: pub
+│   │   ├── fn as_byte_array: pub(self)
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── const fn from_byte_array: pub
+│   │   ├── fn from_byte_array: pub(self)
+│   │   ├── fn serialize: pub(self)
+│   │   ├── const fn to_byte_array: pub
+│   │   └── fn to_byte_array: pub(self)
+│   ├── struct Xpriv: pub
+│   │   ├── type Error: pub(self)
+│   │   ├── fn ckd_priv: pub(self)
+│   │   ├── fn decode: pub
+│   │   ├── fn derive_priv: pub
+│   │   ├── fn derive_xpriv: pub
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── fn encode: pub
+│   │   ├── fn fingerprint: pub
+│   │   ├── fn get_key: pub(self)
+│   │   ├── fn identifier: pub
+│   │   ├── fn new_master: pub
+│   │   ├── fn serialize: pub(self)
+│   │   ├── fn to_keypair: pub
+│   │   ├── fn to_priv: pub
+│   │   ├── fn to_private_key: pub
+│   │   └── fn to_xpub: pub
+│   └── struct Xpub: pub
+│       ├── fn ckd_pub: pub
+│       ├── fn ckd_pub_tweak: pub
+│       ├── fn decode: pub
+│       ├── fn derive_pub: pub
+│       ├── fn derive_xpub: pub
+│       ├── fn deserialize: pub(self)
+│       ├── fn encode: pub
+│       ├── fn fingerprint: pub
+│       ├── fn from_priv: pub
+│       ├── fn from_xpriv: pub
+│       ├── fn identifier: pub
+│       ├── fn serialize: pub(self)
+│       ├── fn to_pub: pub
+│       ├── fn to_public_key: pub
+│       ├── fn to_x_only_pub: pub
+│       └── fn to_x_only_public_key: pub
+├── mod blockdata: pub
+│   ├── mod block: pub
+│   │   ├── enum Bip34Error: pub
+│   │   ├── trait BlockCheckedExt: pub
+│   │   ├── type BlockInterval: pub
+│   │   ├── trait HeaderExt: pub
+│   │   ├── enum ValidationError: pub
+│   │   ├── fn block_base_size: pub(self)
+│   │   ├── mod sealed: pub(self)
+│   │   │   └── trait Sealed: pub
+│   │   └── fn to_bip34_error: pub(self)
+│   ├── mod constants: pub
+│   │   ├── struct ChainHash: pub
+│   │   │   ├── fn as_byte_array: pub
+│   │   │   ├── fn as_bytes: pub
+│   │   │   ├── fn as_mut_ptr: pub
+│   │   │   ├── fn as_ptr: pub
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── fn from_byte_array: pub
+│   │   │   ├── fn from_genesis_block_hash: pub
+│   │   │   ├── fn from_hex: pub
+│   │   │   ├── fn is_empty: pub
+│   │   │   ├── fn len: pub
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── fn to_byte_array: pub
+│   │   │   ├── fn to_bytes: pub
+│   │   │   ├── fn to_vec: pub
+│   │   │   ├── fn using_genesis_block: pub
+│   │   │   └── const fn using_genesis_block_const: pub
+│   │   ├── fn bitcoin_genesis_tx: pub(self)
+│   │   └── fn genesis_block: pub
+│   ├── mod fee_rate: pub
+│   ├── mod locktime: pub
+│   │   ├── mod absolute: pub
+│   │   │   └── type Time: pub
+│   │   └── mod relative: pub
+│   │       ├── type Height: pub
+│   │       └── type Time: pub
+│   ├── mod opcodes: pub
+│   │   ├── enum Class: pub
+│   │   ├── enum ClassifyContext: pub
+│   │   ├── struct Opcode: pub
+│   │   │   ├── fn as_str: pub
+│   │   │   ├── fn classify: pub
+│   │   │   ├── const fn decode_pushnum: pub
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   └── const fn to_u8: pub
+│   │   ├── enum Ordinary: pub
+│   │   │   ├── fn from_opcode: pub
+│   │   │   ├── fn to_u8: pub
+│   │   │   └── fn with: pub(self)
+│   │   └── mod all: pub
+│   ├── mod script: pub
+│   │   ├── enum Error: pub
+│   │   ├── mod borrowed: pub(self)
+│   │   │   ├── struct Bytes: pub
+│   │   │   ├── trait ScriptExt: pub
+│   │   │   ├── trait ScriptExtPriv: pub(crate)
+│   │   │   ├── trait ScriptPubKeyExt: pub
+│   │   │   ├── trait ScriptPubKeyExtPriv: pub(crate)
+│   │   │   ├── trait ScriptSigExt: pub
+│   │   │   ├── trait TapScriptExt: pub
+│   │   │   ├── trait WitnessScriptExt: pub
+│   │   │   └── mod sealed: pub(self)
+│   │   │       └── trait Sealed: pub
+│   │   ├── mod builder: pub(self)
+│   │   │   └── struct Builder: pub
+│   │   │       ├── fn as_bytes: pub
+│   │   │       ├── fn as_script: pub
+│   │   │       ├── fn into_bytes: pub
+│   │   │       ├── fn into_script: pub
+│   │   │       ├── fn is_empty: pub
+│   │   │       ├── fn len: pub
+│   │   │       ├── const fn new: pub
+│   │   │       ├── fn push_int: pub
+│   │   │       ├── fn push_int_non_minimal: pub(in crate::blockdata)
+│   │   │       ├── fn push_int_unchecked: pub
+│   │   │       ├── fn push_key: pub
+│   │   │       ├── fn push_lock_time: pub
+│   │   │       ├── fn push_opcode: pub
+│   │   │       ├── fn push_relative_lock_time: pub
+│   │   │       ├── fn push_sequence: pub
+│   │   │       ├── fn push_slice: pub
+│   │   │       ├── fn push_slice_non_minimal: pub
+│   │   │       ├── fn push_verify: pub
+│   │   │       ├── fn push_x_only_key: pub
+│   │   │       └── fn with_capacity: pub
+│   │   ├── mod instruction: pub(self)
+│   │   │   ├── enum Instruction: pub
+│   │   │   │   ├── fn opcode: pub
+│   │   │   │   ├── fn push_bytes: pub
+│   │   │   │   ├── fn read_int: pub
+│   │   │   │   ├── fn script_num: pub
+│   │   │   │   └── fn script_serialized_len: pub(super)
+│   │   │   ├── struct InstructionIndices: pub
+│   │   │   │   ├── fn as_script: pub
+│   │   │   │   ├── fn from_instructions: pub(super)
+│   │   │   │   ├── fn next_with: pub(super)
+│   │   │   │   └── fn remaining_bytes: pub(super)
+│   │   │   └── struct Instructions: pub
+│   │   │       ├── fn as_script: pub
+│   │   │       ├── fn kill: pub(super)
+│   │   │       ├── fn next_push_data_len: pub(super)
+│   │   │       ├── fn remaining_bytes: pub(self)
+│   │   │       └── fn take_slice_or_kill: pub(super)
+│   │   ├── fn new_witness_program_unchecked: pub(crate)
+│   │   ├── fn opcode_to_verify: pub(self)
+│   │   ├── mod owned: pub(self)
+│   │   │   ├── struct ScriptBufAsVec: pub(crate)
+│   │   │   ├── trait ScriptBufExt: pub
+│   │   │   ├── trait ScriptBufExtPriv: pub(crate)
+│   │   │   ├── trait ScriptPubKeyBufExt: pub
+│   │   │   └── mod sealed: pub(self)
+│   │   │       └── trait Sealed: pub
+│   │   ├── fn p2wpkh_script_code: pub
+│   │   ├── mod push_bytes: pub(self)
+│   │   │   ├── trait PushBytesErrorReport: pub
+│   │   │   ├── enum ScriptIntError: pub
+│   │   │   └── mod primitive: pub(self)
+│   │   │       ├── struct PushBytes: pub
+│   │   │       │   ├── fn as_bytes: pub
+│   │   │       │   ├── fn as_mut_bytes: pub
+│   │   │       │   ├── fn empty: pub
+│   │   │       │   ├── fn from_mut_slice_unchecked: pub(self)
+│   │   │       │   ├── const fn from_slice_unchecked: pub(self)
+│   │   │       │   ├── fn is_empty: pub
+│   │   │       │   ├── fn len: pub
+│   │   │       │   ├── fn read_cltv_scriptint: pub
+│   │   │       │   ├── fn read_scriptint: pub
+│   │   │       │   └── fn read_scriptint_internal: pub(self)
+│   │   │       └── struct PushBytesBuf: pub
+│   │   │           ├── fn as_mut_push_bytes: pub
+│   │   │           ├── fn as_push_bytes: pub
+│   │   │           ├── fn capacity: pub
+│   │   │           ├── fn clear: pub
+│   │   │           ├── fn extend_from_slice: pub
+│   │   │           ├── fn inner: pub(super)
+│   │   │           ├── fn is_empty: pub
+│   │   │           ├── fn len: pub
+│   │   │           ├── const fn new: pub
+│   │   │           ├── fn pop: pub
+│   │   │           ├── fn push: pub
+│   │   │           ├── fn remove: pub
+│   │   │           ├── fn reserve: pub
+│   │   │           ├── fn truncate: pub
+│   │   │           └── fn with_capacity: pub
+│   │   ├── fn read_scriptbool: pub
+│   │   ├── fn read_scriptint_non_minimal: pub
+│   │   ├── fn scriptint_parse: pub(self)
+│   │   ├── mod witness_program: pub
+│   │   │   ├── enum Error: pub
+│   │   │   └── struct WitnessProgram: pub
+│   │   │       ├── fn is_p2a: pub
+│   │   │       ├── fn is_p2tr: pub
+│   │   │       ├── fn is_p2wpkh: pub
+│   │   │       ├── fn is_p2wsh: pub
+│   │   │       ├── fn new: pub
+│   │   │       ├── fn new_p2tr: pub(self)
+│   │   │       ├── fn new_p2wpkh: pub(self)
+│   │   │       ├── fn new_p2wsh: pub(self)
+│   │   │       ├── const fn p2a: pub
+│   │   │       ├── fn p2tr: pub
+│   │   │       ├── fn p2tr_tweaked: pub
+│   │   │       ├── fn p2wpkh: pub
+│   │   │       ├── fn p2wsh: pub
+│   │   │       ├── fn p2wsh_from_hash: pub
+│   │   │       ├── fn program: pub
+│   │   │       └── fn version: pub
+│   │   ├── mod witness_version: pub
+│   │   │   ├── enum FromStrError: pub
+│   │   │   ├── struct TryFromError: pub
+│   │   │   │   └── fn invalid_version: pub
+│   │   │   ├── enum TryFromInstructionError: pub
+│   │   │   └── enum WitnessVersion: pub
+│   │   │       └── fn to_num: pub
+│   │   └── fn write_scriptint: pub
+│   ├── mod transaction: pub
+│   │   ├── struct Coinbase: pub
+│   │   │   ├── fn as_transaction: pub
+│   │   │   ├── fn assume_coinbase: pub
+│   │   │   ├── const fn assume_coinbase_ref: pub
+│   │   │   ├── fn compute_txid: pub
+│   │   │   ├── fn first_input: pub
+│   │   │   ├── fn into_transaction: pub
+│   │   │   └── const fn wtxid: pub
+│   │   ├── struct IndexOutOfBoundsError: pub
+│   │   ├── struct InputWeightPrediction: pub
+│   │   │   ├── fn arbitrary: pub(self)
+│   │   │   ├── const fn encoded_size: pub(self)
+│   │   │   ├── const fn from_slice: pub
+│   │   │   ├── const fn ground_nested_p2wpkh: pub
+│   │   │   ├── const fn ground_p2pkh_compressed: pub
+│   │   │   ├── const fn ground_p2wpkh: pub
+│   │   │   ├── fn new: pub
+│   │   │   ├── const fn saturate_to_u32: pub(self)
+│   │   │   ├── const fn total_weight: pub
+│   │   │   ├── const fn weight: pub
+│   │   │   └── const fn witness_weight: pub
+│   │   ├── struct InputsIndexError: pub
+│   │   ├── trait OutPointExt: pub
+│   │   ├── struct OutputsIndexError: pub
+│   │   ├── trait TransactionExt: pub
+│   │   ├── trait TransactionExtPriv: pub(self)
+│   │   ├── trait TxIdentifier: pub
+│   │   ├── trait TxInExt: pub
+│   │   ├── trait TxOutExt: pub
+│   │   ├── struct TxOutToScriptPubkeyLengthIter: pub
+│   │   ├── trait TxidExt: pub
+│   │   ├── trait WtxidExt: pub
+│   │   ├── fn effective_value: pub
+│   │   ├── fn predict_weight: pub
+│   │   ├── const fn predict_weight_from_slices: pub
+│   │   ├── const fn predict_weight_internal: pub(self)
+│   │   ├── mod sealed: pub(self)
+│   │   │   └── trait Sealed: pub
+│   │   └── fn size_from_script_pubkey: pub(self)
+│   ├── mod weight: pub
+│   └── mod witness: pub
+│       ├── type BorrowedControlBlock: pub(self)
+│       ├── enum P2TrSpend: pub(self)
+│       │   ├── fn annex: pub(self)
+│       │   └── fn from_witness: pub(self)
+│       ├── trait WitnessExt: pub
+│       └── mod sealed: pub(self)
+│           └── trait Sealed: pub
+├── mod consensus: pub
+│   ├── struct IterReader: pub(self)
+│   │   ├── fn consume: pub(self)
+│   │   ├── fn decode: pub(self)
+│   │   ├── fn fill_buf: pub(self)
+│   │   ├── fn new: pub(crate)
+│   │   └── fn read: pub(self)
+│   ├── mod encode: pub
+│   │   ├── trait Decodable: pub
+│   │   ├── trait Encodable: pub
+│   │   ├── struct ReadBytesFromFiniteReaderOpts: pub(self)
+│   │   ├── trait ReadExt: pub
+│   │   ├── trait WriteExt: pub
+│   │   ├── fn consensus_encode_with_size: pub(crate)
+│   │   ├── fn deserialize: pub
+│   │   ├── fn deserialize_hex: pub
+│   │   ├── fn deserialize_partial: pub
+│   │   ├── fn read_bytes_from_finite_reader: pub(self)
+│   │   ├── fn serialize: pub
+│   │   ├── fn serialize_hex: pub
+│   │   ├── fn varint_size: pub
+│   │   └── const fn varint_size_u64: pub
+│   ├── mod error: pub(self)
+│   │   ├── enum DecodeError: pub
+│   │   │   ├── fn into_de_error: pub(self)
+│   │   │   └── fn unify: pub(self)
+│   │   ├── enum DeserializeError: pub
+│   │   ├── enum Error: pub
+│   │   ├── enum FromHexError: pub
+│   │   ├── enum ParseError: pub
+│   │   └── fn parse_failed_error: pub(crate)
+│   └── mod serde: pub #[cfg(feature = "serde")]
+│       ├── struct BinVisitor: pub(self)
+│       │   ├── type Value: pub(self)
+│       │   ├── fn expecting: pub(self)
+│       │   └── fn visit_seq: pub(self)
+│       ├── struct BinWriter: pub(self)
+│       │   ├── fn flush: pub(self)
+│       │   ├── fn write: pub(self)
+│       │   └── fn write_all: pub(self)
+│       ├── trait ByteDecoder: pub
+│       ├── trait ByteEncoder: pub
+│       ├── struct DisplayExpected: pub(self)
+│       │   └── fn fmt: pub(self)
+│       ├── struct DisplayWrapper: pub(self)
+│       ├── trait EncodeBytes: pub
+│       ├── struct ErrorTrackingWriter: pub(self)
+│       │   ├── fn assert_no_error: pub(self)
+│       │   ├── fn assert_was_error: pub(self)
+│       │   ├── fn check_err: pub(self)
+│       │   ├── fn new: pub(self)
+│       │   └── fn set_error: pub(self)
+│       ├── struct HRVisitor: pub(self)
+│       │   ├── type Value: pub(self)
+│       │   ├── fn expecting: pub(self)
+│       │   └── fn visit_str: pub(self)
+│       ├── struct Hex: pub
+│       │   ├── type DecodeError: pub(self)
+│       │   ├── type Decoder: pub(self)
+│       │   ├── type Encoder: pub(self)
+│       │   ├── type InitError: pub(self)
+│       │   └── fn from_str: pub(self)
+│       ├── trait IntoDeError: pub
+│       ├── struct IoWrapper: pub(self)
+│       │   ├── fn actually_flush: pub(self)
+│       │   ├── fn flush: pub(self)
+│       │   ├── fn new: pub(self)
+│       │   └── fn write: pub(self)
+│       ├── struct SeqIterator: pub(self)
+│       ├── struct With: pub
+│       │   ├── fn deserialize: pub
+│       │   └── fn serialize: pub
+│       ├── fn consensus_error_into_serde: pub(self)
+│       └── mod hex: pub
+│           ├── trait Case: pub
+│           ├── struct DecodeError: pub
+│           │   └── fn into_de_error: pub(self)
+│           ├── struct DecodeInitError: pub
+│           │   └── fn into_de_error: pub(self)
+│           ├── struct Decoder: pub
+│           │   └── fn new: pub(self)
+│           ├── struct Encoder: pub
+│           │   ├── fn encode_chunk: pub(self)
+│           │   └── fn flush: pub(self)
+│           ├── enum Lower: pub
+│           ├── enum Upper: pub
+│           └── mod sealed: pub(self)
+│               └── trait Case: pub
+├── mod crypto: pub(crate)
+│   ├── mod ecdsa: pub
+│   │   ├── enum DecodeError: pub
+│   │   ├── enum ParseSignatureError: pub
+│   │   ├── struct SerializedSignature: pub
+│   │   │   ├── fn from_signature: pub
+│   │   │   ├── fn iter: pub
+│   │   │   ├── fn len: pub
+│   │   │   ├── fn to_hex: pub
+│   │   │   ├── fn to_signature: pub
+│   │   │   └── fn write_to: pub
+│   │   └── struct Signature: pub
+│   │       ├── fn arbitrary: pub(self)
+│   │       ├── fn deserialize: pub(self)
+│   │       ├── fn from_slice: pub
+│   │       ├── fn serialize: pub
+│   │       ├── fn serialize: pub(self)
+│   │       ├── fn serialize_to_writer: pub
+│   │       ├── fn sighash_all: pub
+│   │       └── fn to_vec: pub
+│   ├── mod key: pub
+│   │   ├── struct CompressedPublicKey: pub
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── fn from_private_key: pub
+│   │   │   ├── fn from_slice: pub
+│   │   │   ├── fn p2wpkh_script_code: pub
+│   │   │   ├── fn pubkey_hash: pub
+│   │   │   ├── fn read_from: pub
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── fn to_bytes: pub
+│   │   │   ├── fn verify: pub
+│   │   │   ├── fn wpubkey_hash: pub
+│   │   │   └── fn write_into: pub
+│   │   ├── enum FromSliceError: pub
+│   │   ├── enum FromWifError: pub
+│   │   ├── struct InvalidAddressVersionError: pub
+│   │   │   └── fn invalid_address_version: pub
+│   │   ├── struct InvalidBase58PayloadLengthError: pub
+│   │   │   └── fn invalid_base58_payload_length: pub
+│   │   ├── struct InvalidWifCompressionFlagError: pub
+│   │   │   └── fn invalid_compression_flag: pub
+│   │   ├── enum ParseCompressedPublicKeyError: pub
+│   │   ├── enum ParsePublicKeyError: pub
+│   │   ├── enum ParseXOnlyPublicKeyError: pub
+│   │   ├── struct PrivateKey: pub
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── fn fmt_wif: pub
+│   │   │   ├── fn from_byte_array: pub
+│   │   │   ├── fn from_slice: pub
+│   │   │   ├── fn from_wif: pub
+│   │   │   ├── fn negate: pub
+│   │   │   ├── fn new: pub
+│   │   │   ├── fn new_uncompressed: pub
+│   │   │   ├── fn public_key: pub
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── fn to_bytes: pub
+│   │   │   ├── fn to_vec: pub
+│   │   │   └── fn to_wif: pub
+│   │   ├── struct PubkeyHash: pub
+│   │   │   ├── type Bytes: pub(self)
+│   │   │   ├── const fn as_byte_array: pub
+│   │   │   ├── fn as_byte_array: pub(self)
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── const fn from_byte_array: pub
+│   │   │   ├── fn from_byte_array: pub(self)
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── const fn to_byte_array: pub
+│   │   │   └── fn to_byte_array: pub(self)
+│   │   ├── struct PublicKey: pub
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── fn from_private_key: pub
+│   │   │   ├── fn from_slice: pub
+│   │   │   ├── fn new: pub
+│   │   │   ├── fn new_uncompressed: pub
+│   │   │   ├── fn p2wpkh_script_code: pub
+│   │   │   ├── fn pubkey_hash: pub
+│   │   │   ├── fn read_from: pub
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── fn to_bytes: pub
+│   │   │   ├── fn to_sort_key: pub
+│   │   │   ├── fn to_vec: pub
+│   │   │   ├── fn verify: pub
+│   │   │   ├── fn with_serialized: pub(self)
+│   │   │   ├── fn wpubkey_hash: pub
+│   │   │   └── fn write_into: pub
+│   │   ├── struct SortKey: pub
+│   │   ├── trait TapTweak: pub
+│   │   ├── enum TweakXOnlyPublicKeyError: pub
+│   │   ├── struct TweakedKeypair: pub
+│   │   │   ├── fn as_keypair: pub
+│   │   │   ├── fn dangerous_assume_tweaked: pub
+│   │   │   ├── fn public_parts: pub
+│   │   │   ├── fn to_inner: pub
+│   │   │   └── fn to_keypair: pub
+│   │   ├── struct TweakedPublicKey: pub
+│   │   │   ├── fn as_x_only_public_key: pub
+│   │   │   ├── fn dangerous_assume_tweaked: pub
+│   │   │   ├── fn from_keypair: pub
+│   │   │   ├── fn serialize: pub
+│   │   │   ├── fn to_hex: pub
+│   │   │   ├── fn to_inner: pub
+│   │   │   └── fn to_x_only_public_key: pub
+│   │   ├── struct UncompressedPublicKeyError: pub
+│   │   ├── type UntweakedKeypair: pub
+│   │   ├── type UntweakedPublicKey: pub
+│   │   ├── struct WPubkeyHash: pub
+│   │   │   ├── type Bytes: pub(self)
+│   │   │   ├── const fn as_byte_array: pub
+│   │   │   ├── fn as_byte_array: pub(self)
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── const fn from_byte_array: pub
+│   │   │   ├── fn from_byte_array: pub(self)
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── const fn to_byte_array: pub
+│   │   │   └── fn to_byte_array: pub(self)
+│   │   ├── struct XOnlyPublicKey: pub
+│   │   │   ├── type TweakedAux: pub(self)
+│   │   │   ├── type TweakedKey: pub(self)
+│   │   │   ├── fn add_tweak: pub
+│   │   │   ├── fn dangerous_assume_tweaked: pub(self)
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── fn from_byte_array: pub
+│   │   │   ├── fn from_keypair: pub
+│   │   │   ├── fn into_inner: pub
+│   │   │   ├── fn new: pub
+│   │   │   ├── fn public_key: pub
+│   │   │   ├── fn serialize: pub
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── fn tap_tweak: pub(self)
+│   │   │   ├── fn to_hex: pub
+│   │   │   └── fn tweak_add_check: pub
+│   │   └── mod serialized_x_only: pub(self)
+│   │       └── struct SerializedXOnlyPublicKey: pub
+│   │           ├── const fn as_byte_array: pub
+│   │           ├── const fn from_byte_array: pub
+│   │           ├── const fn from_bytes_ref: pub(crate)
+│   │           ├── const fn to_byte_array: pub
+│   │           └── fn to_validated: pub
+│   ├── mod sighash: pub
+│   │   ├── struct Annex: pub
+│   │   │   ├── fn as_bytes: pub
+│   │   │   ├── fn consensus_encode: pub(self)
+│   │   │   └── fn new: pub
+│   │   ├── enum AnnexError: pub
+│   │   ├── struct CommonCache: pub(self)
+│   │   ├── enum EcdsaSighashType: pub
+│   │   │   ├── fn arbitrary: pub(self)
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── fn from_consensus: pub
+│   │   │   ├── fn from_standard: pub
+│   │   │   ├── fn is_single: pub
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── fn split_anyonecanpay_flag: pub(crate)
+│   │   │   └── fn to_u32: pub
+│   │   ├── enum EncodeSigningDataResult: pub
+│   │   │   ├── fn is_sighash_single_bug: pub
+│   │   │   └── fn map_err: pub
+│   │   ├── struct InvalidSighashTypeError: pub
+│   │   ├── struct LegacySighash: pub
+│   │   │   ├── type Bytes: pub(self)
+│   │   │   ├── const fn as_byte_array: pub
+│   │   │   ├── fn as_byte_array: pub(self)
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── fn engine: pub(self)
+│   │   │   ├── const fn from_byte_array: pub
+│   │   │   ├── fn from_byte_array: pub(self)
+│   │   │   ├── fn from_engine: pub(self)
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── const fn to_byte_array: pub
+│   │   │   └── fn to_byte_array: pub(self)
+│   │   ├── struct NonStandardSighashTypeError: pub
+│   │   ├── enum P2wpkhError: pub
+│   │   ├── enum Prevouts: pub
+│   │   │   ├── fn check_all: pub(self)
+│   │   │   ├── fn get: pub(self)
+│   │   │   └── fn get_all: pub(self)
+│   │   ├── enum PrevoutsIndexError: pub
+│   │   ├── struct PrevoutsKindError: pub
+│   │   ├── struct PrevoutsSizeError: pub
+│   │   ├── struct ScriptPath: pub
+│   │   │   ├── fn leaf_hash: pub
+│   │   │   ├── fn new: pub
+│   │   │   └── fn with_defaults: pub
+│   │   ├── struct SegwitCache: pub(self)
+│   │   ├── struct SegwitV0Sighash: pub
+│   │   │   ├── type Bytes: pub(self)
+│   │   │   ├── const fn as_byte_array: pub
+│   │   │   ├── fn as_byte_array: pub(self)
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── fn engine: pub(self)
+│   │   │   ├── const fn from_byte_array: pub
+│   │   │   ├── fn from_byte_array: pub(self)
+│   │   │   ├── fn from_engine: pub(self)
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── const fn to_byte_array: pub
+│   │   │   └── fn to_byte_array: pub(self)
+│   │   ├── struct SighashCache: pub
+│   │   │   ├── fn common_cache: pub(self)
+│   │   │   ├── fn common_cache_minimal_borrow: pub(self)
+│   │   │   ├── fn into_transaction: pub
+│   │   │   ├── fn legacy_encode_signing_data_to: pub
+│   │   │   ├── fn legacy_signature_hash: pub
+│   │   │   ├── fn new: pub
+│   │   │   ├── fn p2wpkh_signature_hash: pub
+│   │   │   ├── fn p2wsh_signature_hash: pub
+│   │   │   ├── fn segwit_cache: pub(self)
+│   │   │   ├── fn segwit_v0_encode_signing_data_to: pub
+│   │   │   ├── fn taproot_cache: pub(self)
+│   │   │   ├── fn taproot_encode_signing_data_to: pub
+│   │   │   ├── fn taproot_key_spend_signature_hash: pub
+│   │   │   ├── fn taproot_script_spend_signature_hash: pub
+│   │   │   ├── fn taproot_signature_hash: pub
+│   │   │   ├── fn transaction: pub
+│   │   │   └── fn witness_mut: pub
+│   │   ├── struct SighashTypeParseError: pub
+│   │   ├── enum SigningDataError: pub
+│   │   │   ├── fn sighash: pub(self)
+│   │   │   └── fn unwrap_sighash: pub(self)
+│   │   ├── struct SingleMissingOutputError: pub
+│   │   ├── struct TapSighash: pub
+│   │   │   ├── type Bytes: pub(self)
+│   │   │   ├── const fn as_byte_array: pub
+│   │   │   ├── fn as_byte_array: pub(self)
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── const fn from_byte_array: pub
+│   │   │   ├── fn from_byte_array: pub(self)
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   ├── const fn to_byte_array: pub
+│   │   │   └── fn to_byte_array: pub(self)
+│   │   ├── struct TapSighashTag: pub
+│   │   ├── enum TapSighashType: pub
+│   │   │   ├── fn arbitrary: pub(self)
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   ├── fn from_consensus_u8: pub
+│   │   │   ├── fn serialize: pub(self)
+│   │   │   └── fn split_anyonecanpay_flag: pub(crate)
+│   │   ├── struct TaprootCache: pub(self)
+│   │   ├── enum TaprootError: pub
+│   │   └── fn is_invalid_use_of_sighash_single: pub(self)
+│   └── mod taproot: pub(crate)
+│       ├── struct SerializedSignature: pub
+│       │   ├── fn from_raw_parts: pub(crate)
+│       │   ├── fn from_signature: pub
+│       │   ├── fn iter: pub
+│       │   ├── fn len: pub
+│       │   ├── fn set_len_unchecked: pub(crate)
+│       │   ├── fn to_hex: pub
+│       │   ├── fn to_signature: pub
+│       │   └── fn write_to: pub
+│       ├── enum SigFromSliceError: pub
+│       ├── struct Signature: pub
+│       │   ├── fn arbitrary: pub(self)
+│       │   ├── fn deserialize: pub(self)
+│       │   ├── fn from_slice: pub
+│       │   ├── fn serialize: pub
+│       │   ├── fn serialize: pub(self)
+│       │   ├── fn serialize_to_writer: pub
+│       │   └── fn to_vec: pub
+│       └── mod into_iter: pub(self)
+│           └── struct IntoIter: pub
+│               ├── fn as_slice: pub
+│               └── fn new: pub(crate)
+├── mod encode_impls: pub(crate)
+├── mod ext: pub
+├── mod hash_types: pub
+├── mod internal_macros: pub(crate)
+├── mod merkle_tree: pub
+│   └── mod block: pub(self)
+│       ├── struct MerkleBlock: pub
+│       │   ├── fn arbitrary: pub(self)
+│       │   ├── fn consensus_decode: pub(self)
+│       │   ├── fn consensus_encode: pub(self)
+│       │   ├── fn extract_matches: pub
+│       │   ├── fn from_block_with_predicate: pub
+│       │   └── fn from_header_txids_with_predicate: pub
+│       ├── enum MerkleBlockError: pub
+│       └── struct PartialMerkleTree: pub
+│           ├── fn arbitrary: pub(self)
+│           ├── fn bits: pub
+│           ├── fn calc_hash: pub(self)
+│           ├── fn calc_tree_height: pub(self)
+│           ├── fn calc_tree_width: pub(self)
+│           ├── fn consensus_decode_from_finite_reader: pub(self)
+│           ├── fn consensus_encode: pub(self)
+│           ├── fn extract_matches: pub
+│           ├── fn from_txids: pub
+│           ├── fn hashes: pub
+│           ├── fn num_transactions: pub
+│           ├── fn traverse_and_build: pub(self)
+│           └── fn traverse_and_extract: pub(self)
+├── mod network: pub
+│   ├── enum Network: pub
+│   │   ├── const fn as_display_str: pub(self)
+│   │   ├── fn chain_hash: pub
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── fn from_chain_hash: pub
+│   │   ├── fn from_core_arg: pub
+│   │   ├── const fn params: pub
+│   │   ├── fn serialize: pub(self)
+│   │   └── fn to_core_arg: pub
+│   ├── enum NetworkKind: pub
+│   │   └── fn is_mainnet: pub
+│   ├── struct ParseNetworkError: pub
+│   ├── enum TestnetVersion: pub
+│   ├── struct UnknownChainHashError: pub
+│   ├── mod as_core_arg: pub #[cfg(feature = "serde")]
+│   │   ├── fn deserialize: pub
+│   │   └── fn serialize: pub
+│   └── mod params: pub
+│       └── struct Params: pub
+│           ├── fn difficulty_adjustment_interval: pub
+│           └── const fn new: pub
+├── mod policy: pub
+│   └── fn get_virtual_tx_size: pub
+├── mod pow: pub
+│   ├── trait CompactTargetExt: pub
+│   ├── struct Target: pub
+│   │   ├── fn difficulty: pub
+│   │   ├── fn difficulty_float: pub
+│   │   ├── fn from_be_bytes: pub
+│   │   ├── fn from_compact: pub
+│   │   ├── fn from_hex: pub
+│   │   ├── fn from_le_bytes: pub
+│   │   ├── fn from_unprefixed_hex: pub
+│   │   ├── fn is_met_by: pub
+│   │   ├── fn max_difficulty_transition_threshold: pub
+│   │   ├── fn max_transition_threshold: pub
+│   │   ├── fn max_transition_threshold_unchecked: pub
+│   │   ├── fn min_difficulty_transition_threshold: pub
+│   │   ├── fn min_transition_threshold: pub
+│   │   ├── fn to_be_bytes: pub
+│   │   ├── fn to_compact_lossy: pub
+│   │   ├── fn to_hex: pub
+│   │   ├── fn to_le_bytes: pub
+│   │   └── fn to_work: pub
+│   ├── struct U256: pub(self)
+│   │   ├── fn bits: pub(self)
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── fn div_rem: pub(self)
+│   │   ├── fn fmt_decimal: pub(self)
+│   │   ├── fn from_be_bytes: pub(self)
+│   │   ├── fn from_hex: pub(self)
+│   │   ├── fn from_hex_internal: pub(self)
+│   │   ├── fn from_le_bytes: pub(self)
+│   │   ├── fn from_unprefixed_hex: pub(self)
+│   │   ├── fn inverse: pub(self)
+│   │   ├── fn is_max: pub(self)
+│   │   ├── fn is_one: pub(self)
+│   │   ├── fn is_zero: pub(self)
+│   │   ├── fn low_u128: pub(self)
+│   │   ├── fn low_u32: pub(self)
+│   │   ├── fn low_u64: pub(self)
+│   │   ├── fn mul_u64: pub(self)
+│   │   ├── fn overflowing_add: pub(self)
+│   │   ├── fn overflowing_mul: pub(self)
+│   │   ├── fn overflowing_sub: pub(self)
+│   │   ├── fn saturating_to_u128: pub(self)
+│   │   ├── fn serialize: pub(self)
+│   │   ├── fn to_be_bytes: pub(self)
+│   │   ├── fn to_f64: pub(self)
+│   │   ├── fn to_le_bytes: pub(self)
+│   │   ├── fn wrapping_add: pub(self)
+│   │   ├── fn wrapping_inc: pub(self)
+│   │   ├── fn wrapping_shl: pub(self)
+│   │   ├── fn wrapping_shr: pub(self)
+│   │   └── fn wrapping_sub: pub(self)
+│   ├── struct Work: pub
+│   │   ├── fn from_be_bytes: pub
+│   │   ├── fn from_hex: pub
+│   │   ├── fn from_le_bytes: pub
+│   │   ├── fn from_unprefixed_hex: pub
+│   │   ├── fn log2: pub #[cfg(feature = "std")]
+│   │   ├── fn to_be_bytes: pub
+│   │   ├── fn to_hex: pub
+│   │   ├── fn to_le_bytes: pub
+│   │   └── fn to_target: pub
+│   ├── mod sealed: pub(self)
+│   │   └── trait Sealed: pub
+│   └── fn split_in_half: pub(self)
+├── mod prelude: pub(crate)
+├── mod psbt: pub
+│   ├── enum ExtractTxError: pub
+│   ├── trait GetKey: pub
+│   ├── enum GetKeyError: pub
+│   ├── enum IndexOutOfBoundsError: pub
+│   ├── enum KeyRequest: pub
+│   ├── enum OutputType: pub
+│   │   └── fn signing_algorithm: pub
+│   ├── struct Psbt: pub
+│   │   ├── fn bip32_sign_ecdsa: pub(self)
+│   │   ├── fn bip32_sign_schnorr: pub(self)
+│   │   ├── fn check_index_is_within_bounds: pub(self)
+│   │   ├── fn checked_input: pub(self)
+│   │   ├── fn combine: pub
+│   │   ├── fn decode_global: pub(crate)
+│   │   ├── fn deserialize: pub
+│   │   ├── fn deserialize: pub(self)
+│   │   ├── fn deserialize_from_reader: pub
+│   │   ├── fn extract_tx: pub
+│   │   ├── fn extract_tx_fee_rate_limit: pub
+│   │   ├── fn extract_tx_unchecked_fee_rate: pub
+│   │   ├── fn extract_tx_with_fee_rate_limit: pub
+│   │   ├── fn fee: pub
+│   │   ├── fn from_unsigned_tx: pub
+│   │   ├── fn get_pairs: pub(self)
+│   │   ├── fn internal_extract_tx: pub(self)
+│   │   ├── fn internal_extract_tx_with_fee_rate_limit: pub(self)
+│   │   ├── fn iter_funding_utxos: pub
+│   │   ├── fn output_type: pub(self)
+│   │   ├── fn serialize: pub
+│   │   ├── fn serialize: pub(self)
+│   │   ├── fn serialize_hex: pub
+│   │   ├── fn serialize_to_writer: pub
+│   │   ├── fn sighash_ecdsa: pub
+│   │   ├── fn sighash_taproot: pub(self)
+│   │   ├── fn sign: pub
+│   │   ├── fn signing_algorithm: pub(self)
+│   │   ├── fn spend_utxo: pub
+│   │   └── fn unsigned_tx_checks: pub(self)
+│   ├── enum SignError: pub
+│   ├── enum SigningAlgorithm: pub
+│   ├── type SigningErrors: pub
+│   ├── enum SigningKeys: pub
+│   ├── type SigningKeysMap: pub
+│   ├── mod display_from_str: pub(self) #[cfg(feature = "base64")]
+│   │   └── enum PsbtParseError: pub
+│   ├── mod error: pub(self)
+│   │   ├── enum Error: pub
+│   │   └── enum PsbtHash: pub
+│   ├── mod macros: pub(self)
+│   ├── mod map: pub(self)
+│   │   ├── trait Map: pub(super)
+│   │   ├── mod global: pub(self)
+│   │   ├── mod input: pub(self)
+│   │   │   ├── struct Input: pub
+│   │   │   │   ├── fn combine: pub
+│   │   │   │   ├── fn decode: pub(crate)
+│   │   │   │   ├── fn deserialize: pub(self)
+│   │   │   │   ├── fn ecdsa_hash_ty: pub
+│   │   │   │   ├── fn get_pairs: pub(self)
+│   │   │   │   ├── fn insert_pair: pub(super)
+│   │   │   │   ├── fn serialize: pub(self)
+│   │   │   │   └── fn taproot_hash_ty: pub
+│   │   │   └── struct PsbtSighashType: pub
+│   │   │       ├── fn deserialize: pub(self)
+│   │   │       ├── fn ecdsa_hash_ty: pub
+│   │   │       ├── fn from_u32: pub
+│   │   │       ├── fn serialize: pub(self)
+│   │   │       ├── fn taproot_hash_ty: pub
+│   │   │       └── fn to_u32: pub
+│   │   └── mod output: pub(self)
+│   │       └── struct Output: pub
+│   │           ├── fn combine: pub
+│   │           ├── fn decode: pub(crate)
+│   │           ├── fn deserialize: pub(self)
+│   │           ├── fn get_pairs: pub(self)
+│   │           ├── fn insert_pair: pub(super)
+│   │           └── fn serialize: pub(self)
+│   ├── mod raw: pub
+│   │   ├── struct Key: pub
+│   │   │   ├── fn arbitrary: pub(self)
+│   │   │   ├── fn decode: pub(crate)
+│   │   │   └── fn serialize: pub(self)
+│   │   ├── struct Pair: pub
+│   │   │   ├── fn decode: pub(crate)
+│   │   │   ├── fn deserialize: pub(self)
+│   │   │   └── fn serialize: pub(self)
+│   │   ├── struct ProprietaryKey: pub
+│   │   │   ├── fn arbitrary: pub(self)
+│   │   │   ├── fn consensus_decode: pub(self)
+│   │   │   ├── fn consensus_encode: pub(self)
+│   │   │   └── fn to_key: pub
+│   │   └── type ProprietaryType: pub
+│   └── mod serialize: pub
+│       ├── trait Deserialize: pub(crate)
+│       ├── trait Serialize: pub(crate)
+│       └── fn key_source_len: pub(self)
+├── mod sign_message: pub
+│   ├── mod message_signing: pub(self) #[cfg(feature = "secp-recovery")]
+│   │   ├── struct MessageSignature: pub
+│   │   │   ├── fn from_base64: pub
+│   │   │   ├── fn from_byte_array: pub
+│   │   │   ├── fn from_slice: pub
+│   │   │   ├── fn is_signed_by_address: pub
+│   │   │   ├── fn new: pub
+│   │   │   ├── fn recover_pubkey: pub
+│   │   │   ├── fn serialize: pub
+│   │   │   └── fn to_base64: pub
+│   │   ├── enum MessageSignatureError: pub
+│   │   └── mod base64_impls: pub(self) #[cfg(feature = "base64")]
+│   ├── fn sign: pub #[cfg(feature = "secp-recovery")]
+│   └── fn signed_msg_hash: pub
+└── mod taproot: pub
+    ├── struct ControlBlock: pub
+    │   ├── fn decode: pub
+    │   ├── fn decode_borrowed: pub(crate)
+    │   ├── fn deserialize: pub(self)
+    │   ├── fn encode: pub
+    │   ├── fn encode_inner: pub(self)
+    │   ├── fn encode_to_arrayvec: pub(crate)
+    │   ├── fn from_hex: pub
+    │   ├── fn serialize: pub
+    │   ├── fn serialize: pub(self)
+    │   ├── fn size: pub
+    │   └── fn verify_taproot_commitment: pub
+    ├── type ControlBlockArrayVec: pub(self)
+    ├── struct FutureLeafVersion: pub
+    │   ├── fn from_consensus: pub(self)
+    │   ├── fn to_consensus: pub
+    │   └── fn to_hex: pub
+    ├── enum HiddenNodesError: pub
+    │   └── fn into_node_info: pub
+    ├── enum IncompleteBuilderError: pub
+    │   └── fn into_builder: pub
+    ├── struct InvalidControlBlockSizeError: pub
+    │   └── fn invalid_control_block_size: pub
+    ├── struct InvalidMerkleBranchSizeError: pub
+    │   └── fn invalid_merkle_branch_size: pub
+    ├── struct InvalidMerkleTreeDepthError: pub
+    │   └── fn invalid_merkle_tree_depth: pub
+    ├── struct InvalidTaprootLeafVersionError: pub
+    │   └── fn invalid_leaf_version: pub
+    ├── struct LeafNode: pub
+    │   ├── fn depth: pub
+    │   ├── fn leaf: pub
+    │   ├── fn leaf_hash: pub
+    │   ├── fn leaf_version: pub
+    │   ├── fn merkle_branch: pub
+    │   ├── fn new_hidden: pub
+    │   ├── fn new_script: pub
+    │   ├── fn node_hash: pub
+    │   └── fn script: pub
+    ├── struct LeafNodes: pub
+    ├── struct LeafScript: pub
+    ├── enum LeafVersion: pub
+    │   ├── fn deserialize: pub(self)
+    │   ├── fn from_consensus: pub
+    │   ├── fn serialize: pub(self)
+    │   ├── fn to_consensus: pub
+    │   └── fn to_hex: pub
+    ├── struct NodeInfo: pub
+    │   ├── fn combine: pub
+    │   ├── fn deserialize: pub(self)
+    │   ├── fn leaf_nodes: pub
+    │   ├── fn new_hidden_node: pub
+    │   ├── fn new_leaf_with_ver: pub
+    │   ├── fn node_hash: pub
+    │   └── fn serialize: pub(self)
+    ├── struct ScriptLeaf: pub
+    │   ├── fn from_leaf_node: pub
+    │   ├── fn merkle_branch: pub
+    │   ├── fn script: pub
+    │   └── fn version: pub
+    ├── struct ScriptLeaves: pub
+    ├── type ScriptMerkleProofMap: pub(self)
+    ├── struct TapBranchTag: pub
+    ├── enum TapLeaf: pub
+    │   ├── fn as_hidden: pub
+    │   └── fn as_script: pub
+    ├── struct TapLeafHash: pub
+    │   ├── type Bytes: pub(self)
+    │   ├── const fn as_byte_array: pub
+    │   ├── fn as_byte_array: pub(self)
+    │   ├── fn consensus_decode: pub(self)
+    │   ├── fn consensus_encode: pub(self)
+    │   ├── fn deserialize: pub(self)
+    │   ├── fn deserialize: pub(self)
+    │   ├── const fn from_byte_array: pub
+    │   ├── fn from_byte_array: pub(self)
+    │   ├── fn from_script: pub
+    │   ├── fn serialize: pub(self)
+    │   ├── fn serialize: pub(self)
+    │   ├── const fn to_byte_array: pub
+    │   └── fn to_byte_array: pub(self)
+    ├── struct TapLeafTag: pub
+    ├── struct TapNodeHash: pub
+    │   ├── type Bytes: pub(self)
+    │   ├── const fn as_byte_array: pub
+    │   ├── fn as_byte_array: pub(self)
+    │   ├── fn assume_hidden: pub
+    │   ├── fn deserialize: pub(self)
+    │   ├── fn deserialize: pub(self)
+    │   ├── const fn from_byte_array: pub
+    │   ├── fn from_byte_array: pub(self)
+    │   ├── fn from_node_hashes: pub
+    │   ├── fn from_script: pub
+    │   ├── fn serialize: pub(self)
+    │   ├── fn serialize: pub(self)
+    │   ├── const fn to_byte_array: pub
+    │   └── fn to_byte_array: pub(self)
+    ├── struct TapTree: pub
+    │   ├── fn deserialize: pub(self)
+    │   ├── fn into_node_info: pub
+    │   ├── fn node_info: pub
+    │   ├── fn root_hash: pub
+    │   ├── fn script_leaves: pub
+    │   └── fn serialize: pub(self)
+    ├── struct TapTweakHash: pub
+    │   ├── type Bytes: pub(self)
+    │   ├── const fn as_byte_array: pub
+    │   ├── fn as_byte_array: pub(self)
+    │   ├── fn deserialize: pub(self)
+    │   ├── const fn from_byte_array: pub
+    │   ├── fn from_byte_array: pub(self)
+    │   ├── fn from_key_and_merkle_root: pub
+    │   ├── fn serialize: pub(self)
+    │   ├── const fn to_byte_array: pub
+    │   ├── fn to_byte_array: pub(self)
+    │   └── fn to_scalar: pub
+    ├── struct TapTweakTag: pub
+    ├── struct TaprootBuilder: pub
+    │   ├── fn add_hidden_node: pub
+    │   ├── fn add_leaf: pub
+    │   ├── fn add_leaf_with_ver: pub
+    │   ├── fn branch: pub(crate)
+    │   ├── fn finalize: pub
+    │   ├── fn has_hidden_nodes: pub
+    │   ├── fn insert: pub(self)
+    │   ├── fn is_finalizable: pub
+    │   ├── fn new: pub
+    │   ├── fn try_into_node_info: pub
+    │   ├── fn try_into_tap_tree: pub
+    │   ├── fn try_into_taptree: pub
+    │   ├── fn with_capacity: pub
+    │   └── fn with_huffman_tree: pub
+    ├── enum TaprootBuilderError: pub
+    ├── enum TaprootError: pub
+    ├── struct TaprootSpendInfo: pub
+    │   ├── fn control_block: pub
+    │   ├── fn from_node_info: pub
+    │   ├── fn internal_key: pub
+    │   ├── fn merkle_root: pub
+    │   ├── fn new_key_spend: pub
+    │   ├── fn output_key: pub
+    │   ├── fn output_key_parity: pub
+    │   ├── fn script_map: pub
+    │   ├── fn tap_tweak: pub
+    │   └── fn with_huffman_tree: pub
+    ├── fn combine_node_hashes: pub(self)
+    └── mod merkle_branch: pub
+        ├── struct DecodeError: pub
+        ├── mod borrowed: pub(self)
+        │   └── mod privacy_boundary: pub(self)
+        │       └── struct TaprootMerkleBranch: pub
+        │           ├── fn as_bytes: pub(crate)
+        │           ├── fn as_mut_slice: pub
+        │           ├── const fn as_slice: pub
+        │           ├── fn decode: pub
+        │           ├── fn decode_exact: pub(self)
+        │           ├── fn encode: pub
+        │           ├── fn from_hashes: pub(self)
+        │           ├── const fn from_hashes_unchecked: pub(super)
+        │           ├── fn from_mut_hashes_unchecked: pub(super)
+        │           ├── fn is_empty: pub
+        │           ├── fn iter: pub
+        │           ├── fn iter_mut: pub
+        │           ├── fn len: pub
+        │           └── const fn new: pub
+        └── mod buf: pub(self)
+            ├── struct IntoIter: pub
+            │   ├── fn as_mut_slice: pub
+            │   └── fn as_slice: pub
+            └── struct TaprootMerkleBranchBuf: pub
+                ├── fn as_inner: pub
+                ├── fn as_mut_slice: pub
+                ├── fn as_slice: pub
+                ├── fn decode: pub
+                ├── fn encode: pub
+                ├── fn from_collection: pub(self)
+                ├── fn into_inner: pub
+                ├── fn into_vec: pub
+                ├── fn is_empty: pub
+                ├── fn len: pub
+                ├── fn push: pub(in crate::taproot)
+                └── fn serialize: pub

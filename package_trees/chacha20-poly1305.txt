@@ -1,0 +1,42 @@
+
+crate chacha20_poly1305
+├── struct ChaCha20Poly1305: pub
+│   ├── fn decrypt: pub
+│   ├── fn encrypt: pub
+│   └── const fn new: pub
+├── enum Error: pub
+├── mod chacha20: pub
+│   ├── struct ChaCha20: pub
+│   │   ├── fn apply_keystream: pub
+│   │   ├── fn block: pub
+│   │   ├── fn get_keystream: pub
+│   │   ├── fn keystream_at_block: pub(self)
+│   │   ├── const fn new: pub
+│   │   ├── const fn new_from_block: pub
+│   │   └── fn seek: pub
+│   ├── struct Key: pub
+│   │   └── const fn new: pub
+│   ├── struct Nonce: pub
+│   │   └── const fn new: pub
+│   ├── struct State: pub(self)
+│   │   ├── fn chacha_block: pub(self)
+│   │   ├── fn double_round: pub(self)
+│   │   ├── fn keystream: pub(self)
+│   │   ├── const fn new: pub(self)
+│   │   └── fn quarter_round: pub(self)
+│   ├── struct U32x4: pub(self)
+│   │   ├── fn rotate_elements_left: pub(self)
+│   │   ├── fn rotate_elements_right: pub(self)
+│   │   ├── fn rotate_left: pub(self)
+│   │   ├── fn to_le_bytes: pub(self)
+│   │   └── fn wrapping_add: pub(self)
+│   └── trait UpTo3: pub(self)
+├── fn encode_lengths: pub(crate)
+└── mod poly1305: pub
+    ├── struct Poly1305: pub
+    │   ├── fn input: pub
+    │   ├── const fn new: pub
+    │   ├── fn r_times_a: pub(self)
+    │   └── fn tag: pub
+    ├── fn _print_acc: pub(self)
+    └── fn prepare_padded_message_slice: pub(self)
