@@ -1,4 +1,3 @@
-
 crate bitcoin_hashes
 ├── trait Hash: pub
 ├── trait HashEngine: pub

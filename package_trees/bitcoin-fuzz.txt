@@ -1,6 +1,5 @@
 Error: Multiple targets present in package,
 please explicitly select one via --lib or --bin flag.
-
 Targets present in package:
 - bitcoin_fuzz (--lib)
 - bitcoin_arbitrary_block (--bin bitcoin_arbitrary_block)
@@ -33,4 +32,3 @@ Targets present in package:
 - units_parse_amount (--bin units_parse_amount)
 - units_parse_int (--bin units_parse_int)
 - units_standard_checks (--bin units_standard_checks)
-

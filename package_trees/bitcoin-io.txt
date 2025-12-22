@@ -1,4 +1,3 @@
-
 crate bitcoin_io
 ├── trait BufRead: pub
 ├── struct Cursor: pub

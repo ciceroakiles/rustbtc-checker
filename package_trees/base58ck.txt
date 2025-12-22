@@ -1,4 +1,3 @@
-
 crate base58ck
 ├── trait Buffer: pub(crate)
 ├── fn decode: pub

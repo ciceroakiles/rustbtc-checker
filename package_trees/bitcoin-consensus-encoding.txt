@@ -1,4 +1,3 @@
-
 crate bitcoin_consensus_encoding
 ├── mod decode: pub(crate)
 │   ├── trait Decodable: pub
