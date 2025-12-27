@@ -1,0 +1,442 @@
+{"level":0,"type":"crate","name":"bitcoin_primitives","visible":"default","parent":""}
+{"level":1,"type":"type","name":"BlockInterval","visible":"pub","parent":"bitcoin_primitives"}
+{"level":1,"type":"mod","name":"_export","visible":"pub","parent":"bitcoin_primitives"}
+{"level":2,"type":"mod","name":"_core","visible":"pub","parent":"_export"}
+{"level":1,"type":"mod","name":"block","visible":"pub","parent":"bitcoin_primitives"}
+{"level":2,"type":"struct","name":"Block","visible":"pub #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":3,"type":"type","name":"Decoder","visible":"pub(self)","parent":"Block"}
+{"level":3,"type":"type","name":"Encoder","visible":"pub(self)","parent":"Block"}
+{"level":3,"type":"fn","name":"arbitrary","visible":"pub(self)","parent":"Block"}
+{"level":3,"type":"fn","name":"assume_checked","visible":"pub","parent":"Block"}
+{"level":3,"type":"fn","name":"block_hash","visible":"pub","parent":"Block"}
+{"level":3,"type":"fn","name":"cached_witness_root","visible":"pub","parent":"Block"}
+{"level":3,"type":"fn","name":"check_merkle_root","visible":"pub","parent":"Block"}
+{"level":3,"type":"fn","name":"check_witness_commitment","visible":"pub","parent":"Block"}
+{"level":3,"type":"fn","name":"compute_witness_commitment","visible":"pub","parent":"Block"}
+{"level":3,"type":"fn","name":"decoder","visible":"pub(self)","parent":"Block"}
+{"level":3,"type":"fn","name":"encoder","visible":"pub(self)","parent":"Block"}
+{"level":3,"type":"fn","name":"header","visible":"pub","parent":"Block"}
+{"level":3,"type":"fn","name":"into_parts","visible":"pub","parent":"Block"}
+{"level":3,"type":"fn","name":"new_unchecked","visible":"pub","parent":"Block"}
+{"level":3,"type":"fn","name":"transactions","visible":"pub","parent":"Block"}
+{"level":3,"type":"fn","name":"validate","visible":"pub","parent":"Block"}
+{"level":2,"type":"struct","name":"BlockDecoder","visible":"pub #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":3,"type":"type","name":"Error","visible":"pub(self)","parent":"BlockDecoder"}
+{"level":3,"type":"type","name":"Output","visible":"pub(self)","parent":"BlockDecoder"}
+{"level":3,"type":"fn","name":"end","visible":"pub(self)","parent":"BlockDecoder"}
+{"level":3,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"BlockDecoder"}
+{"level":3,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"BlockDecoder"}
+{"level":2,"type":"struct","name":"BlockDecoderError","visible":"pub #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":2,"type":"struct","name":"BlockEncoder","visible":"pub","parent":"block"}
+{"level":3,"type":"fn","name":"advance","visible":"pub(self)","parent":"BlockEncoder"}
+{"level":3,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"BlockEncoder"}
+{"level":2,"type":"type","name":"BlockInnerDecoder","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":2,"type":"enum","name":"Checked","visible":"pub #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":2,"type":"struct","name":"Header","visible":"pub","parent":"block"}
+{"level":3,"type":"type","name":"Decoder","visible":"pub(self)","parent":"Header"}
+{"level":3,"type":"type","name":"Encoder","visible":"pub(self)","parent":"Header"}
+{"level":3,"type":"fn","name":"arbitrary","visible":"pub(self)","parent":"Header"}
+{"level":3,"type":"fn","name":"block_hash","visible":"pub","parent":"Header"}
+{"level":3,"type":"fn","name":"decoder","visible":"pub(self)","parent":"Header"}
+{"level":3,"type":"fn","name":"encoder","visible":"pub(self)","parent":"Header"}
+{"level":2,"type":"struct","name":"HeaderDecoder","visible":"pub #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":3,"type":"type","name":"Error","visible":"pub(self)","parent":"HeaderDecoder"}
+{"level":3,"type":"type","name":"Output","visible":"pub(self)","parent":"HeaderDecoder"}
+{"level":3,"type":"fn","name":"end","visible":"pub(self)","parent":"HeaderDecoder"}
+{"level":3,"type":"fn","name":"from_inner","visible":"pub(self)","parent":"HeaderDecoder"}
+{"level":3,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"HeaderDecoder"}
+{"level":3,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"HeaderDecoder"}
+{"level":2,"type":"enum","name":"HeaderDecoderError","visible":"pub #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":2,"type":"struct","name":"HeaderEncoder","visible":"pub","parent":"block"}
+{"level":3,"type":"fn","name":"advance","visible":"pub(self)","parent":"HeaderEncoder"}
+{"level":3,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"HeaderEncoder"}
+{"level":2,"type":"type","name":"HeaderInnerDecoder","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":2,"type":"struct","name":"HeaderIter","visible":"pub(self) #[cfg(feature = \"hex\")]","parent":"block"}
+{"level":2,"type":"enum","name":"InvalidBlockError","visible":"pub #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":2,"type":"enum","name":"Unchecked","visible":"pub #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":2,"type":"trait","name":"Validation","visible":"pub #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":2,"type":"struct","name":"Version","visible":"pub","parent":"block"}
+{"level":3,"type":"type","name":"Decoder","visible":"pub(self)","parent":"Version"}
+{"level":3,"type":"type","name":"Encoder","visible":"pub(self)","parent":"Version"}
+{"level":3,"type":"fn","name":"arbitrary","visible":"pub(self)","parent":"Version"}
+{"level":3,"type":"fn","name":"decoder","visible":"pub(self)","parent":"Version"}
+{"level":3,"type":"fn","name":"encoder","visible":"pub(self)","parent":"Version"}
+{"level":3,"type":"const_fn","name":"from_consensus","visible":"pub","parent":"Version"}
+{"level":3,"type":"fn","name":"is_signalling_soft_fork","visible":"pub","parent":"Version"}
+{"level":3,"type":"const_fn","name":"to_consensus","visible":"pub","parent":"Version"}
+{"level":2,"type":"struct","name":"VersionDecoder","visible":"pub","parent":"block"}
+{"level":3,"type":"type","name":"Error","visible":"pub(self)","parent":"VersionDecoder"}
+{"level":3,"type":"type","name":"Output","visible":"pub(self)","parent":"VersionDecoder"}
+{"level":3,"type":"fn","name":"end","visible":"pub(self)","parent":"VersionDecoder"}
+{"level":3,"type":"const_fn","name":"new","visible":"pub","parent":"VersionDecoder"}
+{"level":3,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"VersionDecoder"}
+{"level":3,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"VersionDecoder"}
+{"level":2,"type":"struct","name":"VersionDecoderError","visible":"pub","parent":"block"}
+{"level":2,"type":"struct","name":"VersionEncoder","visible":"pub","parent":"block"}
+{"level":3,"type":"fn","name":"advance","visible":"pub(self)","parent":"VersionEncoder"}
+{"level":3,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"VersionEncoder"}
+{"level":2,"type":"fn","name":"compute_merkle_root","visible":"pub #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":2,"type":"fn","name":"compute_witness_root","visible":"pub #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":2,"type":"mod","name":"sealed","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":3,"type":"trait","name":"Validation","visible":"pub","parent":"sealed"}
+{"level":2,"type":"fn","name":"witness_commitment_from_coinbase","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"block"}
+{"level":1,"type":"mod","name":"hash_types","visible":"pub(crate)","parent":"bitcoin_primitives"}
+{"level":2,"type":"mod","name":"block_hash","visible":"pub(self)","parent":"hash_types"}
+{"level":3,"type":"struct","name":"BlockHash","visible":"pub","parent":"block_hash"}
+{"level":4,"type":"type","name":"Decoder","visible":"pub(self)","parent":"BlockHash"}
+{"level":4,"type":"type","name":"Encoder","visible":"pub(self)","parent":"BlockHash"}
+{"level":4,"type":"fn","name":"decoder","visible":"pub(self)","parent":"BlockHash"}
+{"level":4,"type":"fn","name":"encoder","visible":"pub(self)","parent":"BlockHash"}
+{"level":3,"type":"struct","name":"BlockHashDecoder","visible":"pub","parent":"block_hash"}
+{"level":4,"type":"type","name":"Error","visible":"pub(self)","parent":"BlockHashDecoder"}
+{"level":4,"type":"type","name":"Output","visible":"pub(self)","parent":"BlockHashDecoder"}
+{"level":4,"type":"fn","name":"end","visible":"pub(self)","parent":"BlockHashDecoder"}
+{"level":4,"type":"const_fn","name":"new","visible":"pub","parent":"BlockHashDecoder"}
+{"level":4,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"BlockHashDecoder"}
+{"level":4,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"BlockHashDecoder"}
+{"level":3,"type":"struct","name":"BlockHashDecoderError","visible":"pub","parent":"block_hash"}
+{"level":3,"type":"struct","name":"BlockHashEncoder","visible":"pub","parent":"block_hash"}
+{"level":4,"type":"fn","name":"advance","visible":"pub(self)","parent":"BlockHashEncoder"}
+{"level":4,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"BlockHashEncoder"}
+{"level":3,"type":"type","name":"HashType","visible":"pub(self)","parent":"block_hash"}
+{"level":3,"type":"type","name":"Inner","visible":"pub(self)","parent":"block_hash"}
+{"level":2,"type":"mod","name":"ntxid","visible":"pub(self)","parent":"hash_types"}
+{"level":3,"type":"type","name":"HashType","visible":"pub(self)","parent":"ntxid"}
+{"level":3,"type":"type","name":"Inner","visible":"pub(self)","parent":"ntxid"}
+{"level":3,"type":"struct","name":"Ntxid","visible":"pub","parent":"ntxid"}
+{"level":2,"type":"mod","name":"script_hash","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"hash_types"}
+{"level":3,"type":"type","name":"HashType","visible":"pub(self)","parent":"script_hash"}
+{"level":3,"type":"type","name":"Inner","visible":"pub(self)","parent":"script_hash"}
+{"level":3,"type":"struct","name":"RedeemScriptSizeError","visible":"pub","parent":"script_hash"}
+{"level":4,"type":"fn","name":"invalid_size","visible":"pub","parent":"RedeemScriptSizeError"}
+{"level":3,"type":"struct","name":"ScriptHash","visible":"pub","parent":"script_hash"}
+{"level":4,"type":"fn","name":"from_script","visible":"pub","parent":"ScriptHash"}
+{"level":4,"type":"fn","name":"from_script_unchecked","visible":"pub","parent":"ScriptHash"}
+{"level":2,"type":"mod","name":"serde_details","visible":"pub #[cfg(feature = \"serde\")]","parent":"hash_types"}
+{"level":3,"type":"struct","name":"BytesVisitor","visible":"pub","parent":"serde_details"}
+{"level":4,"type":"type","name":"Value","visible":"pub(self)","parent":"BytesVisitor"}
+{"level":4,"type":"fn","name":"expecting","visible":"pub(self)","parent":"BytesVisitor"}
+{"level":4,"type":"fn","name":"visit_bytes","visible":"pub(self)","parent":"BytesVisitor"}
+{"level":3,"type":"struct","name":"HexVisitor","visible":"pub","parent":"serde_details"}
+{"level":4,"type":"type","name":"Value","visible":"pub(self)","parent":"HexVisitor"}
+{"level":4,"type":"fn","name":"expecting","visible":"pub(self)","parent":"HexVisitor"}
+{"level":4,"type":"fn","name":"visit_bytes","visible":"pub(self)","parent":"HexVisitor"}
+{"level":4,"type":"fn","name":"visit_str","visible":"pub(self)","parent":"HexVisitor"}
+{"level":2,"type":"mod","name":"transaction_merkle_node","visible":"pub(self)","parent":"hash_types"}
+{"level":3,"type":"type","name":"HashType","visible":"pub(self)","parent":"transaction_merkle_node"}
+{"level":3,"type":"type","name":"Inner","visible":"pub(self)","parent":"transaction_merkle_node"}
+{"level":3,"type":"struct","name":"TxMerkleNode","visible":"pub","parent":"transaction_merkle_node"}
+{"level":4,"type":"type","name":"Decoder","visible":"pub(self)","parent":"TxMerkleNode"}
+{"level":4,"type":"type","name":"Encoder","visible":"pub(self)","parent":"TxMerkleNode"}
+{"level":4,"type":"type","name":"Leaf","visible":"pub(self)","parent":"TxMerkleNode"}
+{"level":4,"type":"fn","name":"calculate_root","visible":"pub","parent":"TxMerkleNode"}
+{"level":4,"type":"fn","name":"combine","visible":"pub","parent":"TxMerkleNode"}
+{"level":4,"type":"fn","name":"combine","visible":"pub(self)","parent":"TxMerkleNode"}
+{"level":4,"type":"fn","name":"decoder","visible":"pub(self)","parent":"TxMerkleNode"}
+{"level":4,"type":"fn","name":"encoder","visible":"pub(self)","parent":"TxMerkleNode"}
+{"level":4,"type":"fn","name":"from_leaf","visible":"pub","parent":"TxMerkleNode"}
+{"level":4,"type":"fn","name":"from_leaf","visible":"pub(self)","parent":"TxMerkleNode"}
+{"level":3,"type":"struct","name":"TxMerkleNodeDecoder","visible":"pub","parent":"transaction_merkle_node"}
+{"level":4,"type":"type","name":"Error","visible":"pub(self)","parent":"TxMerkleNodeDecoder"}
+{"level":4,"type":"type","name":"Output","visible":"pub(self)","parent":"TxMerkleNodeDecoder"}
+{"level":4,"type":"fn","name":"end","visible":"pub(self)","parent":"TxMerkleNodeDecoder"}
+{"level":4,"type":"const_fn","name":"new","visible":"pub","parent":"TxMerkleNodeDecoder"}
+{"level":4,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"TxMerkleNodeDecoder"}
+{"level":4,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"TxMerkleNodeDecoder"}
+{"level":3,"type":"struct","name":"TxMerkleNodeDecoderError","visible":"pub","parent":"transaction_merkle_node"}
+{"level":3,"type":"struct","name":"TxMerkleNodeEncoder","visible":"pub","parent":"transaction_merkle_node"}
+{"level":4,"type":"fn","name":"advance","visible":"pub(self)","parent":"TxMerkleNodeEncoder"}
+{"level":4,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"TxMerkleNodeEncoder"}
+{"level":2,"type":"mod","name":"txid","visible":"pub(self)","parent":"hash_types"}
+{"level":3,"type":"type","name":"HashType","visible":"pub(self)","parent":"txid"}
+{"level":3,"type":"type","name":"Inner","visible":"pub(self)","parent":"txid"}
+{"level":3,"type":"struct","name":"Txid","visible":"pub","parent":"txid"}
+{"level":2,"type":"mod","name":"witness_commitment","visible":"pub(self)","parent":"hash_types"}
+{"level":3,"type":"type","name":"HashType","visible":"pub(self)","parent":"witness_commitment"}
+{"level":3,"type":"type","name":"Inner","visible":"pub(self)","parent":"witness_commitment"}
+{"level":3,"type":"struct","name":"WitnessCommitment","visible":"pub","parent":"witness_commitment"}
+{"level":2,"type":"mod","name":"witness_merkle_node","visible":"pub(self)","parent":"hash_types"}
+{"level":3,"type":"type","name":"HashType","visible":"pub(self)","parent":"witness_merkle_node"}
+{"level":3,"type":"type","name":"Inner","visible":"pub(self)","parent":"witness_merkle_node"}
+{"level":3,"type":"struct","name":"WitnessMerkleNode","visible":"pub","parent":"witness_merkle_node"}
+{"level":4,"type":"type","name":"Decoder","visible":"pub(self)","parent":"WitnessMerkleNode"}
+{"level":4,"type":"type","name":"Encoder","visible":"pub(self)","parent":"WitnessMerkleNode"}
+{"level":4,"type":"type","name":"Leaf","visible":"pub(self)","parent":"WitnessMerkleNode"}
+{"level":4,"type":"fn","name":"calculate_root","visible":"pub","parent":"WitnessMerkleNode"}
+{"level":4,"type":"fn","name":"combine","visible":"pub","parent":"WitnessMerkleNode"}
+{"level":4,"type":"fn","name":"combine","visible":"pub(self)","parent":"WitnessMerkleNode"}
+{"level":4,"type":"fn","name":"decoder","visible":"pub(self)","parent":"WitnessMerkleNode"}
+{"level":4,"type":"fn","name":"encoder","visible":"pub(self)","parent":"WitnessMerkleNode"}
+{"level":4,"type":"fn","name":"from_leaf","visible":"pub","parent":"WitnessMerkleNode"}
+{"level":4,"type":"fn","name":"from_leaf","visible":"pub(self)","parent":"WitnessMerkleNode"}
+{"level":3,"type":"struct","name":"WitnessMerkleNodeDecoder","visible":"pub","parent":"witness_merkle_node"}
+{"level":4,"type":"type","name":"Error","visible":"pub(self)","parent":"WitnessMerkleNodeDecoder"}
+{"level":4,"type":"type","name":"Output","visible":"pub(self)","parent":"WitnessMerkleNodeDecoder"}
+{"level":4,"type":"fn","name":"end","visible":"pub(self)","parent":"WitnessMerkleNodeDecoder"}
+{"level":4,"type":"fn","name":"new","visible":"pub","parent":"WitnessMerkleNodeDecoder"}
+{"level":4,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"WitnessMerkleNodeDecoder"}
+{"level":4,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"WitnessMerkleNodeDecoder"}
+{"level":3,"type":"struct","name":"WitnessMerkleNodeDecoderError","visible":"pub","parent":"witness_merkle_node"}
+{"level":3,"type":"struct","name":"WitnessMerkleNodeEncoder","visible":"pub","parent":"witness_merkle_node"}
+{"level":4,"type":"fn","name":"advance","visible":"pub(self)","parent":"WitnessMerkleNodeEncoder"}
+{"level":4,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"WitnessMerkleNodeEncoder"}
+{"level":2,"type":"mod","name":"witness_script_hash","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"hash_types"}
+{"level":3,"type":"type","name":"HashType","visible":"pub(self)","parent":"witness_script_hash"}
+{"level":3,"type":"type","name":"Inner","visible":"pub(self)","parent":"witness_script_hash"}
+{"level":3,"type":"struct","name":"WScriptHash","visible":"pub","parent":"witness_script_hash"}
+{"level":4,"type":"fn","name":"from_script","visible":"pub","parent":"WScriptHash"}
+{"level":4,"type":"fn","name":"from_script_unchecked","visible":"pub","parent":"WScriptHash"}
+{"level":3,"type":"struct","name":"WitnessScriptSizeError","visible":"pub","parent":"witness_script_hash"}
+{"level":4,"type":"fn","name":"invalid_size","visible":"pub","parent":"WitnessScriptSizeError"}
+{"level":2,"type":"mod","name":"wtxid","visible":"pub(self)","parent":"hash_types"}
+{"level":3,"type":"type","name":"HashType","visible":"pub(self)","parent":"wtxid"}
+{"level":3,"type":"type","name":"Inner","visible":"pub(self)","parent":"wtxid"}
+{"level":3,"type":"struct","name":"Wtxid","visible":"pub","parent":"wtxid"}
+{"level":1,"type":"mod","name":"merkle_tree","visible":"pub","parent":"bitcoin_primitives"}
+{"level":2,"type":"trait","name":"MerkleNode","visible":"pub(crate)","parent":"merkle_tree"}
+{"level":1,"type":"mod","name":"opcodes","visible":"pub(crate) #[cfg(feature = \"alloc\")]","parent":"bitcoin_primitives"}
+{"level":2,"type":"fn","name":"fmt_opcode","visible":"pub","parent":"opcodes"}
+{"level":1,"type":"mod","name":"pow","visible":"pub","parent":"bitcoin_primitives"}
+{"level":2,"type":"struct","name":"CompactTarget","visible":"pub","parent":"pow"}
+{"level":3,"type":"type","name":"Decoder","visible":"pub(self)","parent":"CompactTarget"}
+{"level":3,"type":"type","name":"Encoder","visible":"pub(self)","parent":"CompactTarget"}
+{"level":3,"type":"fn","name":"decoder","visible":"pub(self)","parent":"CompactTarget"}
+{"level":3,"type":"fn","name":"encoder","visible":"pub(self)","parent":"CompactTarget"}
+{"level":3,"type":"fn","name":"from_consensus","visible":"pub","parent":"CompactTarget"}
+{"level":3,"type":"const_fn","name":"to_consensus","visible":"pub","parent":"CompactTarget"}
+{"level":3,"type":"fn","name":"to_hex","visible":"pub #[cfg(feature = \"alloc\")]","parent":"CompactTarget"}
+{"level":2,"type":"struct","name":"CompactTargetDecoder","visible":"pub","parent":"pow"}
+{"level":3,"type":"type","name":"Error","visible":"pub(self)","parent":"CompactTargetDecoder"}
+{"level":3,"type":"type","name":"Output","visible":"pub(self)","parent":"CompactTargetDecoder"}
+{"level":3,"type":"fn","name":"end","visible":"pub(self)","parent":"CompactTargetDecoder"}
+{"level":3,"type":"const_fn","name":"new","visible":"pub","parent":"CompactTargetDecoder"}
+{"level":3,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"CompactTargetDecoder"}
+{"level":3,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"CompactTargetDecoder"}
+{"level":2,"type":"struct","name":"CompactTargetDecoderError","visible":"pub","parent":"pow"}
+{"level":2,"type":"struct","name":"CompactTargetEncoder","visible":"pub","parent":"pow"}
+{"level":3,"type":"fn","name":"advance","visible":"pub(self)","parent":"CompactTargetEncoder"}
+{"level":3,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"CompactTargetEncoder"}
+{"level":1,"type":"mod","name":"prelude","visible":"pub(crate)","parent":"bitcoin_primitives"}
+{"level":1,"type":"mod","name":"script","visible":"pub #[cfg(feature = \"alloc\")]","parent":"bitcoin_primitives"}
+{"level":2,"type":"type","name":"RedeemScript","visible":"pub","parent":"script"}
+{"level":2,"type":"type","name":"RedeemScriptBuf","visible":"pub","parent":"script"}
+{"level":2,"type":"trait","name":"ScriptHashableTag","visible":"pub","parent":"script"}
+{"level":2,"type":"type","name":"ScriptPubKey","visible":"pub","parent":"script"}
+{"level":2,"type":"type","name":"ScriptPubKeyBuf","visible":"pub","parent":"script"}
+{"level":2,"type":"type","name":"ScriptPubKeyBufDecoder","visible":"pub","parent":"script"}
+{"level":2,"type":"type","name":"ScriptSig","visible":"pub","parent":"script"}
+{"level":2,"type":"type","name":"ScriptSigBuf","visible":"pub","parent":"script"}
+{"level":2,"type":"type","name":"ScriptSigBufDecoder","visible":"pub","parent":"script"}
+{"level":2,"type":"type","name":"TapScript","visible":"pub","parent":"script"}
+{"level":2,"type":"type","name":"TapScriptBuf","visible":"pub","parent":"script"}
+{"level":2,"type":"type","name":"WitnessScript","visible":"pub","parent":"script"}
+{"level":2,"type":"type","name":"WitnessScriptBuf","visible":"pub","parent":"script"}
+{"level":2,"type":"mod","name":"borrowed","visible":"pub(self)","parent":"script"}
+{"level":3,"type":"struct","name":"Script","visible":"pub","parent":"borrowed"}
+{"level":4,"type":"type","name":"Encoder","visible":"pub(self)","parent":"Script"}
+{"level":4,"type":"fn","name":"arbitrary","visible":"pub(self)","parent":"Script"}
+{"level":4,"type":"const_fn","name":"as_bytes","visible":"pub","parent":"Script"}
+{"level":4,"type":"fn","name":"as_mut_bytes","visible":"pub","parent":"Script"}
+{"level":4,"type":"fn","name":"deserialize","visible":"pub(self)","parent":"Script"}
+{"level":4,"type":"fn","name":"encoder","visible":"pub(self)","parent":"Script"}
+{"level":4,"type":"fn","name":"from_arc_bytes","visible":"pub(crate) #[cfg(target_has_atomic = \"ptr\")]","parent":"Script"}
+{"level":4,"type":"fn","name":"from_boxed_bytes","visible":"pub(crate)","parent":"Script"}
+{"level":4,"type":"const_fn","name":"from_bytes","visible":"pub","parent":"Script"}
+{"level":4,"type":"fn","name":"from_bytes_mut","visible":"pub","parent":"Script"}
+{"level":4,"type":"fn","name":"from_rc_bytes","visible":"pub(crate)","parent":"Script"}
+{"level":4,"type":"fn","name":"into_script_buf","visible":"pub","parent":"Script"}
+{"level":4,"type":"const_fn","name":"is_empty","visible":"pub","parent":"Script"}
+{"level":4,"type":"const_fn","name":"len","visible":"pub","parent":"Script"}
+{"level":4,"type":"const_fn","name":"new","visible":"pub","parent":"Script"}
+{"level":4,"type":"fn","name":"serialize","visible":"pub(self)","parent":"Script"}
+{"level":4,"type":"fn","name":"to_bytes","visible":"pub","parent":"Script"}
+{"level":4,"type":"fn","name":"to_hex","visible":"pub #[cfg(feature = \"alloc\")], #[cfg(feature = \"hex\")]","parent":"Script"}
+{"level":4,"type":"fn","name":"to_vec","visible":"pub","parent":"Script"}
+{"level":3,"type":"struct","name":"ScriptEncoder","visible":"pub","parent":"borrowed"}
+{"level":4,"type":"fn","name":"advance","visible":"pub(self)","parent":"ScriptEncoder"}
+{"level":4,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"ScriptEncoder"}
+{"level":2,"type":"mod","name":"owned","visible":"pub(self)","parent":"script"}
+{"level":3,"type":"struct","name":"ScriptBuf","visible":"pub","parent":"owned"}
+{"level":4,"type":"type","name":"Decoder","visible":"pub(self)","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"arbitrary","visible":"pub(self)","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"as_mut_script","visible":"pub","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"as_script","visible":"pub","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"capacity","visible":"pub","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"decoder","visible":"pub(self)","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"deserialize","visible":"pub(self)","parent":"ScriptBuf"}
+{"level":4,"type":"const_fn","name":"from_bytes","visible":"pub","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"into_boxed_script","visible":"pub","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"into_bytes","visible":"pub","parent":"ScriptBuf"}
+{"level":4,"type":"const_fn","name":"new","visible":"pub","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"reserve","visible":"pub","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"reserve_exact","visible":"pub","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"serialize","visible":"pub(self)","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"to_hex","visible":"pub #[cfg(feature = \"alloc\")], #[cfg(feature = \"hex\")]","parent":"ScriptBuf"}
+{"level":4,"type":"fn","name":"with_capacity","visible":"pub","parent":"ScriptBuf"}
+{"level":3,"type":"struct","name":"ScriptBufDecoder","visible":"pub","parent":"owned"}
+{"level":4,"type":"type","name":"Error","visible":"pub(self)","parent":"ScriptBufDecoder"}
+{"level":4,"type":"type","name":"Output","visible":"pub(self)","parent":"ScriptBufDecoder"}
+{"level":4,"type":"fn","name":"end","visible":"pub(self)","parent":"ScriptBufDecoder"}
+{"level":4,"type":"const_fn","name":"new","visible":"pub","parent":"ScriptBufDecoder"}
+{"level":4,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"ScriptBufDecoder"}
+{"level":4,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"ScriptBufDecoder"}
+{"level":3,"type":"struct","name":"ScriptBufDecoderError","visible":"pub","parent":"owned"}
+{"level":2,"type":"mod","name":"sealed","visible":"pub(self)","parent":"script"}
+{"level":3,"type":"trait","name":"Sealed","visible":"pub","parent":"sealed"}
+{"level":2,"type":"mod","name":"tag","visible":"pub(self)","parent":"script"}
+{"level":3,"type":"enum","name":"RedeemScriptTag","visible":"pub","parent":"tag"}
+{"level":3,"type":"enum","name":"ScriptPubKeyTag","visible":"pub","parent":"tag"}
+{"level":3,"type":"enum","name":"ScriptSigTag","visible":"pub","parent":"tag"}
+{"level":3,"type":"trait","name":"Tag","visible":"pub","parent":"tag"}
+{"level":3,"type":"enum","name":"TapScriptTag","visible":"pub","parent":"tag"}
+{"level":3,"type":"enum","name":"WitnessScriptTag","visible":"pub","parent":"tag"}
+{"level":1,"type":"mod","name":"transaction","visible":"pub","parent":"bitcoin_primitives"}
+{"level":2,"type":"enum","name":"Attempt","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":2,"type":"enum","name":"IsSegwit","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":2,"type":"struct","name":"Iteration","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":2,"type":"struct","name":"OutPoint","visible":"pub","parent":"transaction"}
+{"level":3,"type":"type","name":"Decoder","visible":"pub(self)","parent":"OutPoint"}
+{"level":3,"type":"type","name":"Encoder","visible":"pub(self)","parent":"OutPoint"}
+{"level":3,"type":"fn","name":"arbitrary","visible":"pub(self)","parent":"OutPoint"}
+{"level":3,"type":"fn","name":"decoder","visible":"pub(self)","parent":"OutPoint"}
+{"level":3,"type":"fn","name":"deserialize","visible":"pub(self)","parent":"OutPoint"}
+{"level":3,"type":"fn","name":"encoder","visible":"pub(self)","parent":"OutPoint"}
+{"level":3,"type":"fn","name":"serialize","visible":"pub(self)","parent":"OutPoint"}
+{"level":2,"type":"struct","name":"OutPointDecoder","visible":"pub","parent":"transaction"}
+{"level":3,"type":"type","name":"Error","visible":"pub(self)","parent":"OutPointDecoder"}
+{"level":3,"type":"type","name":"Output","visible":"pub(self)","parent":"OutPointDecoder"}
+{"level":3,"type":"fn","name":"end","visible":"pub(self)","parent":"OutPointDecoder"}
+{"level":3,"type":"const_fn","name":"new","visible":"pub","parent":"OutPointDecoder"}
+{"level":3,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"OutPointDecoder"}
+{"level":3,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"OutPointDecoder"}
+{"level":2,"type":"struct","name":"OutPointDecoderError","visible":"pub","parent":"transaction"}
+{"level":2,"type":"struct","name":"OutPointEncoder","visible":"pub","parent":"transaction"}
+{"level":3,"type":"fn","name":"advance","visible":"pub(self)","parent":"OutPointEncoder"}
+{"level":3,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"OutPointEncoder"}
+{"level":2,"type":"enum","name":"ParseOutPointError","visible":"pub #[cfg(feature = \"alloc\")], #[cfg(feature = \"hex\")]","parent":"transaction"}
+{"level":2,"type":"struct","name":"Transaction","visible":"pub #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":3,"type":"type","name":"Decoder","visible":"pub(self)","parent":"Transaction"}
+{"level":3,"type":"type","name":"Encoder","visible":"pub(self)","parent":"Transaction"}
+{"level":3,"type":"fn","name":"arbitrary","visible":"pub(self)","parent":"Transaction"}
+{"level":3,"type":"fn","name":"compute_ntxid","visible":"pub","parent":"Transaction"}
+{"level":3,"type":"fn","name":"compute_txid","visible":"pub","parent":"Transaction"}
+{"level":3,"type":"fn","name":"compute_wtxid","visible":"pub","parent":"Transaction"}
+{"level":3,"type":"fn","name":"decoder","visible":"pub(self)","parent":"Transaction"}
+{"level":3,"type":"fn","name":"encoder","visible":"pub(self)","parent":"Transaction"}
+{"level":3,"type":"fn","name":"is_coinbase","visible":"pub","parent":"Transaction"}
+{"level":3,"type":"fn","name":"uses_segwit_serialization","visible":"pub(self)","parent":"Transaction"}
+{"level":2,"type":"struct","name":"TransactionDecoder","visible":"pub #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":3,"type":"type","name":"Error","visible":"pub(self)","parent":"TransactionDecoder"}
+{"level":3,"type":"type","name":"Output","visible":"pub(self)","parent":"TransactionDecoder"}
+{"level":3,"type":"fn","name":"end","visible":"pub(self)","parent":"TransactionDecoder"}
+{"level":3,"type":"const_fn","name":"new","visible":"pub","parent":"TransactionDecoder"}
+{"level":3,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"TransactionDecoder"}
+{"level":3,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"TransactionDecoder"}
+{"level":2,"type":"struct","name":"TransactionDecoderError","visible":"pub #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":2,"type":"enum","name":"TransactionDecoderErrorInner","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":2,"type":"enum","name":"TransactionDecoderState","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":2,"type":"struct","name":"TransactionEncoder","visible":"pub","parent":"transaction"}
+{"level":3,"type":"fn","name":"advance","visible":"pub(self)","parent":"TransactionEncoder"}
+{"level":3,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"TransactionEncoder"}
+{"level":2,"type":"trait","name":"TxIdentifier","visible":"pub(crate)","parent":"transaction"}
+{"level":2,"type":"struct","name":"TxIn","visible":"pub #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":3,"type":"type","name":"Decoder","visible":"pub(self)","parent":"TxIn"}
+{"level":3,"type":"type","name":"Encoder","visible":"pub(self)","parent":"TxIn"}
+{"level":3,"type":"fn","name":"arbitrary","visible":"pub(self)","parent":"TxIn"}
+{"level":3,"type":"fn","name":"decoder","visible":"pub(self)","parent":"TxIn"}
+{"level":3,"type":"fn","name":"encoder","visible":"pub(self)","parent":"TxIn"}
+{"level":2,"type":"struct","name":"TxInDecoder","visible":"pub #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":3,"type":"type","name":"Error","visible":"pub(self)","parent":"TxInDecoder"}
+{"level":3,"type":"type","name":"Output","visible":"pub(self)","parent":"TxInDecoder"}
+{"level":3,"type":"fn","name":"end","visible":"pub(self)","parent":"TxInDecoder"}
+{"level":3,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"TxInDecoder"}
+{"level":3,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"TxInDecoder"}
+{"level":2,"type":"struct","name":"TxInDecoderError","visible":"pub #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":2,"type":"struct","name":"TxInEncoder","visible":"pub","parent":"transaction"}
+{"level":3,"type":"fn","name":"advance","visible":"pub(self)","parent":"TxInEncoder"}
+{"level":3,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"TxInEncoder"}
+{"level":2,"type":"type","name":"TxInInnerDecoder","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":2,"type":"struct","name":"TxOut","visible":"pub #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":3,"type":"type","name":"Decoder","visible":"pub(self)","parent":"TxOut"}
+{"level":3,"type":"type","name":"Encoder","visible":"pub(self)","parent":"TxOut"}
+{"level":3,"type":"fn","name":"arbitrary","visible":"pub(self)","parent":"TxOut"}
+{"level":3,"type":"fn","name":"decoder","visible":"pub(self)","parent":"TxOut"}
+{"level":3,"type":"fn","name":"encoder","visible":"pub(self)","parent":"TxOut"}
+{"level":2,"type":"struct","name":"TxOutDecoder","visible":"pub #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":3,"type":"type","name":"Error","visible":"pub(self)","parent":"TxOutDecoder"}
+{"level":3,"type":"type","name":"Output","visible":"pub(self)","parent":"TxOutDecoder"}
+{"level":3,"type":"fn","name":"end","visible":"pub(self)","parent":"TxOutDecoder"}
+{"level":3,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"TxOutDecoder"}
+{"level":3,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"TxOutDecoder"}
+{"level":2,"type":"struct","name":"TxOutDecoderError","visible":"pub #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":2,"type":"struct","name":"TxOutEncoder","visible":"pub","parent":"transaction"}
+{"level":3,"type":"fn","name":"advance","visible":"pub(self)","parent":"TxOutEncoder"}
+{"level":3,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"TxOutEncoder"}
+{"level":2,"type":"type","name":"TxOutInnerDecoder","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":2,"type":"struct","name":"Version","visible":"pub","parent":"transaction"}
+{"level":3,"type":"type","name":"Decoder","visible":"pub(self)","parent":"Version"}
+{"level":3,"type":"type","name":"Encoder","visible":"pub(self)","parent":"Version"}
+{"level":3,"type":"fn","name":"arbitrary","visible":"pub(self)","parent":"Version"}
+{"level":3,"type":"fn","name":"decoder","visible":"pub(self)","parent":"Version"}
+{"level":3,"type":"fn","name":"encoder","visible":"pub(self)","parent":"Version"}
+{"level":3,"type":"const_fn","name":"is_standard","visible":"pub","parent":"Version"}
+{"level":3,"type":"const_fn","name":"maybe_non_standard","visible":"pub","parent":"Version"}
+{"level":3,"type":"const_fn","name":"to_u32","visible":"pub","parent":"Version"}
+{"level":2,"type":"struct","name":"VersionDecoder","visible":"pub","parent":"transaction"}
+{"level":3,"type":"type","name":"Error","visible":"pub(self)","parent":"VersionDecoder"}
+{"level":3,"type":"type","name":"Output","visible":"pub(self)","parent":"VersionDecoder"}
+{"level":3,"type":"fn","name":"end","visible":"pub(self)","parent":"VersionDecoder"}
+{"level":3,"type":"const_fn","name":"new","visible":"pub","parent":"VersionDecoder"}
+{"level":3,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"VersionDecoder"}
+{"level":3,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"VersionDecoder"}
+{"level":2,"type":"struct","name":"VersionDecoderError","visible":"pub","parent":"transaction"}
+{"level":2,"type":"struct","name":"VersionEncoder","visible":"pub","parent":"transaction"}
+{"level":3,"type":"fn","name":"advance","visible":"pub(self)","parent":"VersionEncoder"}
+{"level":3,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"VersionEncoder"}
+{"level":2,"type":"struct","name":"WitnessesEncoder","visible":"pub #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":3,"type":"fn","name":"advance","visible":"pub(self)","parent":"WitnessesEncoder"}
+{"level":3,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"WitnessesEncoder"}
+{"level":3,"type":"fn","name":"new","visible":"pub","parent":"WitnessesEncoder"}
+{"level":2,"type":"fn","name":"hash_transaction","visible":"pub(self) #[cfg(feature = \"alloc\")]","parent":"transaction"}
+{"level":2,"type":"fn","name":"parse_vout","visible":"pub(self) #[cfg(feature = \"alloc\")], #[cfg(feature = \"hex\")]","parent":"transaction"}
+{"level":1,"type":"mod","name":"witness","visible":"pub #[cfg(feature = \"alloc\")]","parent":"bitcoin_primitives"}
+{"level":2,"type":"struct","name":"Iter","visible":"pub","parent":"witness"}
+{"level":2,"type":"struct","name":"UnexpectedEofError","visible":"pub","parent":"witness"}
+{"level":2,"type":"struct","name":"Witness","visible":"pub","parent":"witness"}
+{"level":3,"type":"type","name":"Decoder","visible":"pub(self)","parent":"Witness"}
+{"level":3,"type":"type","name":"Encoder","visible":"pub(self)","parent":"Witness"}
+{"level":3,"type":"fn","name":"arbitrary","visible":"pub(self)","parent":"Witness"}
+{"level":3,"type":"fn","name":"clear","visible":"pub","parent":"Witness"}
+{"level":3,"type":"fn","name":"decoder","visible":"pub(self)","parent":"Witness"}
+{"level":3,"type":"fn","name":"deserialize","visible":"pub(self)","parent":"Witness"}
+{"level":3,"type":"fn","name":"encoder","visible":"pub(self)","parent":"Witness"}
+{"level":3,"type":"fn","name":"from_hex","visible":"pub #[cfg(feature = \"hex\")]","parent":"Witness"}
+{"level":3,"type":"fn","name":"from_slice","visible":"pub","parent":"Witness"}
+{"level":3,"type":"fn","name":"get","visible":"pub","parent":"Witness"}
+{"level":3,"type":"fn","name":"get_back","visible":"pub","parent":"Witness"}
+{"level":3,"type":"fn","name":"is_empty","visible":"pub","parent":"Witness"}
+{"level":3,"type":"fn","name":"iter","visible":"pub","parent":"Witness"}
+{"level":3,"type":"fn","name":"last","visible":"pub","parent":"Witness"}
+{"level":3,"type":"const_fn","name":"len","visible":"pub","parent":"Witness"}
+{"level":3,"type":"const_fn","name":"new","visible":"pub","parent":"Witness"}
+{"level":3,"type":"fn","name":"push","visible":"pub","parent":"Witness"}
+{"level":3,"type":"fn","name":"push_slice","visible":"pub(self)","parent":"Witness"}
+{"level":3,"type":"fn","name":"serialize","visible":"pub(self)","parent":"Witness"}
+{"level":3,"type":"fn","name":"size","visible":"pub","parent":"Witness"}
+{"level":3,"type":"fn","name":"to_vec","visible":"pub","parent":"Witness"}
+{"level":2,"type":"struct","name":"WitnessDecoder","visible":"pub #[cfg(feature = \"alloc\")]","parent":"witness"}
+{"level":3,"type":"type","name":"Error","visible":"pub(self)","parent":"WitnessDecoder"}
+{"level":3,"type":"type","name":"Output","visible":"pub(self)","parent":"WitnessDecoder"}
+{"level":3,"type":"fn","name":"end","visible":"pub(self)","parent":"WitnessDecoder"}
+{"level":3,"type":"const_fn","name":"new","visible":"pub","parent":"WitnessDecoder"}
+{"level":3,"type":"fn","name":"push_bytes","visible":"pub(self)","parent":"WitnessDecoder"}
+{"level":3,"type":"fn","name":"read_limit","visible":"pub(self)","parent":"WitnessDecoder"}
+{"level":3,"type":"fn","name":"resize_if_needed","visible":"pub(self)","parent":"WitnessDecoder"}
+{"level":2,"type":"struct","name":"WitnessDecoderError","visible":"pub","parent":"witness"}
+{"level":2,"type":"enum","name":"WitnessDecoderErrorInner","visible":"pub(self)","parent":"witness"}
+{"level":2,"type":"struct","name":"WitnessEncoder","visible":"pub","parent":"witness"}
+{"level":3,"type":"fn","name":"advance","visible":"pub(self)","parent":"WitnessEncoder"}
+{"level":3,"type":"fn","name":"current_chunk","visible":"pub(self)","parent":"WitnessEncoder"}
+{"level":2,"type":"fn","name":"cast_to_usize_if_valid","visible":"pub(self)","parent":"witness"}
+{"level":2,"type":"fn","name":"decode_cursor","visible":"pub(self)","parent":"witness"}
+{"level":2,"type":"fn","name":"encode_cursor","visible":"pub(self)","parent":"witness"}

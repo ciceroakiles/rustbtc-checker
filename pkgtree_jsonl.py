@@ -1,3 +1,4 @@
+import argparse
 import json
 import string
 
@@ -34,13 +35,11 @@ def get_parents(levels: list) -> list:
     return list(reversed(parents))
 
 
-def main():
-    pkgsdir = "package_trees"
-    filename = "base58ck"
-
-    # Open sample file
+def open_file(path: str) -> list:
     lines = []
-    with open(pkgsdir + "/" + filename + ".txt", 'r') as f:
+
+    # Open file
+    with open(path, 'r') as f:
         lines = f.readlines()
 
     jsonlines = []
@@ -80,9 +79,26 @@ def main():
         tmp["parent"] = parentnames[i]
         jsonlines[i] = json.dumps(tmp, separators=(',', ':'))
 
+    return jsonlines
+
+
+def main(f: str):
+    # Get json lines from a file in "package_trees"
+    jsonlines = []
+    try:
+        jsonlines = open_file("package_trees/" + f)
+    except Exception as e:
+        print("Error parsing file:", f)
+
     for l in jsonlines:
         print(l)
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(
+        description='Script that parses a txt file from "package_trees" folder and outputs json lines.'
+    )
+    parser.add_argument("-f", required=True, type=str, help="full name of the file")
+    args = parser.parse_args()
+    f = args.f
+    main(f)
