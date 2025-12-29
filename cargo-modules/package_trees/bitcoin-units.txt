@@ -364,9 +364,6 @@ crate bitcoin_units
 │           ├── enum IsSatisfiedByHeightError: pub
 │           ├── enum IsSatisfiedByTimeError: pub
 │           └── struct TimeOverflowError: pub
-├── mod nomedomodulo: pub(crate)
-│   └── mod apiexposta: pub
-│       └── fn palitonomotor: pub
 ├── mod parse_int: pub
 │   ├── struct ContainsPrefixError: pub(self)
 │   │   └── fn new: pub(crate)

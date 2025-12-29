@@ -83,12 +83,13 @@ def open_file(path: str) -> list:
 
 
 def main(f: str):
-    # Get json lines from a file in "package_trees"
+    # Get json lines from a file
     jsonlines = []
     try:
-        jsonlines = open_file("package_trees/" + f)
+        jsonlines = open_file(f)
     except Exception as e:
-        print("Error parsing file:", f)
+        print("Error parsing file:", f.split("/")[-1])
+        print(e)
 
     for l in jsonlines:
         print(l)
@@ -96,9 +97,9 @@ def main(f: str):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description='Script that parses a txt file from "package_trees" folder and outputs json lines.'
+        description='Script that parses a txt file from "cargo-modules/package_trees" folder and outputs json lines.'
     )
-    parser.add_argument("-f", required=True, type=str, help="full name of the file")
+    parser.add_argument("-f", required=True, type=str, help="full path of the file")
     args = parser.parse_args()
     f = args.f
     main(f)
