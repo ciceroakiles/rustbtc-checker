@@ -1,8 +1,0 @@
-{"level":1,"type":"struct","name":"Cursor","visible":"pub","parent":"bitcoin_io"}
-{"level":1,"type":"enum","name":"ReadError","visible":"pub","parent":"bitcoin_io"}
-{"level":1,"type":"struct","name":"Sink","visible":"pub","parent":"bitcoin_io"}
-{"level":1,"type":"struct","name":"Take","visible":"pub","parent":"bitcoin_io"}
-{"level":2,"type":"struct","name":"FromStd","visible":"pub","parent":"bridge"}
-{"level":2,"type":"struct","name":"ToStd","visible":"pub","parent":"bridge"}
-{"level":2,"type":"struct","name":"Error","visible":"pub","parent":"error"}
-{"level":2,"type":"enum","name":"ErrorKind","visible":"pub","parent":"error"}

@@ -11,10 +11,11 @@ pd.set_option('display.max_columns', None)
 
 def main(f: str):
     # Build sample dataframe
-    df = pd.read_json("cargo-modules/jsonl/" + f, lines=True)
+    df = pd.read_json("jsonl/" + f, lines=True)
 
     # Show dataframe (column "level" hidden)
     #print("Dataframe for:", filepath[6:], "\n")
+    df = df.sort_values(by='name')
     print(df.drop('level', axis=1))
 
 

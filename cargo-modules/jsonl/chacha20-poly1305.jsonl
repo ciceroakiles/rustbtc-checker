@@ -1,8 +1,0 @@
-{"level":1,"type":"struct","name":"ChaCha20Poly1305","visible":"pub","parent":"chacha20_poly1305"}
-{"level":1,"type":"enum","name":"Error","visible":"pub","parent":"chacha20_poly1305"}
-{"level":1,"type":"mod","name":"chacha20","visible":"pub","parent":"chacha20_poly1305"}
-{"level":2,"type":"struct","name":"ChaCha20","visible":"pub","parent":"chacha20"}
-{"level":2,"type":"struct","name":"Key","visible":"pub","parent":"chacha20"}
-{"level":2,"type":"struct","name":"Nonce","visible":"pub","parent":"chacha20"}
-{"level":1,"type":"mod","name":"poly1305","visible":"pub","parent":"chacha20_poly1305"}
-{"level":2,"type":"struct","name":"Poly1305","visible":"pub","parent":"poly1305"}
