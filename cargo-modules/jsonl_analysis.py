@@ -13,10 +13,15 @@ def main(f: str):
     # Build sample dataframe
     df = pd.read_json("jsonl/" + f, lines=True)
 
-    # Show dataframe (column "level" hidden)
-    #print("Dataframe for:", filepath[6:], "\n")
-    df = df.sort_values(by='path')
-    print(df[['type', 'path']])
+    # Filter dataframe
+    df = df[['type', 'name', 'path']].sort_values(by='name')
+
+    # Export to another jsonl file
+    df.to_json(
+        path_or_buf='jsonl/output.jsonl',
+        orient='records',
+        lines=True
+    )
 
 
 if __name__ == "__main__":

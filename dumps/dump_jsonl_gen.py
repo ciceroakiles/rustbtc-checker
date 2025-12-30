@@ -22,9 +22,12 @@ def open_file(path: str) -> list:
         line = line.split(" ")
         if line[0] == "#[non_exhaustive]": del line[0]
 
+        # Name extraction
+        name = line[2].split("::")[-1]
+
         # Prepare dictionary structure and convert it to a json line
-        keys = ["type", "path"]
-        values = [line[1], line[2]]
+        keys = ["type", "name", "path"]
+        values = [line[1], name, line[2]]
         data = dict(zip(keys, values))
         jsonline = json.dumps(data, separators=(',', ':'))
         jsonlines.append(jsonline)
