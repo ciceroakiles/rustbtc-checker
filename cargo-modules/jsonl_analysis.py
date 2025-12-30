@@ -15,8 +15,8 @@ def main(f: str):
 
     # Show dataframe (column "level" hidden)
     #print("Dataframe for:", filepath[6:], "\n")
-    df = df.sort_values(by='name')
-    print(df.drop('level', axis=1))
+    df = df.sort_values(by='path')
+    print(df[['type', 'path']])
 
 
 if __name__ == "__main__":
