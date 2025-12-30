@@ -20,11 +20,7 @@ main() {
     sed -i '/^$/d' $PKGTREE_DIR/$filename
 
     # Run python script
-    echo -n $(python3 $REPO_DIR/cargo-modules/pkgtree_jsonl.py -f $PKGTREE_DIR/$filename > temp.jsonl)
-
-    # Apply a filter on json lines
-    #jq -c 'select(.type=="enum" or .type=="mod" or .type=="struct")' temp.jsonl > $JSONL_DIR/"$package.jsonl"
-    jq -c '.' temp.jsonl > $JSONL_DIR/"$package.jsonl"
+    echo -n $(python3 $REPO_DIR/cargo-modules/pkgtree_jsonl.py -f $PKGTREE_DIR/$filename > $JSONL_DIR/"$package.jsonl")
 
     # Clean up
     rm -f temp.jsonl

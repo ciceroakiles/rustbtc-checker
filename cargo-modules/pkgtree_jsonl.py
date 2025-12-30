@@ -21,8 +21,8 @@ def cut_until_az(s: str) -> str:
     return ""
 
 
-# Get parent levels
-def get_parents(levels: list) -> list:
+# Elaborate a parent list by levels
+def discover_parents(levels: list) -> list:
     parents = []
     for i in range(len(levels)):
         for j in range(i+1, len(levels)):
@@ -33,6 +33,34 @@ def get_parents(levels: list) -> list:
                 parents.append(parent)
                 break
     return list(reversed(parents))
+
+
+# Get a parent line
+def get_parent(lines: list, line: str) -> str:
+    parent = json.loads(line)["parent"]
+    return lines[parent]
+
+
+# Build a path until line name
+def get_paths(lines: list, line: str) -> str:
+    res = []
+
+    # Begin with line name
+    res.append(json.loads(line)["name"])
+
+    # Get every parent until line 0 is reached
+    while json.loads(line)["parent"] != 0:
+        parent = get_parent(lines, line)
+        res.append(json.loads(parent)["name"])
+        line = parent
+
+    # Insert line 0
+    root = json.loads(lines[0])["name"]
+    if root not in res:
+        res.append(root)
+
+    # Full string with Rust separator
+    return '::'.join(list(reversed(res)))
 
 
 def open_file(path: str) -> list:
@@ -58,25 +86,29 @@ def open_file(path: str) -> list:
         if len(line) == 1: line.insert(1, "default") # only for first line
 
         # Prepare dictionary structure and convert it to a json line
-        keys = ["level", "type", "name", "visible"]#, "parent"]
+        keys = ["level", "type", "name", "visible"]
         values = [lvl, line[0][0], line[0][1], line[1], ""]
         data = dict(zip(keys, values))
         jsonline = json.dumps(data, separators=(',', ':'))
         jsonlines.append(jsonline)
 
-    # Discover parent levels
+    # Discover parent levels and parent lines
     levels = list(reversed([get_level(line) for line in lines]))
-    parentlines = get_parents(levels)
+    parentlines = discover_parents(levels)
 
-    # Get parent names
-    parentnames = [""]
-    for p in parentlines:
-        parentnames.append(json.loads(jsonlines[p])['name'])
+    # Insert a value for the first line
+    parentlines.insert(0, 0)
 
     # Update data
     for i, jsonl in enumerate(jsonlines):
         tmp = json.loads(jsonl)
-        tmp["parent"] = parentnames[i]
+
+        # Add parent lines
+        tmp["parent"] = parentlines[i]
+        jsonlines[i] = json.dumps(tmp, separators=(',', ':'))
+
+        # Add paths
+        tmp["path"] = get_paths(jsonlines, jsonlines[i])
         jsonlines[i] = json.dumps(tmp, separators=(',', ':'))
 
     return jsonlines
@@ -84,12 +116,7 @@ def open_file(path: str) -> list:
 
 def main(f: str):
     # Get json lines from a file
-    jsonlines = []
-    try:
-        jsonlines = open_file(f)
-    except Exception as e:
-        print("Error parsing file:", f.split("/")[-1])
-        print(e)
+    jsonlines = open_file(f)
 
     for l in jsonlines:
         print(l)
