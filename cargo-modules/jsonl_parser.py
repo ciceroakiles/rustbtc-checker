@@ -41,8 +41,8 @@ def get_parent(lines: list, line: str) -> str:
     return lines[parent]
 
 
-# Build a path until line name
-def get_paths(lines: list, line: str) -> str:
+# Build a full path until line name
+def get_full_paths(lines: list, line: str) -> str:
     res = []
 
     # Begin with line name
@@ -107,8 +107,8 @@ def open_file(path: str) -> list:
         tmp["parent"] = parentlines[i]
         jsonlines[i] = json.dumps(tmp, separators=(',', ':'))
 
-        # Add paths
-        tmp["path"] = get_paths(jsonlines, jsonlines[i])
+        # Add full paths
+        tmp["path"] = get_full_paths(jsonlines, jsonlines[i])
         jsonlines[i] = json.dumps(tmp, separators=(',', ':'))
 
     return jsonlines
@@ -118,13 +118,14 @@ def main(f: str):
     # Get json lines from a file
     jsonlines = open_file(f)
 
-    for l in jsonlines:
+    # Skip line 0 (crate name)
+    for l in jsonlines[1:]:
         print(l)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description='Script that parses a txt file from "cargo-modules/package_trees" folder and outputs json lines.'
+        description='Script that parses a txt file and outputs json lines.'
     )
     parser.add_argument("-f", required=True, type=str, help="full path of the file")
     args = parser.parse_args()

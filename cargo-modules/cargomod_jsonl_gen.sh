@@ -20,11 +20,7 @@ main() {
     sed -i '/^$/d' $PKGTREE_DIR/$filename
 
     # Run python script
-    echo -n $(python3 $REPO_DIR/cargo-modules/pkgtree_jsonl_gen.py -f $PKGTREE_DIR/$filename > $JSONL_DIR/"$package.jsonl")
-
-    # Clean up
-    rm -f temp.jsonl
-    find $JSONL_DIR -type f -empty -delete
+    echo -n $(python3 $REPO_DIR/cargo-modules/jsonl_parser.py -f $PKGTREE_DIR/$filename > $JSONL_DIR/"$package.jsonl")
 }
 
 main "$@"
