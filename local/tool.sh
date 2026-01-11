@@ -70,7 +70,11 @@ first_menu() {
                         create_package_tree
                         create_jsonl
                         echo ""
-                        second_menu
+
+                        # Default to "All"
+                        filter_jsonl 1 0
+
+                        pub_items_submenu
                     else
                         echo "Error: no package selected"
                     fi
@@ -91,36 +95,82 @@ first_menu() {
 
 
 # Publicly exposed items submenu
-second_menu() {
+pub_items_submenu() {
+    # Save $REPLY state
+    rep=0
+
     local PS3="> "
     while true; do
+        # Number of lines in file
+        LINE_COUNT=$(wc -l < filtered_parsed_tree.jsonl)
+
         COLUMNS=12
         echo "Publicly exposed items:"
         local items=(
+            "All"
             "enum/mod/struct" 
             "type/trait/fn/const_fn"
+            "error x2"
+            "Line selection (1-$LINE_COUNT)"
         )
         select item in "${items[@]}" Back
         do
             case $REPLY in
-                # "enum/mod/struct"
+                # All
                 1)
-                    filter_jsonl $REPLY
+                    filter_jsonl $REPLY 0
+                    rep=$REPLY
                     echo ""
-                    cat filtered_parsed_tree.jsonl
+                    cat -n filtered_parsed_tree.jsonl
                     echo ""
                     break;;
 
-                # "type/trait/fn/const_fn"
+                # enum/mod/struct
                 2)
-                    filter_jsonl $REPLY
+                    filter_jsonl $REPLY 0
+                    rep=$REPLY
                     echo ""
-                    cat filtered_parsed_tree.jsonl
+                    cat -n filtered_parsed_tree.jsonl
                     echo ""
+                    break;;
+
+                # type/trait/fn/const_fn
+                3)
+                    filter_jsonl $REPLY 0
+                    rep=$REPLY
+                    echo ""
+                    cat -n filtered_parsed_tree.jsonl
+                    echo ""
+                    break;;
+
+                # error x2
+                4)
+                    filter_jsonl $REPLY 0
+                    rep=$REPLY
+                    echo ""
+                    cat -n filtered_parsed_tree.jsonl
+                    echo ""
+                    break;;
+
+                5)
+                    echo -n "Line number: "
+                    read line_number
+                    if ((line_number >= 1 && line_number <= LINE_COUNT)); then
+                        echo ""
+                        filter_jsonl $REPLY $line_number
+
+                        cat dataframe.txt
+                        rm dataframe.txt
+                    fi
+
+                    # Keep previous filter
+                    filter_jsonl $rep 0
+
+                    echo -e "\n"
                     break;;
 
                 # Back
-                3)
+                6)
                     rm tree.txt
                     rm parsed_tree.jsonl
                     rm filtered_parsed_tree.jsonl
@@ -174,7 +224,7 @@ create_jsonl() {
 
 filter_jsonl() {
     # Run python script jsonl_filter.py
-    echo -n $(python3 $LOCAL_DIR/jsonl_filter.py -f $LOCAL_DIR/parsed_tree.jsonl -t $1)
+    echo -n $(python3 $LOCAL_DIR/jsonl_filter.py -f $LOCAL_DIR/parsed_tree.jsonl -t $1 -l $2)
 }
 
 

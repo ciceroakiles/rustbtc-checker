@@ -2,8 +2,8 @@
 
 # Setup folders
 REPO_DIR=$(git rev-parse --show-toplevel)
-PKGTREE_DIR="$REPO_DIR/cargo-modules/package_trees"
-JSONL_DIR="$REPO_DIR/cargo-modules/jsonl"
+PKGTREE_DIR="$REPO_DIR/ci-testing/package_trees"
+JSONL_DIR="$REPO_DIR/ci-testing/jsonl"
 
 # A specific package name.
 # To get a full list of packages available, run "cargo-modules structure"
@@ -20,7 +20,7 @@ main() {
     sed -i '/^$/d' $PKGTREE_DIR/$filename
 
     # Run python script
-    echo -n $(python3 $REPO_DIR/cargo-modules/jsonl_parser.py -f $PKGTREE_DIR/$filename > $JSONL_DIR/"$package.jsonl")
+    echo -n $(python3 $REPO_DIR/ci-testing/jsonl_parser.py -f $PKGTREE_DIR/$filename > $JSONL_DIR/"$package.jsonl")
 }
 
 main "$@"
