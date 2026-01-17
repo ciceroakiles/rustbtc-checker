@@ -9,13 +9,13 @@ pd.set_option('display.max_columns', None)
 
 
 def get_line(l: int):
-    # Temporary dataframe for path finding
+    # Temporary dataframe for main path finding
     tmpdf = pd.read_json('filtered_parsed_tree.jsonl', lines=True)
     tmpdf = tmpdf[['type', 'name', 'path']]
     tmpdf = tmpdf.loc[l-1]
+    path = tmpdf['path']
 
     # Get paths for the queries
-    path = tmpdf['path']
     s = path.count("::")
     allpaths = []
     for i in range(s):
@@ -51,10 +51,14 @@ def main(f: str, t: int, l: int):
             # Filter for "type/trait/fn/const_fn" only
             df = df[(df['type'] == 'type') | (df['type'] == 'trait') | (df['type'] == 'fn') | (df['type'] == 'const_fn')]
         case 4:
+            # Filter for "error" only once on full path (lowercase comparison)
+            mask = (df['path'].str.lower().str.count("error") == 1)
+            df = df[mask]
+        case 5:
             # Filter for "error" twice or more on full path (lowercase comparison)
             mask = (df['path'].str.lower().str.count("error") >= 2)
             df = df[mask]
-        case 5:
+        case 6:
             # Line inspection
             get_line(l)
 

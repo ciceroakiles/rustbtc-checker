@@ -110,7 +110,8 @@ pub_items_submenu() {
             "All"
             "enum/mod/struct" 
             "type/trait/fn/const_fn"
-            "error x2"
+            "error (x1 only)"
+            "error (x2 or more)"
             "Line selection (1-$LINE_COUNT)"
         )
         select item in "${items[@]}" Back
@@ -143,7 +144,7 @@ pub_items_submenu() {
                     echo ""
                     break;;
 
-                # error x2
+                # error (x1 only)
                 4)
                     filter_jsonl $REPLY 0
                     rep=$REPLY
@@ -152,7 +153,16 @@ pub_items_submenu() {
                     echo ""
                     break;;
 
+                # error (x2 or more)
                 5)
+                    filter_jsonl $REPLY 0
+                    rep=$REPLY
+                    echo ""
+                    cat -n filtered_parsed_tree.jsonl
+                    echo ""
+                    break;;
+
+                6)
                     echo -n "Line number: "
                     read line_number
                     if ((line_number >= 1 && line_number <= LINE_COUNT)); then
@@ -170,7 +180,7 @@ pub_items_submenu() {
                     break;;
 
                 # Back
-                6)
+                7)
                     rm tree.txt
                     rm parsed_tree.jsonl
                     rm filtered_parsed_tree.jsonl
