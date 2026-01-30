@@ -1,7 +1,8 @@
 #!/bin/bash
 
 REPO_DIR=$(git rev-parse --show-toplevel)
-LOCAL_DIR="$REPO_DIR/local"
+LOCAL_DIR="local"
+
 package_list=""
 package_name="none"
 
@@ -25,6 +26,7 @@ first_menu() {
             "Select package (selected: $package_name)"	# 2)
             "View package tree"				# 3)
             "Publicly exposed items"			# 4)
+            "Check against public api"			# 5)
         )
         select item in "${items[@]}" Exit
         do
@@ -69,12 +71,22 @@ first_menu() {
                     if [ $package_name != "none" ]; then
                         create_package_tree
                         create_jsonl
-                        echo ""
 
                         # Default to "All"
                         filter_jsonl 1 0
 
+                        echo ""
                         pub_items_submenu
+                    else
+                        echo "Error: no package selected"
+                    fi
+                    echo ""
+                    break;;
+
+                # Check against public api
+                5)
+                    if [ $package_name != "none" ]; then
+                        policies_submenu
                     else
                         echo "Error: no package selected"
                     fi
@@ -122,7 +134,7 @@ pub_items_submenu() {
                     filter_jsonl $REPLY 0
                     rep=$REPLY
                     echo ""
-                    cat -n filtered_parsed_tree.jsonl
+                    cat -n filtered_parsed_tree.jsonl | less
                     echo ""
                     break;;
 
@@ -131,7 +143,7 @@ pub_items_submenu() {
                     filter_jsonl $REPLY 0
                     rep=$REPLY
                     echo ""
-                    cat -n filtered_parsed_tree.jsonl
+                    cat -n filtered_parsed_tree.jsonl | less
                     echo ""
                     break;;
 
@@ -140,7 +152,7 @@ pub_items_submenu() {
                     filter_jsonl $REPLY 0
                     rep=$REPLY
                     echo ""
-                    cat -n filtered_parsed_tree.jsonl
+                    cat -n filtered_parsed_tree.jsonl | less
                     echo ""
                     break;;
 
@@ -162,6 +174,7 @@ pub_items_submenu() {
                     echo ""
                     break;;
 
+                # Line selection
                 6)
                     echo -n "Line number: "
                     read line_number
@@ -197,12 +210,74 @@ pub_items_submenu() {
 }
 
 
+policies_submenu() {
+    echo ""
+    local PS3="> "
+    while true; do
+        COLUMNS=12
+        local items=(
+            "foo::error::BarError versus public api (default)"	# 1)
+            "foo::error::BarError versus public api (nightly)"	# 2)
+        )
+        select item in "${items[@]}" Back
+        do
+            case $REPLY in
+                # foo::error::BarError versus public api (default)
+                1)
+                    create_public_api_file_default
+
+                    create_package_tree
+
+                    create_jsonl
+                    rm tree.txt
+
+                    filter_jsonl 5 0
+                    rm parsed_tree.jsonl
+
+                    check_policy_1
+                    rm filtered_parsed_tree.jsonl
+
+                    cat report.txt | less
+                    echo ""
+                    break;;
+
+                # foo::error::BarError versus public api (nightly)
+                2)
+                    create_public_api_file_nightly
+
+                    create_package_tree
+
+                    create_jsonl
+                    rm tree.txt
+
+                    filter_jsonl 5 0
+                    rm parsed_tree.jsonl
+
+                    check_policy_1
+                    rm filtered_parsed_tree.jsonl
+
+                    cat report.txt | less
+                    echo ""
+                    break;;
+
+                # Back
+                3)
+                    rm cargopubapi.txt
+                    rm report.txt
+                    cd ..
+                    return;;
+            esac
+        done
+    done
+}
+
+
 package_list_preload() {
     cd $REPO_DIR/rust-bitcoin
-    cargo-modules structure &> ../local/listofpackages
+    cargo-modules structure &> ../$LOCAL_DIR/listofpackages
     cd ..
-    package_list=$(cat "$LOCAL_DIR/listofpackages" | awk 'NR > 4' | head -n -1 | cut -c 3-)
-    rm "$LOCAL_DIR/listofpackages"
+    package_list=$(cat "$REPO_DIR/$LOCAL_DIR/listofpackages" | awk 'NR > 4' | head -n -1 | cut -c 3-)
+    rm "$REPO_DIR/$LOCAL_DIR/listofpackages"
 }
 
 
@@ -214,27 +289,60 @@ exists_in_list() {
 }
 
 
+create_public_api_file_default() {
+    # Dump public api contents
+    cd $REPO_DIR/rust-bitcoin
+    echo "Getting public api contents..."
+
+    # Default
+    echo -n $(cargo public-api -p $package_name > $REPO_DIR/$LOCAL_DIR/cargopubapi.txt)
+
+    cd ../$LOCAL_DIR
+}
+
+
+create_public_api_file_nightly() {
+    # Dump public api contents
+    cd $REPO_DIR/rust-bitcoin
+    echo "Getting public api contents..."
+
+    # Nightly
+    echo -n $(cargo +nightly --locked public-api --simplified --all-features --color=never -p $package_name | sort --numeric-sort | uniq > $REPO_DIR/$LOCAL_DIR/cargopubapi.txt)
+
+    cd ../$LOCAL_DIR
+}
+
+
 create_package_tree() {
     # Use NO_COLOR to avoid unreadable chars
     cd $REPO_DIR/rust-bitcoin
     echo "Processing package $package_name..."
-    echo -n $(NO_COLOR=1 cargo-modules structure --package $package_name &> ../local/tree.txt)
+    echo -n $(NO_COLOR=1 cargo-modules structure --package $package_name &> $REPO_DIR/$LOCAL_DIR/tree.txt)
     # Remove empty line on top
-    sed -i '/^$/d' ../local/tree.txt
+    sed -i '/^$/d' ../$LOCAL_DIR/tree.txt
 
-    cd ../local
+    cd ../$LOCAL_DIR
 }
 
 
 create_jsonl() {
     # Run python script jsonl_parser.py
-    echo -n $(python3 $LOCAL_DIR/jsonl_parser.py -f $LOCAL_DIR/tree.txt > $LOCAL_DIR/parsed_tree.jsonl)
+    echo "Parsing tree for $package_name..."
+    echo -n $(python3 $REPO_DIR/$LOCAL_DIR/jsonl_parser.py -f $REPO_DIR/$LOCAL_DIR/tree.txt > $REPO_DIR/$LOCAL_DIR/parsed_tree.jsonl)
 }
 
 
 filter_jsonl() {
     # Run python script jsonl_filter.py
-    echo -n $(python3 $LOCAL_DIR/jsonl_filter.py -f $LOCAL_DIR/parsed_tree.jsonl -t $1 -l $2)
+    echo "Filtering $package_name tree contents..."
+    echo -n $(python3 $REPO_DIR/$LOCAL_DIR/jsonl_filter.py -f $REPO_DIR/$LOCAL_DIR/parsed_tree.jsonl -t $1 -l $2)
+}
+
+
+check_policy_1() {
+    # Run python script policy_errors.py
+    printf "First policy selected: reporting..."
+    echo $(python3 $REPO_DIR/$LOCAL_DIR/policy_errors_1.py -f $REPO_DIR/$LOCAL_DIR/filtered_parsed_tree.jsonl > $REPO_DIR/$LOCAL_DIR/report.txt)
 }
 
 

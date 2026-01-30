@@ -3,19 +3,25 @@
 This repository is a small proof of concept tool which has two main goals:
 
 - [x] Show publicly exposed components (e.g.: types, traits, etc)
-- [ ] Provide simple verification against the project's policy rules
+- [ ] Provide simple verification against the project's current policy rules
+  - [x] foo::error::BarError versus public api (default/nightly)
+  - [ ] foo::BarError versus public api
+    - [ ] foo::error::Bar / foo::bar::BazError items
+  - [ ] units-primitives and primitives-bitcoin reexports
 
 ## Requirements
 
-* A Linux machine with Python 3 and Rust installed
+* A Linux machine with Python 3 plus pandas lib, and Rust installed
 * A clone of the `rust-bitcoin` project
 * `cargo-modules` installed
 
-If you only have the first one, then running `setup.sh` will provide the remaining items.
+To install pandas, run `apt install python3-pandas`, if apt is your package manager. Please note that this particular library is important for the scripts to work properly.
+
+If you only have the first item, then running `setup.sh` will provide the remaining ones.
 
 The tool can still help if you want to use it to check other Rust projects aside from `rust-bitcoin`, but have in mind that you will need to make the necessary adjustments for it to work properly.
 
-This was not tested on Mac and Windows environments, so if you still plan on use it in any of those, then use it at your own risk.
+This was not tested on Mac and Windows environments, so if you still plan on use it in any of those, then do it at your own criteria.
 
 ## How it works
 
@@ -62,5 +68,5 @@ This project has several folders:
 
 * `tool`: This is where `tool.sh` and some other python scripts are located, needs further interaction and provides custom options. Can be run at any time, and also generates some temporary files for inspection during its execution.
 * `ci-testing`: The scripts in here are intended to only generate outputs, that is, to run without any user interaction.
-* `dumps`: Contains some output files for comparison purposes and further analysis.
+* `dumps`: Contains some output files for comparison and development purposes, further analysis and the like.
 * `other`: Has scripts that deal with rustdocs (discontinued, but will remain there if you want to look around anyways).
